@@ -3,6 +3,6 @@
 <title>HSF-Marketplace</title>
 </head>
 <body>
-    <a href="">About</a>
+    <a href="/about.php">About</a>
 </body>
 </html>
