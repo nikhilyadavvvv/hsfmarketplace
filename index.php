@@ -1,9 +1,11 @@
-<html>
-<head>
-<title>HSF-Marketplace</title>
-</head>
-<body>
-    <a href="/about.php">About</a>
-    <a href="/aboutdam.html">about Dan</a>
-</body>
-</html>
+<?php
+include('include/header.php');
+?>
+    <!-- Second Container -->
+    <div class="container-fluid bg-2 text-center">
+        <h3 class="margin">Who we are?</h3>
+        <p>"HSF-Marketplace" is an e-commerce for the students of Hochschule Fulda</p>
+    </div>
+<?php
+include('include/footer.php');
+?>
