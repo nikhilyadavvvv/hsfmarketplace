@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>HSF-Marketplace</title>
+        <script src="funcitons.js"></script>
+    </head>
+    <body onload="loadProducts()">
+        <form action="searched_product.html" method="GET">
+            <input type="text" id="search" name="s" placeholder="What Do You Need?" required>
+                <button onclick="search()">Search</button>
+            <hr>
+        </form>
+        <div id="products_container"></div>
+    </body>
+</html>
