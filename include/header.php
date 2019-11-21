@@ -67,6 +67,8 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="about.php">About</a></li>
+                    <li><a href="/prototype/">Prototype</a></li>
+                    <li><a href="/demo/">Demo UI</a></li>
             </div>
         </div>
     </nav>

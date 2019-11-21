@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>HSF-Marketplace</title>
+        <script src="searched_product.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    </head>
+    <body onload="loadProducts()">
+        <p><a href="http://hsfmarketplace-env.tbhyimi2cp.us-east-1.elasticbeanstalk.com/">HSF-Marketplace: WWW site for Buy/Sell for SFSU students</a>, by Fulda2019_3</p>
+        <form action="searched_product.html" method="GET">
+            <input type="text" id="search" name="s" placeholder="What Do You Need?">
+                <button onclick="search()">Search</button>
+            <hr>
+        </form>
+        <div id="products_container"></div>
+    </body>
+</html>
