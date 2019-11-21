@@ -11,7 +11,7 @@ function loadProducts(){
         {
             var result = this.responseText;
             if(result.length==2){
-                document.body.innerHTML = "Sorry the Searched Product is currently unavailable";
+                document.getElementById("products_container").innerHTML = "Sorry the Searched Product is currently unavailable";
             }
             var results = JSON.parse(result);
             var products_div = document.createElement("div");
