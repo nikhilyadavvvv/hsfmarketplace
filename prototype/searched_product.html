@@ -4,6 +4,11 @@
         <script src="searched_product.js"></script>
     </head>
     <body onload="loadProducts()">
+        <form action="searched_product.html" method="GET">
+            <input type="text" id="search" name="s" placeholder="What Do You Need?">
+                <button onclick="search()">Search</button>
+            <hr>
+        </form>
         <div id="products_container"></div>
     </body>
 </html>
