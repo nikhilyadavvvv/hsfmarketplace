@@ -2,6 +2,9 @@
 include 'db.php';
 $s = $_GET['s'];
 $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'";
+if(empty($_GET['s'])){
+    $sql = "SELECT *  FROM `table_product`";
+}
 $result = mysqli_query($mysqli,$sql);
 $json_array = array();
 if($result){
