@@ -68,6 +68,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="about.php">About</a></li>
                     <li><a href="http://hs-marketplace.herokuapp.com/prototype/">Prototype</a></li>
+                    <li><a href="http://hs-marketplace.herokuapp.com/demo/">Demo UI</a></li>
             </div>
         </div>
     </nav>
