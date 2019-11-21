@@ -67,6 +67,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="about.php">About</a></li>
+                    <li><a href="http://hs-marketplace.herokuapp.com/prototype/">Prototype</a></li>
             </div>
         </div>
     </nav>
