@@ -38,6 +38,9 @@
     <div class="wrapper">
         <!-- Start Header Style -->
         <header id="htc__header" class="htc__header__area header--one">
+            <div style="padding: 5px;">
+                <h3 style="text-align: center;">HSF-Marketplace: WWW site for Buy/Sell for HS Fulda students, by Fulda2019_3</h3>
+            </div>
             <!-- Start Mainmenu Area -->
             <div id="sticky-header-with-topbar" class="mainmenu__wrap sticky__header">
                 <div class="container">
