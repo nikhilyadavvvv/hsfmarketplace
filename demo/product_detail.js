@@ -25,7 +25,7 @@ function loadProducts(){
             var stock = product.stock;
 
             document.getElementById('product_name').innerHTML= name;
-            document.getElementById('product_price').innerHTML= cost;
+            document.getElementById('product_price').innerHTML= '&#8364;'+cost;
             document.getElementById('product_info').innerHTML= description;
             document.getElementById('product_stock').innerHTML= stock;
             document.getElementById('product_description').innerHTML= description;

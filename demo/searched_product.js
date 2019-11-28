@@ -39,7 +39,7 @@ function loadProducts(){
                 html += '<h4><a href="'+product_link+'">'+name+'</a></h4>';
                 html += '<ul class="fr__pro__prize">';
                 //html += '<li class="old__prize">$30.3</li>';
-                html += '<li>'+cost+'</li>';
+                html += '<li>&#8364;'+cost+'</li>';
                 html += '</ul>';
                 html += '</div>';
                 html += '</div>';
