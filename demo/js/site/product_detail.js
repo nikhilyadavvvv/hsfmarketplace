@@ -37,6 +37,6 @@ function loadProducts(){
         }
     }
 
-    xhttp.open("GET", "product_detail.php?id="+id, true);
+    xhttp.open("GET", "model/product_detail.php?id="+id, true);
     xhttp.send();
 }

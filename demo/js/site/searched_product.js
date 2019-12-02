@@ -26,7 +26,7 @@ function loadProducts(){
                 var cost = product.cost;
                 var image = product.image;
 
-                var product_link = 'product_detail.html?id='+id;
+                var product_link = 'product_detail.php?id='+id;
                 
                 html += '<div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">';
                 html += '<div class="category">';
@@ -50,6 +50,6 @@ function loadProducts(){
         }
     }
     document.getElementById("products_container").appendChild(products_div);
-    xhttp.open("GET", "searched_product.php?s="+s, true);
+    xhttp.open("GET", "model/searched_product.php?s="+s, true);
     xhttp.send();
 }
