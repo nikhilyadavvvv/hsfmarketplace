@@ -43,6 +43,27 @@
             <div class="row">
                 <div class="col-lg-9 col-lg-push-3 col-md-9 col-md-push-3 col-sm-12 col-xs-12">
                     <div class="htc__product__rightidebar">
+
+                        <div class="htc__grid__top">
+                            <div class="htc__select__option">
+                                <select class="ht__select">
+                                    <option>Default softing</option>
+                                    <option>Sort by popularity</option>
+                                    <option>Sort by average rating</option>
+                                    <option>Sort by newness</option>
+                                </select>
+                                <select class="ht__select">
+                                    <option>Show by</option>
+                                    <option>Sort by popularity</option>
+                                    <option>Sort by average rating</option>
+                                    <option>Sort by newness</option>
+                                </select>
+                            </div>
+                            <div class="ht__pro__qun">
+                                <span>Showing 1-12 of 1033 products</span>
+                            </div>
+                        </div>
+
                         <!-- Start Product View -->
                         <div class="row">
                             <div class="shop__grid__view__wrap">
