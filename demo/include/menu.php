@@ -17,7 +17,7 @@
                     <nav class="main__menu__nav hidden-xs hidden-sm">
                         <ul class="main__menu">
                             <li class="drop"><a href="index.php">Home</a></li>
-                            <li><a href="contact.html">contact</a></li>
+                            <li><a href="#">contact</a></li>
                         </ul>
                     </nav>
 
@@ -25,7 +25,7 @@
                         <nav id="mobile_dropdown">
                             <ul>
                                 <li><a href="index.php">Home</a></li>
-                                <li><a href="contact.html">contact</a></li>
+                                <li><a href="#">contact</a></li>
                             </ul>
                         </nav>
                     </div>  
@@ -42,7 +42,7 @@
                             <a href="login.php">Login</i></a>
                         </div>
                         <div class="header__account">
-                            <a href="login.php">Register</i></a>
+                            <a href="register.php">Register</i></a>
                         </div>
                         <div class="htc__shopping__cart">
                             <a class="cart__menu" href="#"><i class="icon-handbag icons"></i></a>
