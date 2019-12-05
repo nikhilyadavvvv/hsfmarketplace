@@ -87,7 +87,7 @@
                                 <div class="contact-btn">
                                     <button type="submit" class="fv-btn">Registration</button><br>
                                     <div class="col-sm-12" style="padding: 10px 0px;">
-                                        <a href="#">Already have an account? Sign in</a>
+                                        <a href="login.php">Already have an account? Sign in</a>
                                     </div>
                                 </div>
                             </form>
