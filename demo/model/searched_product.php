@@ -1,10 +1,24 @@
 <?php
 include 'db.php';
 $s = $_GET['s'];
-$sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'";
-if(empty($_GET['s'])){
-    $sql = "SELECT *  FROM `table_product`";
+$f = $_GET['f'];
+
+//$sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'";
+if(empty($_GET['f'])){
+    $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'";
+} else if ($f=="popularity") {
+    # code...
+} else if ($f=="rating") {
+    # code...
+} else if ($f=="newness") {
+   $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' ORDER BY `id` DESC";
+} else if ($f=="l2h") {
+    $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' ORDER BY `cost` ASC";
+} else if ($f=="h2l") {
+    $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' ORDER BY `cost` DESC";
 }
+
+
 $result = mysqli_query($mysqli,$sql);
 $json_array = array();
 if($result){
@@ -19,7 +33,7 @@ if($result){
         $data['stock'] = $row['stock'];
        $json_array[] = $data;
     }
-    
+
     $json_array = json_encode($json_array);
     header('Content-Type: application/json');
     print_r($json_array);

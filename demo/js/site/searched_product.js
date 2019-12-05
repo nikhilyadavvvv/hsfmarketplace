@@ -1,10 +1,12 @@
-function loadProducts(){
+function loadProducts(filter){
 
+    
     var url_string = window.location.href;
     var url = new URL(url_string);
     var s = url.searchParams.get("s");
     var html = '';
     var i = 0;
+    document.getElementById("products_container").innerHTML ="";
     var products_div = document.createElement("div");
     document.getElementById("search_input").value = s;
     //////////// AJAX REQUEST TO GET DATA ////////////////////
@@ -50,6 +52,7 @@ function loadProducts(){
         }
     }
     document.getElementById("products_container").appendChild(products_div);
-    xhttp.open("GET", "model/searched_product.php?s="+s, true);
+    console.log("model/searched_product.php?s="+s+"&f="+filter);
+    xhttp.open("GET", "model/searched_product.php?s="+s+"&f="+filter, true);
     xhttp.send();
 }

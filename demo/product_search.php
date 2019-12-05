@@ -4,7 +4,7 @@
     <?php include('include/header_style.php')?>
 </head>
 
-<body onload="loadProducts()">
+<body onload="loadProducts('')">
     <!-- Body main wrapper start -->
     <div class="wrapper">        
 
@@ -46,11 +46,13 @@
 
                         <div class="htc__grid__top">
                             <div class="htc__select__option">
-                                <select class="ht__select">
-                                    <option>Default softing</option>
-                                    <option>Sort by popularity</option>
-                                    <option>Sort by average rating</option>
-                                    <option>Sort by newness</option>
+                                <select class="ht__select" onchange="loadProducts(this.value)">
+                                    <option value="">Sort By</option>
+                                    <option value="popularity">Popularity</option>
+                                    <option value="rating">Average rating</option>
+                                    <option value="newness">Newness</option>
+                                    <option value="l2h">Price Low to High</option>
+                                    <option value="h2l">Price High to Low</option>
                                 </select>
                                 <select class="ht__select">
                                     <option>Show by</option>

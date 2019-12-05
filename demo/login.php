@@ -47,15 +47,15 @@
                             </div>
                         </div>
                         <div class="col-md-offset-4 col-sm-8 ">
-                            <form id="contact-form" action="#" method="post">
+                            <form id="contact-form" action="model/auth.php" method="post">
                                 <div class="single-contact-form">
                                     <div class="contact-box name">
-                                        <input type="text" name="name" placeholder="Your Name*">
+                                        <input type="email" name="email" placeholder="Your Email*">
                                     </div>
                                 </div>
                                 <div class="single-contact-form">
                                     <div class="contact-box name">
-                                        <input type="text" name="name" placeholder="Your Name*">
+                                        <input type="password" name="password" placeholder="Your Password*">
                                     </div>
                                 </div>
                                 <div class="contact-btn">
@@ -69,7 +69,7 @@
                                 <p class="form-messege"></p>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </section>
