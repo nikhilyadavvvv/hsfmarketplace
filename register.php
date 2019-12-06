@@ -43,25 +43,51 @@
                     <div class="contact-form-wrap mt--10">
                         <div class="col-sm-12">
                             <div class="contact-title text-center">
-                                <h2 class="title__line--6">Log In</h2>
+                                <h2 class="title__line--6">Registration</h2>
                             </div>
                         </div>
-                        <div class="col-md-offset-4 col-sm-8 ">
-                            <form id="contact-form" action="model/auth.php" method="post">
+                        <div class="col-md-offset-2 col-sm-8 ">
+                            <form id="contact-form" action="post" method="post">
                                 <div class="single-contact-form">
                                     <div class="contact-box name">
-                                        <input type="email" name="email" placeholder="Your Email*">
+                                        <input type="text" name = "firstname" placeholder="Firstname*" required>
+                                        <input type="text" name = "lastname" placeholder="Lastname*" required>
                                     </div>
                                 </div>
                                 <div class="single-contact-form">
                                     <div class="contact-box name">
-                                        <input type="password" name="password" placeholder="Your Password*">
+                                        <input type="text" name="email" placeholder="Email*" required>
+                                        <input type="password" name="password" placeholder="Password*" required>
                                     </div>
                                 </div>
+                                <div class="single-contact-form">
+                                    <div class="contact-box name">
+                                        <input type="text" name="city" placeholder="City" required>
+                                        <input type="text" name="state" placeholder="State" required>
+                                    </div>
+                                </div>
+
+                                <div class="single-contact-form">
+                                    <div class="contact-box name">
+                                        <input type="text" name="zip" placeholder="ZIP" required>
+                                        <input type="text" name="country" placeholder="Country" required>
+                                    </div>
+                                </div>
+
+                                <div class="single-contact-form">
+                                    <div class="contact-box name">
+                                        <input type="number" name="phone" placeholder="Phone" required>
+                                        <select name="usertype" id="usertype"required>
+                                            <option value="0">I am a Buyer</option>
+                                            <option value="1">I am a Seller</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <div class="contact-btn">
-                                    <button type="submit" class="fv-btn">log in</button><br>
+                                    <button type="submit" name="submit" class="fv-btn">Registration</button><br>
                                     <div class="col-sm-12" style="padding: 10px 0px;">
-                                        <a href="forgot_password.php">Forgot your Password?</a>
+                                        <a href="login.php">Already have an account? Sign in</a>
                                     </div>
                                 </div>
                             </form>
@@ -69,7 +95,7 @@
                                 <p class="form-messege"></p>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </section>
