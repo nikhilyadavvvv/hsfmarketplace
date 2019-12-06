@@ -47,7 +47,7 @@
                             </div>
                         </div>
                         <div class="col-md-offset-2 col-sm-8 ">
-                            <form id="contact-form" action="post" method="post">
+                            <form id="contact-form" action="model/registration.php" method="post">
                                 <div class="single-contact-form">
                                     <div class="contact-box name">
                                         <input type="text" name = "firstname" placeholder="Firstname*" required>
