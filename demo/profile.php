@@ -54,13 +54,7 @@
 
 
                             <div class="widget">
-
-                                <ul class="menu-advanced">
-                                    <li><a href="listing-submit.html"><i class="fa fa-pencil"></i> Submit Listing</a></li>
-                                    <li class="active"><a href="#"><i class="fa fa-user"></i> Edit Profile</a></li>
-                                    <li><a href="#"><i class="fa fa-key"></i> Password</a></li>
-                                    <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
-                                </ul>
+                                <?php include('include/profile/sidebar.php') ?>
                             </div><!-- /.widget -->
 
                         </div><!-- /.sidebar -->
