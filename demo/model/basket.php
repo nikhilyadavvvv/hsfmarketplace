@@ -6,36 +6,19 @@
     exit();
     }
     $user_id = $_SESSION['user_id'];
+    $product_id = $email = mysqli_real_escape_string($mysqli,$_POST['product_id']);
+
+
 
     require 'db.php';
 
-    $sql = "SELECT *  FROM `user` WHERE `user_id` = '".$user_id."'";
+    $sql = "SELECT *  FROM `user` WHERE `email` = '".$user_id."' AND `password` = '".$product_id."'";
     $result = mysqli_query($mysqli, $sql);
     $count = mysqli_num_rows($result);
-
-    $endpoint = array();
-
-    if ($count==1) {
-            while ($row = $result->fetch_assoc()) {
-                $data = array();
-                $data['user_id'] = $row["user_id"];
-                $data['firstname'] = $row["firstname"];
-                $data['lastname'] = $row["lastname"];
-                $data['password'] = $row["password"];
-                $data['initial_email'] = $row["initial_email"];
-                $data['city'] = $row["city"];
-                $data['state'] = $row["state"];
-                $data['zip'] = $row["zip"];
-                $data['email'] = $row["email"];
-                $data['phone'] = $row["phone"];
-                $data['country'] = $row["country"];
-                $data['is_buyer'] = $row["is_buyer"];
-                $data['is_seller'] = $row["is_seller"];
-                $endpoint[] = $data;
-          }
-        }
-    $json = json_encode($endpoint);
-    header('Content-Type: application/json');
-    print_r($json);
+    if ($count==0) {
+        $insertSql = "INSERT INTO `basket` (`id`, `user_id`, `product_id`) VALUES (NULL, '$user_id', '$product_id')";
+        $insertResult = mysqli_query($mysqli, $insertSql);
+        echo "Product added to basket"
+   }
     $mysqli->close();
 ?>
