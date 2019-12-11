@@ -47,45 +47,45 @@
                             </div>
                         </div>
                         <div class="col-md-offset-2 col-sm-8 ">
-                            <form id="contact-form" action="#" method="post">
+                            <form id="contact-form" action="model/registration.php" method="post">
                                 <div class="single-contact-form">
                                     <div class="contact-box name">
-                                        <input type="text" placeholder="Firstname*">
-                                        <input type="text" placeholder="Lastname*">
+                                        <input type="text" name = "firstname" placeholder="Firstname*" required>
+                                        <input type="text" name = "lastname" placeholder="Lastname*" required>
                                     </div>
                                 </div>
                                 <div class="single-contact-form">
                                     <div class="contact-box name">
-                                        <input type="text" placeholder="Email*">
-                                        <input type="password" placeholder="Password*">
+                                        <input type="text" name="email" placeholder="Email*" required>
+                                        <input type="password" name="password" placeholder="Password*" required>
                                     </div>
                                 </div>
                                 <div class="single-contact-form">
                                     <div class="contact-box name">
-                                        <input type="text" placeholder="City">
-                                        <input type="text" placeholder="State">
-                                    </div>
-                                </div>
-
-                                <div class="single-contact-form">
-                                    <div class="contact-box name">
-                                        <input type="text" placeholder="ZIP">
-                                        <input type="text" placeholder="Country">
+                                        <input type="text" name="city" placeholder="City" required>
+                                        <input type="text" name="state" placeholder="State" required>
                                     </div>
                                 </div>
 
                                 <div class="single-contact-form">
                                     <div class="contact-box name">
-                                        <input type="number" placeholder="Phone">
-                                        <select >
-                                            <option>I am a Buyer</option>
-                                            <option>I am a Seller</option>
+                                        <input type="text" name="zip" placeholder="ZIP" required>
+                                        <input type="text" name="country" placeholder="Country" required>
+                                    </div>
+                                </div>
+
+                                <div class="single-contact-form">
+                                    <div class="contact-box name">
+                                        <input type="number" name="phone" placeholder="Phone" required>
+                                        <select name="usertype" id="usertype"required>
+                                            <option value="0">I am a Buyer</option>
+                                            <option value="1">I am a Seller</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="contact-btn">
-                                    <button type="submit" class="fv-btn">Registration</button><br>
+                                    <button type="submit" name="submit" class="fv-btn">Registration</button><br>
                                     <div class="col-sm-12" style="padding: 10px 0px;">
                                         <a href="login.php">Already have an account? Sign in</a>
                                     </div>
