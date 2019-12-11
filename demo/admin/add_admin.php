@@ -11,7 +11,6 @@ $edit = false;
 	// Sanitize input post if we want
 $data_to_db['user_name'] = 'jobayer';
 $data_to_db['password'] = 'password';
-$data_to_db['admin_type'] = 'super';
 
 	// Check whether the user name already exists
 $db = getDbInstance();
