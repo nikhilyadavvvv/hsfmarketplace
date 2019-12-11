@@ -16,7 +16,6 @@ if($result){
         $data['stock'] = $row['stock'];
        $json_array[] = $data;
     }
-    
     $json_array = json_encode($json_array);
     header('Content-Type: application/json');
     print_r($json_array);

@@ -26,7 +26,17 @@
 </head>
 <body>
     <form enctype="multipart/form-data" encoding='multipart/form-data' method='post' action="model/create_product.php">
-        <input name="uploadedfile" id="image" type="file" value="choose" onchange="showFileSize()">
+        <input type="text" name="name" placeholder="name"><br>
+        <input type="number" name="cost" placeholder="cost"><br>
+        <select name="category">
+            <option value="10">Boobs</option>
+            <option value="12">Clothes</option>
+            <option value="13">Accessories</option>
+            <option value="21">Stationary</option>
+        </select><br>
+        <input name="uploadedfile" id="image" type="file" value="choose" onchange="showFileSize()"><br>
+        <textarea name="description" id="" cols="30" rows="10"></textarea><br>
+        <input type="number" name="stock" placeholder="stock"><br>
         <input type="submit" value="Upload">
       </form>
 </body>

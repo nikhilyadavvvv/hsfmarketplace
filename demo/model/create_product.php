@@ -1,5 +1,8 @@
 
 <?php
+    session_start();
+    //$seller  = $_SESSION['user_id']; uncomment finally
+    $seller  = 202; //delete when final
     $filename  = $_FILES['uploadedfile']['tmp_name'];
     $handle    = fopen($filename, "r");
     $data      = fread($handle, filesize($filename));
@@ -15,6 +18,34 @@
     $response = curl_exec($curl);
     curl_close ($curl);
     $response = json_decode($response,true);
-    print("<pre>".print_r($response,true)."</pre>");
-    echo $url = $response['data']['url'];
+    //print("<pre>".print_r($response,true)."</pre>");
+    $image = $response['data']['url'];
+    $thumbnail = $response['data']['display_url'];
+
+    $name = $_POST['name'];
+    $cost = $_POST['cost'];
+    $description = $_POST['description'];
+    $stock = $_POST['stock'];
+
+
+    $category_id = $_POST['category'];
+    $category = "";
+    $sku = "";
+    $quantity_sold = 0;
+    $status = "unapproved";
+    require 'db.php';
+    $sql = "SELECT *  FROM `product_category` WHERE `category_id` = $category_id";
+    $result = mysqli_query($mysqli,$sql);
+
+  if($result){
+    while($row = $result -> fetch_assoc()){
+       $category = $row["category_name"];
+       $sku = $row["sku"];
+    }
+  }
+
+  $sql = "INSERT INTO `table_product` (`id`, `sku`, `name`, `cost`, `category`, `category_id`, `image`, `thumbnail`, `description`, `stock`, `seller`,`rating`,`quantity_sold`,`status`) VALUES 
+                                            (NULL, '$sku', '$name', '$cost', '$category', '$category_id', '$image', '$thumbnail', '$description', '$stock', '$seller', '0', '0', '$status')";
+  mysqli_query($mysqli,$sql);
+  echo 'product inserted';
 ?>
