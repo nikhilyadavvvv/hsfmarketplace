@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require 'db.php';
     $email = $_POST["email"];
     $password = $_POST["password"];
@@ -9,6 +10,7 @@
     if ($count==1) {
             while ($row = $result->fetch_assoc()) {
                 echo 'valid credentials';
+                $_SESSION['user_id'] = $row["user_id"];
         }
     } else {
         echo 'invalid credentials';
