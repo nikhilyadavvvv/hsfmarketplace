@@ -1,6 +1,12 @@
 <?php
 
     session_start();
+
+
+    if(empty($_SESSION['user_id'])){
+    echo "You are not logged in ";
+    exit();
+    }
     $user_id = $_SESSION['user_id'];
 
     require 'db.php';
@@ -31,6 +37,7 @@
           }
         }
     $json = json_encode($endpoint);
-    echo $json;
+    header('Content-Type: application/json');
+    print_r($json);
     $mysqli->close();
 ?>
