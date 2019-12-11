@@ -46,9 +46,14 @@
                         <div class="sidebar">
                             <div class="widget">
                                 <div class="user-photo">
-                                    <a href="#">
-                                        <img src="http://preview.byaviators.com/template/superlist/assets/img/tmp/agent-2.jpg" alt="User Photo">
-                                    </a>
+                                        <div class="row">
+                                          <div class="col-smx-2 imgUp">
+                                            <div class="imagePreview"></div>
+                                                <label class="btn btn-primary">
+                                                Upload<input type="file" class="file" value="Upload Photo" style="width: 100%: 0px;overflow: hidden;">
+                                                </label>
+                                          </div><!-- col-2 -->
+                                         </div><!-- row -->
                                 </div><!-- /.user-photo -->
                             </div><!-- /.widget -->
 
@@ -63,7 +68,7 @@
                     <div class="col-sm-8 col-lg-9">
                         <div class="content">
                             <div class="page-title">
-                                <h1>Profile</h1>
+                                <h1>Edit Profile</h1>
                             </div><!-- /.page-title -->
 
                             <div class="background-white p20 mb30">
@@ -76,22 +81,22 @@
                                 <div class="row">
                                     <div class="form-group col-sm-6">
                                         <label>Name</label>
-                                        <p><label>John</label></p>
+                                        <input type="text" class="form-control" value="John">
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
                                         <label>Surname</label>
-                                        <p><label>Doe</label></p>
+                                        <input type="text" class="form-control" value="Doe">
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
                                         <label>E-mail</label>
-                                        <p><label>sample@example.com</label></p>
+                                        <input type="text" class="form-control" value="sample@example.com">
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
                                         <label>Phone</label>
-                                        <p><label>123-456-789</label></p>
+                                        <input type="text" class="form-control" value="123-456-789">
                                     </div><!-- /.form-group -->
                                 </div><!-- /.row -->
                             </div>
@@ -106,43 +111,42 @@
                                 <div class="row">
                                     <div class="form-group col-sm-6">
                                         <label>State</label>
-                                        <p><label>New York</label></p>
+                                        <input type="text" class="form-control" value="New York">
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
                                         <label>City</label>
-                                        <p><label>New York City</label></p>
+                                        <input type="text" class="form-control" value="New York City">
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
                                         <label>Street</label>
-                                        <p><label>Everton Eve</label></p>
+                                        <input type="text" class="form-control" value="Everton Eve">
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-3">
                                         <label>House Number</label>
-                                        <p><label>123</label></p>
+                                        <input type="text" class="form-control" value="123">
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-3">
                                         <label>ZIP</label>
-                                        <p><label>12345</label></p>
+                                        <input type="text" class="form-control" value="12345">
                                     </div><!-- /.form-group -->
                                 </div><!-- /.row -->
                             </div>
-                        </div>
 
-                    </div><!-- /.content -->
-                </div><!-- /.col-* -->
+                        </div><!-- /.content -->
+                    </div><!-- /.col-* -->
+                </div>
             </div>
-        </div>
-    </section>
-    <!-- End Product Description -->
-    <?php include('include/footer.php') ?>
-    <!-- End Footer Style -->
-</div>
+        </section>
+        <!-- End Product Description -->
+        <?php include('include/footer.php') ?>
+        <!-- End Footer Style -->
+    </div>
 
-<?php include('include/footer_js.php') ?>
+    <?php include('include/footer_js.php') ?>
 
 </body>
 
