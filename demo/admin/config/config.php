@@ -16,10 +16,10 @@ require_once BASE_PATH . '/helpers/helpers.php';
 |--------------------------------------------------------------------------
  */
 
-define('DB_HOST', "localhost");
-define('DB_USER', "root");
-define('DB_PASSWORD', "root");
-define('DB_NAME', "gsd-admin");
+define('DB_HOST', "database-1.cdatrlmmreql.us-east-1.rds.amazonaws.com");
+define('DB_USER', "admin");
+define('DB_PASSWORD', "password");
+define('DB_NAME', "GDSD_schema");
 
 /**
  * Get instance of DB object
