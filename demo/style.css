@@ -2167,20 +2167,19 @@ select.ht__select {
 }
 
 .pro__share li a {
-    border-radius: 100%;
-    color: #212121;
+    border-radius: 4px;
+    padding: 2px 10px;
     display: inline-block;
     font-size: 16px;
-    height: 32px;
     line-height: 36px;
     text-align: center;
     transition: all 0.3s ease 0s;
-    width: 32px;
+    color: #fff;
+    background: #c43b68;
 }
 
 .pro__share li a:hover {
-    background: #c43b68 none repeat scroll 0 0;
-    color: #fff;
+    
 }
 
 .pro__share li+li {
@@ -17912,4 +17911,13 @@ h2.widgettitle {
         font-weight: 400;
         line-height: 24px;
     }
+}
+.quantity__input{
+    margin-left: 5px;
+    width: 60px;
+    padding: 0px 5px;
+    border-radius: 4px;
+}
+.margin-0{
+    margin: 0px 
 }

@@ -488,7 +488,7 @@ input:focus {
 }
 textarea {
     resize: none;
-    background: #c43b68;
+    /*background: #c43b68;*/
     border: 1px solid #c43b68;
     padding: 10px;
     width: 100%;
