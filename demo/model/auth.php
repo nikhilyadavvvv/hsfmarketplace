@@ -3,6 +3,7 @@
     require 'db.php';
     $email = mysqli_real_escape_string($mysqli,$_POST['email']);
     $password = mysqli_real_escape_string($mysqli,$_POST['password']);
+    $password = md5($password);
     $flag = 0;
     $sql = "SELECT *  FROM `user` WHERE `email` = '".$email."' AND `password` = '".$password."'";
     $result = mysqli_query($mysqli, $sql);
