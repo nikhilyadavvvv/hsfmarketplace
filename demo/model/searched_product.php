@@ -1,7 +1,9 @@
 <?php
 include 'db.php';
+error_reporting(0);
 $s = $_GET['s'];
 $f = $_GET['f'];
+$c = $$_GET['c'];
 
 //$sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'";
 if(empty($_GET['f'])){

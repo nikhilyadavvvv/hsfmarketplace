@@ -14,6 +14,7 @@ if($result){
         $data['category'] = $row['category'] ;
         $data['description'] = $row['description'];
         $data['stock'] = $row['stock'];
+        $data['seller'] = $row['seller'];
        $json_array[] = $data;
     }
     $json_array = json_encode($json_array);
