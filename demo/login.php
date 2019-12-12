@@ -56,7 +56,8 @@
                                 </div>
 
                                 <?php 
-                                session_unset('error_message');
+                                //session_unset('error_message');
+                                unset($_SESSION['error_message']);
                             } ?>
                             <form id="contact-form" action="model/auth.php" method="post">
                                 <div class="single-contact-form">
