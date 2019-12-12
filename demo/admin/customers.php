@@ -31,7 +31,7 @@ if (!$order_dir) {
 
 // Get DB instance. i.e instance of MYSQLiDB Library
 $db = getDbInstance();
-$select = array('user_id', 'firstname', 'lastname', 'email', 'phone', 'is_buyer', 'is_seller', 'status');
+$select = array('user_id', 'firstname', 'lastname', 'email', 'phone', 'is_buyer', 'is_seller', 'status', 'rewards');
 
 // Start building query according to input parameters
 // If search string
@@ -70,25 +70,25 @@ $total_pages = $db->totalPages;
             <select name="order_by" class="form-control">
                 <?php
                 foreach ($costumers->setOrderingValues() as $opt_value => $opt_name):
-                 ($order_by === $opt_value) ? $selected = 'selected' : $selected = '';
-                 echo ' <option value="' . $opt_value . '" ' . $selected . '>' . $opt_name . '</option>';
-             endforeach;
-             ?>
-         </select>
-         <select name="order_dir" class="form-control" id="input_order">
+                   ($order_by === $opt_value) ? $selected = 'selected' : $selected = '';
+                   echo ' <option value="' . $opt_value . '" ' . $selected . '>' . $opt_name . '</option>';
+               endforeach;
+               ?>
+           </select>
+           <select name="order_dir" class="form-control" id="input_order">
             <option value="Asc" <?php
             if ($order_dir == 'Asc') {
-             echo 'selected';
-         }
-         ?> >Asc</option>
-         <option value="Desc" <?php
-         if ($order_dir == 'Desc') {
-             echo 'selected';
-         }
-         ?>>Desc</option>
-     </select>
-     <input type="submit" value="Go" class="btn btn-primary">
- </form>
+               echo 'selected';
+           }
+           ?> >Asc</option>
+           <option value="Desc" <?php
+           if ($order_dir == 'Desc') {
+               echo 'selected';
+           }
+           ?>>Desc</option>
+       </select>
+       <input type="submit" value="Go" class="btn btn-primary">
+   </form>
 </div>
 <hr>
 <!-- //Filters -->
@@ -103,6 +103,7 @@ $total_pages = $db->totalPages;
             <th width="20%" class="text-center">Phone</th>
             <th width="10%" class="text-center">Type</th>
             <th width="10%" class="text-center">Status</th>
+            <th width="10%" class="text-center">Rewards</th>
             <th width="15%" class="text-center">Actions</th>
         </tr>
     </thead>
@@ -126,10 +127,15 @@ $total_pages = $db->totalPages;
                 }else{
                     echo "not Verified";
                 } ?></td>
+                <td class="text-center">
+                    <a href="#" class="btn btn-info rewards_btn" data-toggle="modal" data-target="#confirm-rewards-<?php echo $row['user_id']; ?>"><?php echo $row['rewards']; ?></a>
+                </td>
 
                 <td class="text-center">
                     <a href="#" class="btn btn-danger delete_btn" data-toggle="modal" data-target="#confirm-delete-<?php echo $row['user_id']; ?>"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
+
+
             </tr>
             <!-- Delete Confirmation Modal -->
             <div class="modal fade" id="confirm-delete-<?php echo $row['user_id']; ?>" role="dialog">
@@ -154,6 +160,34 @@ $total_pages = $db->totalPages;
                 </div>
             </div>
             <!-- //Delete Confirmation Modal -->
+
+            <!-- rewards Confirmation Modal -->
+            <div class="modal fade" id="confirm-rewards-<?php echo $row['user_id']; ?>" role="dialog">
+                <div class="modal-dialog">
+                    <form action="rewards_customer.php" method="POST">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Confirm</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to reward this user?</p>
+                                <div class="form-group">
+                                    <input type="hidden" name="user_id" id="user_id" value="<?php echo $row['user_id']; ?>">
+                                    <input type="number" name="rewards" id="rewards" value="<?php echo $row['rewards']; ?>" class="form-control">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-default pull-left">Yes</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- //rewards Confirmation Modal -->
+
         <?php endforeach; ?>
     </tbody>
 </table>
@@ -161,7 +195,7 @@ $total_pages = $db->totalPages;
 
 <!-- Pagination -->
 <div class="text-center">
- <?php echo paginationLinks($page, $total_pages, 'customers.php'); ?>
+   <?php echo paginationLinks($page, $total_pages, 'customers.php'); ?>
 </div>
 <!-- //Pagination -->
 </div>
