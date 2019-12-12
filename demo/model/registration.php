@@ -86,7 +86,7 @@ if (!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{
         } else {
             $msg = 'Your account has been made, <br /> please verify it by verification code sent to your email.';
             array_push($errors, $msg);
-            // once the verification code is cheked out, the initial_email will saved into email column in database
+            // once the verification code is checked out, the initial_email will saved into email column in database
         }
     }
 }
@@ -97,7 +97,7 @@ if (!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{
 if (count($errors) == 0) {
     $password = md5($password);
     $verification_code = rand(111, 999);
-
+    
     //checking is the user is seller or a buyer
     if ('$usertype' == 'I am a Buyer') {
         $is_buyer = "y";
@@ -106,8 +106,35 @@ if (count($errors) == 0) {
         $is_buyer = "n";
         $is_seller = "y";
     }
-
+    
     // inserting values into user table
     $insert_user_query = "INSERT INTO user (`firstname`, `lastname`, `password`, `initial_email`, `city`, `state`, `zip`, `verification_code`, `phone`, `country`, `is_buyer`, `is_seller`) VALUES('$firstname', '$lastname', '$password', '$email', '$city', '$state', '$zip', '$verification_code', '$phone', '$country', '$is_buyer', '$is_seller')";
     mysqli_query($mysqli, $insert_user_query);
+    
+    
+    //Email verification
+    $to      = $email; // Send email to our user
+    $subject = 'Signup | Verification'; // Give the email a subject
+    
+    $message = '
+        
+Thanks for signing up!
+Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.
+        
+------------------------
+Username: '.$email.'
+Please click this link to activate your account:
+http://hs-marketplace.herokuapp.com/demo/verify.php?email='.$email.'&verification_code='.$verification_code.'
+------------------------
+    
+    
+    
+'; // Our message above including the link
+    
+    $headers = 'From:noreply@hsfmarketplace.com' . "\r\n"; // Set from headers
+    mail($to, $subject, $message, $headers); // Send our email
+    
+    
+    
+    
 }
