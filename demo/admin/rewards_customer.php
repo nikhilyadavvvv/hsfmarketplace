@@ -2,8 +2,9 @@
 session_start();
 require_once 'includes/auth_validate.php';
 require_once './config/config.php';
-$del_id = filter_input(INPUT_POST, 'del_id');
-if ($del_id && $_SERVER['REQUEST_METHOD'] == 'POST') 
+$user_id = filter_input(INPUT_POST, 'user_id');
+$rewards = filter_input(INPUT_POST, 'rewards');
+if ($user_id && $_SERVER['REQUEST_METHOD'] == 'POST') 
 {
 
 	if($_SESSION['admin_type']!='super'){
@@ -12,21 +13,22 @@ if ($del_id && $_SERVER['REQUEST_METHOD'] == 'POST')
         exit;
 
 	}
-    $customer_id = $del_id;
+    $customer_id = $user_id;
 
+    $data_to_db['rewards'] = $rewards;
     $db = getDbInstance();
     $db->where('user_id', $customer_id);
-    $status = $db->delete('user');
+    $status = $db->update('user', $data_to_db);
     
     if ($status) 
     {
-        $_SESSION['info'] = "Customer deleted successfully!";
+        $_SESSION['info'] = "Customer rewarded successfully!";
         header('location: customers.php');
         exit;
     }
     else
     {
-    	$_SESSION['failure'] = "Unable to delete customer";
+    	$_SESSION['failure'] = "Unable to reward customer";
     	header('location: customers.php');
         exit;
 

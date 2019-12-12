@@ -17923,6 +17923,7 @@ h2.widgettitle {
 }
 .ht__cat__thumb img{
     min-height: 265px;
+    max-height: 265px;
 }
 
 .icons{
