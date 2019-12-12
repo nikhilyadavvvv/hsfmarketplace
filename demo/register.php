@@ -47,6 +47,27 @@
                             </div>
                         </div>
                         <div class="col-md-offset-2 col-sm-8 ">
+
+                            <?php if(isset($_SESSION['error_message'] ) && $_SESSION['error_message']!='') { ?>
+
+                                <div class="row">
+                                    <div class="alert alert-info col-sm-12">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+
+                                        <?php
+                                        foreach($_SESSION['error_message'] as $error) {
+                                            echo $error, '<br>';
+                                        }
+                                        session_unset('error_message');
+                                        ?>
+                                    </div>
+                                </div>
+
+                                <?php 
+                                session_unset('error_message');
+                            } ?>
+
                             <form id="contact-form" action="model/registration.php" method="post">
                                 <div class="single-contact-form">
                                     <div class="contact-box name">
@@ -78,7 +99,7 @@
                                     <div class="contact-box name">
                                         <input type="number" name="phone" placeholder="Phone" required>
                                         <select name="usertype" id="usertype"required>
-                                            <option value="0">I am a Buyer</option>
+                                            <option value="0" selected>I am a Buyer</option>
                                             <option value="1">I am a Seller</option>
                                         </select>
                                     </div>

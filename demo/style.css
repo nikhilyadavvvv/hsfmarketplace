@@ -17921,3 +17921,6 @@ h2.widgettitle {
 .margin-0{
     margin: 0px 
 }
+.ht__cat__thumb img{
+    min-height: 265px;
+}

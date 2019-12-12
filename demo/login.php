@@ -13,7 +13,7 @@
         <!-- Start Offset Wrapper -->
         <div class="offset__wrapper">
             <?php include('include/search.php')?>
-            
+
             <?php include('include/cart.php')?>
 
         </div>
@@ -47,6 +47,17 @@
                             </div>
                         </div>
                         <div class="col-md-offset-4 col-sm-8 ">
+                            <?php if(isset($_SESSION['error_message'] ) && $_SESSION['error_message']!='') { ?>
+
+                                <div class="row">
+                                    <div class="alert alert-danger col-sm-7">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><?php echo $_SESSION['error_message'];?>
+                                    </div>
+                                </div>
+
+                                <?php 
+                                session_unset('error_message');
+                            } ?>
                             <form id="contact-form" action="model/auth.php" method="post">
                                 <div class="single-contact-form">
                                     <div class="contact-box name">
