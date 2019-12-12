@@ -116,7 +116,7 @@ $total_pages = $db->totalPages;
                 <td class="text-center">&euro;<?php echo htmlspecialchars($row['cost']); ?></td>
                 <td class="text-center"><?php echo htmlspecialchars($row['status']); ?></td>
                 <td class="text-center">
-                    <a href="#" class="btn btn-primary accept_btn" data-toggle="modal" data-target="#confirm-accept-<?php echo $row['id']; ?>"><i class="glyphicon glyphicon-ok-sign"></i></a>
+                    <a href="#" class="btn btn-success accept_btn" data-toggle="modal" data-target="#confirm-accept-<?php echo $row['id']; ?>"><i class="glyphicon glyphicon-ok-sign"></i></a>
 
                     <a href="#" class="btn btn-danger reject_btn" data-toggle="modal" data-target="#confirm-reject-<?php echo $row['id']; ?>"><i class="glyphicon glyphicon-remove-circle"></i></a>
 

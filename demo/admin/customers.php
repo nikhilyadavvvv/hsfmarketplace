@@ -123,9 +123,9 @@ $total_pages = $db->totalPages;
                 } ?></td>
 
                 <td class="text-center"><?php if ($row['status'] == 1) {
-                    echo "Verified";
+                    echo "<span class='text-success'>Verified</span>";
                 }else{
-                    echo "not Verified";
+                    echo "<span class='text-danger'>not Verified</span>";
                 } ?></td>
                 <td class="text-center">
                     <a href="#" class="btn btn-info rewards_btn" data-toggle="modal" data-target="#confirm-rewards-<?php echo $row['user_id']; ?>"><?php echo $row['rewards']; ?></a>
