@@ -44,10 +44,10 @@
                                     <a href="register.php">Register</i></a>
                                 </div>
                             <?php } ?>
-                            <!-- <div class="htc__shopping__cart">
+                            <div class="htc__shopping__cart">
                             <a class="cart__menu" href="#"><i class="icon-handbag icons"></i></a>
                             <a href="#"><span class="htc__qua">2</span></a>
-                        </div> -->
+                        </div>
                         <?php if (isset($_SESSION['user_id'])) { ?>
                             <div class="htc__shopping__cart">
                                 <div class="dropdown">

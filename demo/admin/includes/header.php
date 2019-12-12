@@ -72,14 +72,9 @@
                         <div class="sidebar-nav navbar-collapse">
                             <ul class="nav" id="side-menu">
                                 <li><a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
-                                <li<?php echo (CURRENT_PAGE == 'customers.php' || CURRENT_PAGE == 'add_customer.php') ? ' class="active"' : ''; ?>>
-                                    <a href="#"><i class="fa fa-user-circle fa-fw"></i> Customers<i class="fa arrow"></i></a>
-                                    <ul class="nav nav-second-level">
-                                        <li><a href="customers.php"><i class="fa fa-list fa-fw"></i> List all</a></li>
-                                        <li><a href="add_customer.php"><i class="fa fa-plus fa-fw"></i> Add New</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="admin_users.php"><i class="fa fa-users fa-fw"></i> Users</a></li>
+                                <li><a href="customers.php"><i class="fa fa-users fa-fw"></i> Customers</a></li>
+                                <li><a href="products.php"><i class="fa fa-list fa-fw"></i> Products</a></li>
+                                <li><a href="admin_users.php"><i class="fa fa-users fa-fw"></i> Admin Users</a></li>
                             </ul>
                         </div>
                         <!-- /.sidebar-collapse -->

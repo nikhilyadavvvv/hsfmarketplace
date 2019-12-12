@@ -1,5 +1,5 @@
 <?php
-class Costumers
+class Products
 {
     /**
      *
@@ -21,14 +21,11 @@ class Costumers
     public function setOrderingValues()
     {
         $ordering = [
-            'user_id' => 'ID',
-            'firtname' => 'First Name',
-            'lastname' => 'Last Name',
-            'email' => 'Email',
-            'phone' => 'Phone',
-            'is_seller' => 'Seller',
-            'is_buyer' => 'Buyer',
-            'status' => 'status',
+            'id' => 'ID',
+            'name' => 'First Name',
+            'category' => 'Last Name',
+            'cost' => 'Price',
+            'status' => 'Status'
         ];
 
         return $ordering;
