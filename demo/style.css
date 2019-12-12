@@ -17929,3 +17929,13 @@ h2.widgettitle {
 .icons{
     padding: 0px 5px;
 }
+
+.form-group > label{
+    font-size: 18px;
+    font-style: bold;
+    font-weight: 500;
+}
+
+.form-group > p > label{
+    font-size: 14px;
+}
