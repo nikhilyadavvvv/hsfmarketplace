@@ -1,8 +1,8 @@
 
 <?php
     session_start();
-    //$seller  = $_SESSION['user_id']; uncomment finally
-    $seller  = 202; //delete when final
+    $seller  = $_SESSION['user_id']; //uncomment finally
+    //$seller  = 202; //delete when final
     $filename  = $_FILES['uploadedfile']['tmp_name'];
     $handle    = fopen($filename, "r");
     $data      = fread($handle, filesize($filename));
