@@ -1,8 +1,5 @@
 <?php
 require 'db.php';
-error_reporting(1);
-
-session_start();
 
 //initialising variables
 $firstname = "";
@@ -64,10 +61,12 @@ if (empty($country)) {
 if (empty($phone)) {
     array_push($errors, "phone is required");
 }
-if (empty($usertype)) {
-    array_push($errors, "usertype is required");
-}
 
+if (!empty($errors)) {
+    $_SESSION['error_message'] = $errors;
+    header("Location: ../register.php"); 
+    exit();
+}
 //checking datbase if same email id exists for a user
 $check_email_query = "SELECT * FROM user where email ='$email' LIMIT 1 ";
 
@@ -78,7 +77,11 @@ $emailId = mysqli_fetch_assoc($result);
 //check if email address is valid
 if (!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^", $email)) {
     $msg = 'The email you have entered is invalid, please try again.';
+    echo $msg;
     array_push($errors, $msg);
+    $_SESSION['error_message'] = $errors;
+    header("Location: ../register.php"); 
+    exit();
 } else {
     if ($emailId) {
         if ($emailId['email'] === $email) {
@@ -86,6 +89,9 @@ if (!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{
         } else {
             $msg = 'Your account has been made, <br /> please verify it by verification code sent to your email.';
             array_push($errors, $msg);
+            $_SESSION['error_message'] = $errors;
+            header("Location: ../register.php"); 
+            exit();
             // once the verification code is checked out, the initial_email will saved into email column in database
         }
     }
@@ -117,24 +123,29 @@ if (count($errors) == 0) {
     $subject = 'Signup | Verification'; // Give the email a subject
     
     $message = '
-        
-Thanks for signing up!
-Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.
-        
-------------------------
-Username: '.$email.'
-Please click this link to activate your account:
-http://hs-marketplace.herokuapp.com/demo/verify.php?email='.$email.'&verification_code='.$verification_code.'
-------------------------
+
+    Thanks for signing up!
+    Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.
+
+    ------------------------
+    Username: '.$email.'
+    Please click this link to activate your account:
+    http://hs-marketplace.herokuapp.com/demo/verify.php?email='.$email.'&verification_code='.$verification_code.'
+    ------------------------
     
     
     
 '; // Our message above including the link
-    
+
     $headers = 'From:noreply@hsfmarketplace.com' . "\r\n"; // Set from headers
     mail($to, $subject, $message, $headers); // Send our email
     
     
-    
+    $msg = "Thanks for signing up!
+    Your account has been created, you can login with the following credentials after you have activated your account. Please check your email.";
+    array_push($errors, $msg);
+    $_SESSION['error_message'] = $errors;
+    header("Location: ../register.php"); 
+    exit();
     
 }

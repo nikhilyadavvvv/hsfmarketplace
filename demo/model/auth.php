@@ -1,5 +1,4 @@
 <?php
-    session_start();
     require 'db.php';
     $email = mysqli_real_escape_string($mysqli,$_POST['email']);
     $password = mysqli_real_escape_string($mysqli,$_POST['password']);
@@ -14,7 +13,9 @@
                 $_SESSION['user_id'] = $row["user_id"];
         }
     } else {
-        echo 'invalid credentials';
+        $_SESSION['error_message'] = 'Invalid credentials.';
+        header("Location: ../login.php"); 
+        exit();
     }
     $mysqli->close();
 ?>
