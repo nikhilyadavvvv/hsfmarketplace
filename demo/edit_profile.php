@@ -71,7 +71,7 @@
                                 <h1>Edit Profile</h1>
                             </div><!-- /.page-title -->
 
-                            <div class="background-white p20 mb30">
+                            <div class="background-white p20 mb10">
                                 <h3 class="page-title">
                                     Contact Information
 
@@ -101,7 +101,7 @@
                                 </div><!-- /.row -->
                             </div>
 
-                            <div class="background-white p20 mb30">
+                            <div class="background-white p20 mb10">
                                 <h3 class="page-title">
                                     Address
 

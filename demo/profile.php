@@ -1,3 +1,5 @@
+<?php require('model/profile.php') ?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -47,7 +49,7 @@
                             <div class="widget">
                                 <div class="user-photo">
                                     <a href="#">
-                                        <img src="http://preview.byaviators.com/template/superlist/assets/img/tmp/agent-2.jpg" alt="User Photo">
+                                        <img src="<?php echo $data['image'];?>" alt="User Photo">
                                     </a>
                                 </div><!-- /.user-photo -->
                             </div><!-- /.widget -->
@@ -66,68 +68,60 @@
                                 <h1>Profile</h1>
                             </div><!-- /.page-title -->
 
-                            <div class="background-white p20 mb30">
+                            <div class="background-white p20 mb10">
                                 <h3 class="page-title">
                                     Contact Information
-
-                                    <a href="#" class="btn btn-primary btn-xs pull-right">Save</a>
                                 </h3>
 
                                 <div class="row">
                                     <div class="form-group col-sm-6">
-                                        <label>Name</label>
-                                        <p><label>John</label></p>
+                                        <label>Firstname</label>
+                                        <p><label><?php echo $data['firstname'];?></label></p>
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
-                                        <label>Surname</label>
-                                        <p><label>Doe</label></p>
+                                        <label>Lastname</label>
+                                        <p><label><?php echo $data['lastname'];?></label></p>
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
                                         <label>E-mail</label>
-                                        <p><label>sample@example.com</label></p>
+                                        <p><label><?php echo $data['email'];?></label></p>
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
                                         <label>Phone</label>
-                                        <p><label>123-456-789</label></p>
+                                        <p><label><?php echo $data['phone'];?></label></p>
                                     </div><!-- /.form-group -->
                                 </div><!-- /.row -->
                             </div>
 
-                            <div class="background-white p20 mb30">
+                            <div class="background-white p20 mb10">
                                 <h3 class="page-title">
                                     Address
-
-                                    <a href="#" class="btn btn-primary btn-xs pull-right">Save</a>
                                 </h3>
 
                                 <div class="row">
                                     <div class="form-group col-sm-6">
                                         <label>State</label>
-                                        <p><label>New York</label></p>
+                                        <p><label><?php echo $data['state'];?></label></p>
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
                                         <label>City</label>
-                                        <p><label>New York City</label></p>
+                                        <p><label><?php echo $data['city'];?></label></p>
+                                    </div><!-- /.form-group -->
+                                    
+                                    <div class="form-group col-sm-6">
+                                        <label>ZIP</label>
+                                        <p><label><?php echo $data['zip'];?></label></p>
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
-                                        <label>Street</label>
-                                        <p><label>Everton Eve</label></p>
+                                        <label>Country</label>
+                                        <p><label><?php echo $data['country'];?></label></p>
                                     </div><!-- /.form-group -->
 
-                                    <div class="form-group col-sm-3">
-                                        <label>House Number</label>
-                                        <p><label>123</label></p>
-                                    </div><!-- /.form-group -->
-
-                                    <div class="form-group col-sm-3">
-                                        <label>ZIP</label>
-                                        <p><label>12345</label></p>
-                                    </div><!-- /.form-group -->
                                 </div><!-- /.row -->
                             </div>
                         </div>
