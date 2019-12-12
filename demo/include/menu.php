@@ -36,38 +36,43 @@
                                 <a href="#"><i class="icon-magnifier icons"></i></a>
                             </div>
 
-                            <div class="header__account">
-                                <a href="login.php">Login</i></a>
-                            </div>
-                            <div class="header__account">
-                                <a href="register.php">Register</i></a>
-                            </div>
+                            <?php if (!isset($_SESSION['user_id'])) { ?>
+                                <div class="header__account">
+                                    <a href="login.php">Login</i></a>
+                                </div>
+                                <div class="header__account">
+                                    <a href="register.php">Register</i></a>
+                                </div>
+                            <?php } ?>
                             <!-- <div class="htc__shopping__cart">
                             <a class="cart__menu" href="#"><i class="icon-handbag icons"></i></a>
                             <a href="#"><span class="htc__qua">2</span></a>
                         </div> -->
-
+                        <?php if (isset($_SESSION['user_id'])) { ?>
                             <div class="htc__shopping__cart">
                                 <div class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icons"></i></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icons"></i><?php echo $_SESSION['user_name'] ?></a>
 
                                     <ul class="dropdown-menu">
                                         <li><a href="profile.php">My Profile</a></li>
-                                        <li><a href="#">My Iteams</a></li>
                                         <li><a href="#">Baskets</a></li>
                                         <li><a href="#">Messages</a></li>
+                                        <li><a href="logout.php">Log Out</a></li>
                                     </ul>
                                 </div>
                             </div>
 
-                        </div>
+                        <?php } ?>
+
+
                     </div>
                 </div>
             </div>
-            <div class="mobile-menu-area"></div>
         </div>
+        <div class="mobile-menu-area"></div>
     </div>
-    <!-- End Mainmenu Area -->
+</div>
+<!-- End Mainmenu Area -->
 </header>
 <!-- End Header Area -->
 

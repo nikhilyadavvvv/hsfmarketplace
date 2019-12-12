@@ -54,16 +54,16 @@
                                     <option value="l2h">Price Low to High</option>
                                     <option value="h2l">Price High to Low</option>
                                 </select>
-                                <select class="ht__select">
+                                <!-- <select class="ht__select">
                                     <option>Show by</option>
                                     <option>Sort by popularity</option>
                                     <option>Sort by average rating</option>
                                     <option>Sort by newness</option>
-                                </select>
+                                </select> -->
                             </div>
-                            <div class="ht__pro__qun">
+                            <!-- <div class="ht__pro__qun">
                                 <span>Showing 1-12 of 1033 products</span>
-                            </div>
+                            </div> -->
                         </div>
 
                         <!-- Start Product View -->
