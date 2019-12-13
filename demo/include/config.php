@@ -15,13 +15,19 @@ exit();*/
 if ($segment == 'my_products.php' && !isset($_SESSION['user_id'])) {
 	$_SESSION['error_message'] = 'You are not logged in.';
 	header('Location: logout.php');
+
+}else if ($segment == 'edit_products.php' && !isset($_SESSION['user_id'])){
+	$_SESSION['error_message'] = 'You are not logged in.';
+	header('Location: logout.php');
+
 } else if ($segment == 'profile.php' && !isset($_SESSION['user_id'])){
 	$_SESSION['error_message'] = 'You are not logged in.';
 	header('Location: logout.php');
+
 }else if ($segment == 'edit_profile.php' && !isset($_SESSION['user_id'])){
 	$_SESSION['error_message'] = 'You are not logged in.';
 	header('Location: logout.php');
-}
 
+}
 
 ?>
