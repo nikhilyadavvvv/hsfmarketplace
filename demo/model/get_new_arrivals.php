@@ -1,7 +1,6 @@
 <?php
 include 'db.php';
-$id = $_GET['id'];
-$sql = "SELECT *  FROM `table_product` WHERE `id` = ".$id;
+$sql = "SELECT * FROM `table_product` ORDER BY `table_product`.`id`  DESC LIMIT 10";
 $result = mysqli_query($mysqli,$sql);
 $json_array = array();
 if($result){
@@ -11,10 +10,6 @@ if($result){
         $data['name'] = $row['name'];
         $data['image'] = $row['image'];
         $data['cost'] = $row['cost'];
-        $data['category'] = $row['category'] ;
-        $data['description'] = $row['description'];
-        $data['stock'] = $row['stock'];
-        $data['seller'] = $row['seller'];
        $json_array[] = $data;
     }
     $json_array = json_encode($json_array);

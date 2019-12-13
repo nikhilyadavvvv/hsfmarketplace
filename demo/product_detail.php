@@ -73,6 +73,9 @@
                             <ul  class="pro__prize">
                                 <li>Price: <span id="product_price"></span></li>
                             </ul>
+                            <ul  class="pro__prize">
+                                <li>Seller: <span id="product_seller"></span></li>
+                            </ul>
                             <p class="pro__info" id="product_info"></p>
                             <div class="ht__pro__desc">
                                 <div class="sin__desc">
@@ -144,12 +147,17 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Message to Seller</h4>
     </div>
+    <form action="model/message.php" method="POST">
+    
     <div class="modal-body" style="padding: 5px;">
+    <input type="text" name="from" value="" >
+    <input type="text" name="to" value="" id="toSeller">
         <textarea class="form-group margin-0" placeholder="Type your message here..."></textarea>
     </div>
     <div class="modal-footer" style="padding: 5px;">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Send Message</button>
     </div>
+    </form>
 </div>
 
 </div>

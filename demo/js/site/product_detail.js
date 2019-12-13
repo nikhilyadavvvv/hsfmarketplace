@@ -23,9 +23,13 @@ function loadProducts(){
             var category = product.category;
             var description = product.description;
             var stock = product.stock;
+            var seller = product.seller;
 
+            console.log('seller'+seller);
             document.getElementById('product_name').innerHTML= name;
             document.getElementById('product_price').innerHTML= '&#8364;'+cost;
+            document.getElementById('product_seller').innerHTML= seller;
+            document.getElementById('toSeller').value= seller;
             document.getElementById('product_info').innerHTML= description;
             document.getElementById('product_stock').innerHTML= stock;
             document.getElementById('product_description').innerHTML= description;

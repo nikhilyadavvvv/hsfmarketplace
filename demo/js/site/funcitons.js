@@ -47,7 +47,7 @@ function loadProducts(){
     document.getElementById("products_container").innerHTML = '';
     document.getElementById("products_container").appendChild(products_div);
 
-    xhttp.open("GET", "model/get_products.php", true);
+    xhttp.open("GET", "model/get_new_arrivals.php", true);
     xhttp.send();
 }
 
