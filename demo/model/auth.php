@@ -15,11 +15,11 @@ if ($count==1) {
         $_SESSION['user_name'] = $row["firstname"];
 
         if ($row["is_buyer"] == 'y') {
-            $_SESSION['is_buyer'] = 1;
-            $_SESSION['is_seller'] = 0;
+            $_SESSION['is_buyer'] = true;
+            $_SESSION['is_seller'] = false;
         } else {
-            $_SESSION['is_buyer'] = 0;
-            $_SESSION['is_seller'] = 1;
+            $_SESSION['is_buyer'] = false;
+            $_SESSION['is_seller'] = true;
         }
         
         header("Location: ../index.php"); 

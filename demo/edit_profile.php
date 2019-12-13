@@ -82,24 +82,57 @@
                                 <div class="row">
                                     <div class="form-group col-sm-6">
                                         <label>Firstname</label>
-                                        <input type="text" class="form-control" value="<?php echo $data['firstname'];?>" name="firstname">
+                                        <input type="text" class="form-control" value="<?php echo $data['firstname'];?>" name="firstname" required>
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
                                         <label>Lastname</label>
-                                        <input type="text" class="form-control" value="<?php echo $data['lastname'];?>" name="lastname">
+                                        <input type="text" class="form-control" value="<?php echo $data['lastname'];?>" name="lastname" required>
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
                                         <label>E-mail</label>
-                                        <input type="text" class="form-control" value="<?php echo $data['email'];?>" name="email">
+                                        <input type="text" class="form-control" value="<?php echo $data['email'];?>" name="email" required>
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
                                         <label>Phone</label>
-                                        <input type="text" class="form-control" value="<?php echo $data['phone'];?>" name="phone">
+                                        <input type="text" class="form-control" value="<?php echo $data['phone'];?>" name="phone" required>
                                     </div><!-- /.form-group -->
                                 </div><!-- /.row -->
+                            </div>
+
+                            <div class="background-white p20 mb10">
+                                <h3 class="page-title">
+                                    Address
+                                </h3>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label>State</label>
+                                        <input type="text" class="form-control" value="<?php echo $data['state'];?>" name="state" required>
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group col-sm-6">
+                                        <label>City</label>
+                                        <input type="text" class="form-control" value="<?php echo $data['city'];?>" name="city" required>
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group col-sm-6">
+                                        <label>ZIP</label>
+                                        <input type="text" class="form-control" value="<?php echo $data['zip'];?>" name="zip" required>
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group col-sm-6">
+                                        <label>Country</label>
+                                        <input type="text" class="form-control" value="<?php echo $data['country'];?>" name="country" required>
+                                    </div><!-- /.form-group -->
+
+                                </div><!-- /.row -->
+                            </div>
+
+                            <div class="background-white p20 mb10">
+                                <button class="btn btn-primary btn-md pull-right" type="submit">Save</button>
                             </div>
 
                         </div><!-- /.content -->

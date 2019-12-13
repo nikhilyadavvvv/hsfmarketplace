@@ -65,7 +65,8 @@
                     <div class="col-sm-8 col-lg-9">
                         <div class="content">
                             <div class="page-title">
-                                <h1>My Products</h1>
+                                <h1>My Products
+                                <a class="btn btn-primary btn-xs pull-right" href="add_products.php">Add Products</a></h1>
                             </div><!-- /.page-title -->
 
                             <div class="background-white p20 mb10">
@@ -96,7 +97,7 @@
                                                             <td class="product-price"><span class="amount">£<?php echo $row['cost'] ?></span></td>
 
                                                             <td class="product-subtotal">
-                                                                <?php if ( $row['category'] == 'approved') { ?>
+                                                                <?php if ( $row['status'] == 'approved') { ?>
                                                                     <span class="text-success">Approved</span>
                                                                 <?php } else { ?>
                                                                     <span class="text-danger">Unapproved</span>
