@@ -104,8 +104,8 @@
                                                                 <?php } ?>
 
                                                             </td>
-                                                            <td class="product-remove"><a href="#"><i class="icon-pencil icons"></i></a>
-                                                                <a href="#"><i class="icon-trash icons"></i></a>
+                                                            <td class="product-remove"><a href="edit_products.php?id=<?php echo $row['id']; ?>"><i class="icon-pencil icons"></i></a>
+                                                                <a href="#" onclick="delete_product('<?php echo $row['id'] ?>')"><i class="icon-trash icons"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php } } ?>
@@ -127,6 +127,15 @@
     </div>
 
     <?php include('include/footer_js.php') ?>
+
+    <script type="text/javascript">
+        function delete_product($id){
+            if (confirm("Are you sure to delete this product?")) {
+                window.location.href = "model/delete_my_product.php?id="+$id;
+            }
+        }
+
+    </script>
 
 </body>
 
