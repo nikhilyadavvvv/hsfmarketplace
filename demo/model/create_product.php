@@ -1,14 +1,14 @@
 
 <?php
-    session_start();
-    //$seller  = $_SESSION['user_id']; uncomment finally
-    $seller  = 202; //delete when final
+session_start();
+    $seller  = $_SESSION['user_id']; //uncomment finally
+    //$seller  = 202; //delete when final
     $filename  = $_FILES['uploadedfile']['tmp_name'];
     $handle    = fopen($filename, "r");
     $data      = fread($handle, filesize($filename));
     $POST_DATA = array(
       'image' => base64_encode($data)
-    );
+  );
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, 'https://api.imgbb.com/1/upload?key=145ffb74f542dd121e504d6e5d699236');
     curl_setopt($curl, CURLOPT_TIMEOUT, 30);
@@ -37,15 +37,23 @@
     $sql = "SELECT *  FROM `product_category` WHERE `category_id` = $category_id";
     $result = mysqli_query($mysqli,$sql);
 
-  if($result){
-    while($row = $result -> fetch_assoc()){
-       $category = $row["category_name"];
-       $sku = $row["sku"];
-    }
-  }
+    if($result){
+        while($row = $result -> fetch_assoc()){
+         $category = $row["category_name"];
+         $sku = $row["sku"];
+     }
+ }
 
-  $sql = "INSERT INTO `table_product` (`id`, `sku`, `name`, `cost`, `category`, `category_id`, `image`, `thumbnail`, `description`, `stock`, `seller`,`rating`,`quantity_sold`,`status`) VALUES 
-                                            (NULL, '$sku', '$name', '$cost', '$category', '$category_id', '$image', '$thumbnail', '$description', '$stock', '$seller', '0', '0', '$status')";
-  mysqli_query($mysqli,$sql);
-  echo 'product inserted';
-?>
+ $sql = "INSERT INTO `table_product` (`id`, `sku`, `name`, `cost`, `category`, `category_id`, `image`, `thumbnail`, `description`, `stock`, `seller`,`rating`,`quantity_sold`,`status`) VALUES 
+ (NULL, '$sku', '$name', '$cost', '$category', '$category_id', '$image', '$thumbnail', '$description', '$stock', '$seller', '0', '0', '$status')";
+/* mysqli_query($mysqli,$sql);
+ echo 'product inserted';*/
+
+ if (mysqli_query($mysqli,$sql)) {
+    //$_SESSION['error_message'] = $errors;
+    header("Location: ../my_products.php"); 
+    exit();
+} else {
+    echo mysqli_error($mysqli);
+}
+ ?>

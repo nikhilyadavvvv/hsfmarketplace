@@ -1,3 +1,4 @@
+<?php require('model/get_category.php') ?>
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -61,9 +62,6 @@
                                     <option>Sort by newness</option>
                                 </select> -->
                             </div>
-                            <!-- <div class="ht__pro__qun">
-                                <span>Showing 1-12 of 1033 products</span>
-                            </div> -->
                         </div>
 
                         <!-- Start Product View -->
@@ -78,54 +76,36 @@
                         </div>
                         <!-- End Product View -->
                     </div>
-                    <!-- Start Pagenation -->
-                        <!-- <div class="row">
-                            <div class="col-xs-12">
-                                <ul class="htc__pagenation">
-                                   <li><a href="#"><i class="zmdi zmdi-chevron-left"></i></a></li> 
-                                   <li><a href="#">1</a></li> 
-                                   <li class="active"><a href="#">3</a></li>   
-                                   <li><a href="#">19</a></li> 
-                                   <li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li> 
-                                </ul>
-                            </div>
-                        </div> -->
-                        <!-- End Pagenation -->
-                    </div>
-                    <div class="col-lg-3 col-lg-pull-9 col-md-3 col-md-pull-9 col-sm-12 col-xs-12 smt-40 xmt-40">
-                        <div class="htc__product__leftsidebar">
+                </div>
+                <div class="col-lg-3 col-lg-pull-9 col-md-3 col-md-pull-9 col-sm-12 col-xs-12 smt-40 xmt-40">
+                    <div class="htc__product__leftsidebar">
 
-                            <!-- Start Category Area -->
-                            <div class="htc__category">
-                                <h4 class="title__line--4">categories</h4>
-                                <ul class="ht__cat__list">
-                                    <li><a href="#">Clothing</a></li>
-                                    <li><a href="#">Bags</a></li>
-                                    <li><a href="#">Shoes</a></li>
-                                    <li><a href="#">Jewelry</a></li>
-                                    <li><a href="#">Accessories</a></li>
-                                    <li><a href="#">Food / Drink Store</a></li>
-                                    <li><a href="#">Gift Store</a></li>
-                                    <li><a href="#">Accessories</a></li>
-                                    <li><a href="#">Watch</a></li>
-                                    <li><a href="#">Other</a></li>
-                                </ul>
-                            </div>
-                            <!-- End Category Area -->
+                        <!-- Start Category Area -->
+                        <div class="htc__category">
+                            <h4 class="title__line--4">categories</h4>
+                            <ul class="ht__cat__list">
 
+                                <li><a href="#products_container" onclick="search_category('0')">All</a></li>
+                                <?php while($row = $categories -> fetch_assoc()){ ?>
+                                <li><a href="#products_container" onclick="search_category('<?php echo $row["category_id"]; ?>')"><?php echo $row["category_name"]; ?></a></li>
+                                <?php } ?>
+                            </ul>
                         </div>
+                        <!-- End Category Area -->
+
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- End Product Description -->
-        <?php include('include/footer.php') ?>
-        <!-- End Footer Style -->
-    </div>
+        </div>
+    </section>
+    <!-- End Product Description -->
+    <?php include('include/footer.php') ?>
+    <!-- End Footer Style -->
+</div>
 
-    <?php include('include/footer_js.php') ?>
-    
-    <script src="js/site/searched_product.js"></script>
+<?php include('include/footer_js.php') ?>
+
+<script src="js/site/searched_product.js"></script>
 
 </body>
 

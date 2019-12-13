@@ -49,7 +49,7 @@
                             <div class="widget">
                                 <div class="user-photo">
                                     <a href="#">
-                                        <img src="<?php echo $data['image'];?>" alt="User Photo">
+                                        <img src="<?php echo $_SESSION['user_image'];?>" alt="User Photo">
                                     </a>
                                 </div><!-- /.user-photo -->
                             </div><!-- /.widget -->
@@ -65,7 +65,8 @@
                     <div class="col-sm-8 col-lg-9">
                         <div class="content">
                             <div class="page-title">
-                                <h1>Profile</h1>
+                                <h1>Profile
+                                    <a class="btn btn-primary btn-xs pull-right" href="edit_profile.php">Edit Profile</a></h1>
                             </div><!-- /.page-title -->
 
                             <div class="background-white p20 mb10">

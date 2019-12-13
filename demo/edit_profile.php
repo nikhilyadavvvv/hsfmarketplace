@@ -1,3 +1,5 @@
+<?php require('model/profile.php') ?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -39,21 +41,22 @@
         </div>
         <!-- End Bradcaump area -->
         <!-- Start Product Grid -->
-        <section class="htc__product__grid bg__white ptb--50">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4 col-lg-3">
-                        <div class="sidebar">
-                            <div class="widget">
-                                <div class="user-photo">
+        <form action="model/edit_profile.php" method="post" enctype="multipart/form-data">
+            <section class="htc__product__grid bg__white ptb--50">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4 col-lg-3">
+                            <div class="sidebar">
+                                <div class="widget">
+                                    <div class="user-photo">
                                         <div class="row">
                                           <div class="col-smx-2 imgUp">
                                             <div class="imagePreview"></div>
-                                                <label class="btn btn-primary">
-                                                Upload<input type="file" class="file" value="Upload Photo" style="width: 100%: 0px;overflow: hidden;">
-                                                </label>
-                                          </div><!-- col-2 -->
-                                         </div><!-- row -->
+                                            <label class="btn btn-primary">
+                                                Upload<input type="file" class="file" value="Upload Photo" style="width: 100%: 0px;overflow: hidden;" name="uploadedfile" id="image">
+                                            </label>
+                                        </div><!-- col-2 -->
+                                    </div><!-- row -->
                                 </div><!-- /.user-photo -->
                             </div><!-- /.widget -->
 
@@ -74,29 +77,27 @@
                             <div class="background-white p20 mb10">
                                 <h3 class="page-title">
                                     Contact Information
-
-                                    <a href="#" class="btn btn-primary btn-xs pull-right">Save</a>
                                 </h3>
 
                                 <div class="row">
                                     <div class="form-group col-sm-6">
-                                        <label>Name</label>
-                                        <input type="text" class="form-control" value="John">
+                                        <label>Firstname</label>
+                                        <input type="text" class="form-control" value="<?php echo $data['firstname'];?>" name="firstname" required>
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
-                                        <label>Surname</label>
-                                        <input type="text" class="form-control" value="Doe">
+                                        <label>Lastname</label>
+                                        <input type="text" class="form-control" value="<?php echo $data['lastname'];?>" name="lastname" required>
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
                                         <label>E-mail</label>
-                                        <input type="text" class="form-control" value="sample@example.com">
+                                        <input type="text" class="form-control" value="<?php echo $data['email'];?>" name="email" required>
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
                                         <label>Phone</label>
-                                        <input type="text" class="form-control" value="123-456-789">
+                                        <input type="text" class="form-control" value="<?php echo $data['phone'];?>" name="phone" required>
                                     </div><!-- /.form-group -->
                                 </div><!-- /.row -->
                             </div>
@@ -104,36 +105,34 @@
                             <div class="background-white p20 mb10">
                                 <h3 class="page-title">
                                     Address
-
-                                    <a href="#" class="btn btn-primary btn-xs pull-right">Save</a>
                                 </h3>
 
                                 <div class="row">
                                     <div class="form-group col-sm-6">
                                         <label>State</label>
-                                        <input type="text" class="form-control" value="New York">
+                                        <input type="text" class="form-control" value="<?php echo $data['state'];?>" name="state" required>
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
                                         <label>City</label>
-                                        <input type="text" class="form-control" value="New York City">
+                                        <input type="text" class="form-control" value="<?php echo $data['city'];?>" name="city" required>
                                     </div><!-- /.form-group -->
 
                                     <div class="form-group col-sm-6">
-                                        <label>Street</label>
-                                        <input type="text" class="form-control" value="Everton Eve">
-                                    </div><!-- /.form-group -->
-
-                                    <div class="form-group col-sm-3">
-                                        <label>House Number</label>
-                                        <input type="text" class="form-control" value="123">
-                                    </div><!-- /.form-group -->
-
-                                    <div class="form-group col-sm-3">
                                         <label>ZIP</label>
-                                        <input type="text" class="form-control" value="12345">
+                                        <input type="text" class="form-control" value="<?php echo $data['zip'];?>" name="zip" required>
                                     </div><!-- /.form-group -->
+
+                                    <div class="form-group col-sm-6">
+                                        <label>Country</label>
+                                        <input type="text" class="form-control" value="<?php echo $data['country'];?>" name="country" required>
+                                    </div><!-- /.form-group -->
+
                                 </div><!-- /.row -->
+                            </div>
+
+                            <div class="background-white p20 mb10">
+                                <button class="btn btn-primary btn-md pull-right" type="submit">Save</button>
                             </div>
 
                         </div><!-- /.content -->
@@ -141,12 +140,13 @@
                 </div>
             </div>
         </section>
-        <!-- End Product Description -->
-        <?php include('include/footer.php') ?>
-        <!-- End Footer Style -->
-    </div>
+    </form>
+    <!-- End Product Description -->
+    <?php include('include/footer.php') ?>
+    <!-- End Footer Style -->
+</div>
 
-    <?php include('include/footer_js.php') ?>
+<?php include('include/footer_js.php') ?>
 
 </body>
 

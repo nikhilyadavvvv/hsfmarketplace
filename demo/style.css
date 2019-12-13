@@ -2323,7 +2323,7 @@ select.select__size {
 
 .table-content table td {
     border-top: medium none;
-    padding: 20px 10px;
+    padding: 5px;
     vertical-align: middle;
     font-size: 13px;
 }
@@ -17922,8 +17922,8 @@ h2.widgettitle {
     margin: 0px 
 }
 .ht__cat__thumb img{
-    min-height: 265px;
-    max-height: 265px;
+    min-height: 235px;
+    max-height: 235px;
 }
 
 .icons{
