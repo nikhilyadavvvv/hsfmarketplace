@@ -59,13 +59,15 @@
                                         foreach($_SESSION['error_message'] as $error) {
                                             echo $error, '<br>';
                                         }
-                                        session_unset('error_message');
+                                       // session_unset('error_message');
+                                        unset($_SESSION["error_message"]);
                                         ?>
                                     </div>
                                 </div>
 
                                 <?php 
-                                session_unset('error_message');
+                                //session_unset('error_message');
+                                unset($_SESSION["error_message"]);
                             } ?>
 
                             <form id="contact-form" action="model/registration.php" method="post">
@@ -106,7 +108,7 @@
                                 </div>
 
                                 <div class="contact-btn">
-                                    <button type="submit" name="submit" class="fv-btn">Registration</button><br>
+                                    <button type="submit" name="submit" class="fv-btn">Register</button><br>
                                     <div class="col-sm-12" style="padding: 10px 0px;">
                                         <a href="login.php">Already have an account? Sign in</a>
                                     </div>

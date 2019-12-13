@@ -114,7 +114,7 @@ if (count($errors) == 0) {
     }
     
     // inserting values into user table
-    $insert_user_query = "INSERT INTO user (`firstname`, `lastname`, `password`, `initial_email`, `city`, `state`, `zip`, `verification_code`, `phone`, `country`, `is_buyer`, `is_seller`) VALUES('$firstname', '$lastname', '$password', '$email', '$city', '$state', '$zip', '$verification_code', '$phone', '$country', '$is_buyer', '$is_seller')";
+    $insert_user_query = "INSERT INTO `user` (`user_id`, `firstname`, `lastname`, `password`, `initial_email`, `city`, `state`, `zip`, `email`, `verification_code`, `phone`, `country`, `is_buyer`, `is_seller`, `status`, `image`, `rewards`) VALUES (NULL, '$firstname', '$lastname', '$password', '', '$city', '$state', '$zip', '$email', '0', '$phone', '$country', '$is_buyer', '$is_seller', '0', 'https://via.placeholder.com/500x500?text=No_Image', '0')";
     mysqli_query($mysqli, $insert_user_query);
     
     
@@ -141,8 +141,10 @@ if (count($errors) == 0) {
     mail($to, $subject, $message, $headers); // Send our email
     
     
+    /*$msg = "Thanks for signing up!
+    Your account has been created, you can login with the following credentials after you have activated your account. Please check your email.";*/
     $msg = "Thanks for signing up!
-    Your account has been created, you can login with the following credentials after you have activated your account. Please check your email.";
+    Your account has been created, Login to continue shopping";
     array_push($errors, $msg);
     $_SESSION['error_message'] = $errors;
     header("Location: ../register.php"); 
