@@ -7,7 +7,7 @@
     }
     $user_id = $_SESSION['user_id'];
     $product_id = $email = mysqli_real_escape_string($mysqli,$_GET['product_id']);
-    $sql = "SELECT *  FROM `user` WHERE `email` = '".$user_id."' AND `password` = '".$product_id."'";
+    $sql = "SELECT *  FROM `basket` WHERE `user_id` = '".$user_id."' AND `product_id` = '".$product_id."'";
     $result = mysqli_query($mysqli, $sql);
     $count = mysqli_num_rows($result);
     if ($count==0) {

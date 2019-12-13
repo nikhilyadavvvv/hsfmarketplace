@@ -22,7 +22,7 @@ if($result){
             <span class="shp__price">€'.$row['cost'].'</span>
         </div>
         <div class="remove__btn">
-            <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
+            <button" onclick="deleteFromCart('.$row['id'].')" title="Remove this item"><i class="zmdi zmdi-close"></i></button>
         </div>
     </div>';
     }
