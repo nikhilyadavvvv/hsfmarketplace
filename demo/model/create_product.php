@@ -51,6 +51,7 @@ session_start();
 
  if (mysqli_query($mysqli,$sql)) {
     //$_SESSION['error_message'] = $errors;
+    $_SESSION['success_message'] = 'Product added successfully.';
     header("Location: ../my_products.php"); 
     exit();
 } else {

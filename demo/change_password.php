@@ -1,5 +1,4 @@
 <?php require('model/profile.php') ?>
-
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -41,6 +40,7 @@
         </div>
         <!-- End Bradcaump area -->
         <!-- Start Product Grid -->
+        
         <section class="htc__product__grid bg__white ptb--50">
             <div class="container">
                 <div class="row">
@@ -64,72 +64,60 @@
 
                     <div class="col-sm-8 col-lg-9">
                         <div class="content">
-
-                            <?php include('include/flash_messages.php') ?>
-
                             <div class="page-title">
-                                <h1>Profile
-                                    <a class="btn btn-primary btn-xs pull-right" href="edit_profile.php">Edit Profile</a></h1>
-                                </div><!-- /.page-title -->
+                                <h1>Change Password</h1>
+                            </div><!-- /.page-title -->
+                            <form action="model/change_password.php" method="post">
+
+                                <?php if(isset($_SESSION['error_message'] ) && $_SESSION['error_message']!='') { ?>
+
+                                    <div class="row">
+                                        <div class="alert alert-danger col-sm-7">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><?php echo $_SESSION['error_message'];?>
+                                        </div>
+                                    </div>
+
+                                    <?php 
+                                //session_unset('error_message');
+                                    unset($_SESSION['error_message']);
+                                } ?>
+
 
                                 <div class="background-white p20 mb10">
-                                    <h3 class="page-title">
-                                        Contact Information
-                                    </h3>
+                                    <div class="row">
+                                        <div class="form-group col-sm-6">
+                                            <label>Email</label>
+                                            <input type="email" class="form-control" value="<?php echo $data['email'] ?>" name="email" required>
+                                        </div><!-- /.form-group -->
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="form-group col-sm-6">
+                                            <label>Current Password</label>
+                                            <input type="password" class="form-control" value="" name="password" required>
+                                        </div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="form-group col-sm-6">
-                                            <label>Firstname</label>
-                                            <p><label><?php echo $data['firstname'];?></label></p>
-                                        </div><!-- /.form-group -->
-
+                                            <label>New Password</label>
+                                            <input type="password" class="form-control" value="" name="n_password" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="form-group col-sm-6">
-                                            <label>Lastname</label>
-                                            <p><label><?php echo $data['lastname'];?></label></p>
-                                        </div><!-- /.form-group -->
-
-                                        <div class="form-group col-sm-6">
-                                            <label>E-mail</label>
-                                            <p><label><?php echo $data['email'];?></label></p>
-                                        </div><!-- /.form-group -->
-
-                                        <div class="form-group col-sm-6">
-                                            <label>Phone</label>
-                                            <p><label><?php echo $data['phone'];?></label></p>
+                                            <label>Confirm New Password</label>
+                                            <input type="password" class="form-control" value="" name="c_password" required>
                                         </div><!-- /.form-group -->
                                     </div><!-- /.row -->
                                 </div>
 
-                                <div class="background-white p20 mb10">
-                                    <h3 class="page-title">
-                                        Address
-                                    </h3>
 
-                                    <div class="row">
-                                        <div class="form-group col-sm-6">
-                                            <label>State</label>
-                                            <p><label><?php echo $data['state'];?></label></p>
-                                        </div><!-- /.form-group -->
-
-                                        <div class="form-group col-sm-6">
-                                            <label>City</label>
-                                            <p><label><?php echo $data['city'];?></label></p>
-                                        </div><!-- /.form-group -->
-
-                                        <div class="form-group col-sm-6">
-                                            <label>ZIP</label>
-                                            <p><label><?php echo $data['zip'];?></label></p>
-                                        </div><!-- /.form-group -->
-
-                                        <div class="form-group col-sm-6">
-                                            <label>Country</label>
-                                            <p><label><?php echo $data['country'];?></label></p>
-                                        </div><!-- /.form-group -->
-
-                                    </div><!-- /.row -->
+                                <div class="background-white p20 mb10 col-sm-6">
+                                    <button class="btn btn-primary btn-md pull-right" type="submit">Update</button>
                                 </div>
-                            </div>
 
+                            </form>
                         </div><!-- /.content -->
                     </div><!-- /.col-* -->
                 </div>

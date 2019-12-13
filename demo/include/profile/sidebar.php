@@ -6,6 +6,6 @@
 	<li><a href="#"><i class="fa fa-cart-plus"></i> Wishlist</a></li>
 	<li><a href="#"><i class="fa fa-cart-plus"></i> Basket</a></li>
 	<li><a href="#"><i class="fa fa-envelope"></i> Message</a></li>
-	<!-- <li><a href="#"><i class="fa fa-key"></i> Change Password</a></li> -->
+	<li><a href="change_password.php"><i class="fa fa-key"></i> Change Password</a></li>
 	<li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
 </ul>

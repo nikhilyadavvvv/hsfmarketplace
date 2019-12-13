@@ -64,6 +64,9 @@
 
                     <div class="col-sm-8 col-lg-9">
                         <div class="content">
+
+                            <?php include('include/flash_messages.php') ?>
+                            
                             <div class="page-title">
                                 <h1>My Products
                                 <a class="btn btn-primary btn-xs pull-right" href="add_products.php">Add Products</a></h1>
@@ -81,7 +84,7 @@
                                                     <th class="product-quantity">Category</th>
                                                     <th class="product-price">Price</th>
                                                     <th class="product-subtotal">Status</th>
-                                                    <th class="product-remove">Remove</th>
+                                                    <th class="product-remove">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>

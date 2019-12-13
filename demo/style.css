@@ -11621,8 +11621,11 @@ button.close {
 .detail-gallery .owl-next,
 .detail-gallery .owl-prev {
     border: 0px;
-    border-radius: 0px;
-    padding: 9px 15px;
+    border-radius: 10px;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 100px;
     position: relative;
     transition: background-color .15s linear;
 }
@@ -12187,7 +12190,8 @@ blockquote cite {
     border-radius: 0px;
     color: #fff;
     line-height: 2;
-    padding: 20px 30px;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .alert.alert-danger {
