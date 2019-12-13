@@ -25,6 +25,9 @@ if (!empty($filename)) {
     $response = json_decode($response,true);
     //print("<pre>".print_r($response,true)."</pre>");
     $image = $response['data']['url'];
+
+    $_SESSION['user_image'] = $image;
+
     $thumbnail = $response['data']['display_url'];   
 }else{
     $sql = "SELECT *  FROM `user` WHERE `user_id` = '".$user_id."'";

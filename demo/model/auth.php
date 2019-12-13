@@ -11,7 +11,17 @@ if ($count==1) {
     while ($row = $result->fetch_assoc()) {
         echo 'valid credentials';
         $_SESSION['user_id'] = $row["user_id"];
+        $_SESSION['user_image'] = $row["image"];
         $_SESSION['user_name'] = $row["firstname"];
+
+        if ($row["is_buyer"] == 'y') {
+            $_SESSION['is_buyer'] = 1;
+            $_SESSION['is_seller'] = 0;
+        } else {
+            $_SESSION['is_buyer'] = 0;
+            $_SESSION['is_seller'] = 1;
+        }
+        
         header("Location: ../index.php"); 
         exit();
     }

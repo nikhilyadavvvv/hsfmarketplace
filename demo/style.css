@@ -2323,7 +2323,7 @@ select.select__size {
 
 .table-content table td {
     border-top: medium none;
-    padding: 20px 10px;
+    padding: 5px;
     vertical-align: middle;
     font-size: 13px;
 }

@@ -49,7 +49,7 @@
                             <div class="widget">
                                 <div class="user-photo">
                                     <a href="#">
-                                        <img src="<?php echo $data['image'];?>" alt="User Photo">
+                                        <img src="<?php echo $_SESSION['user_image'];?>" alt="User Photo">
                                     </a>
                                 </div><!-- /.user-photo -->
                             </div><!-- /.widget -->
