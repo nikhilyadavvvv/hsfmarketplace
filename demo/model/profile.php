@@ -2,7 +2,7 @@
 require 'db.php';
 if(empty($_SESSION['user_id'])){
     $_SESSION['error_message'] = 'You are not logged in.';
-    header("Location: ../login.php"); 
+    header("Location: login.php"); 
     exit();
 }
 $user_id = $_SESSION['user_id'];
