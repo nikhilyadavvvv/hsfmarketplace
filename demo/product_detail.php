@@ -150,7 +150,8 @@
     <form action="model/message.php" method="POST">
     
     <div class="modal-body" style="padding: 5px;">
-    <input type="text" name="from" value="">
+    <input type="text" name="from" value="" >
+    <input type="text" name="to" value="" id="toSeller">
         <textarea class="form-group margin-0" placeholder="Type your message here..."></textarea>
     </div>
     <div class="modal-footer" style="padding: 5px;">
