@@ -5,7 +5,7 @@
     <?php include('include/header_style.php')?>
 </head>
 
-<body onload="loadProducts('')">
+<body onload="loadProducts(''); loadCart();">
     <!-- Body main wrapper start -->
     <div class="wrapper">        
 

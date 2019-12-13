@@ -29,3 +29,6 @@
 <script src="js/vendor/modernizr-3.5.0.min.js"></script>
 
 <?php include('config.php') ?>
+
+<!-- Cart for all pages -->
+<script src="js/site/cart.js"></script>

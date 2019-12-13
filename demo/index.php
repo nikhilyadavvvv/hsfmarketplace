@@ -3,9 +3,10 @@
 <head>
     <?php include('include/header_style.php')?>
     <script src="js/site/funcitons.js"></script>
+
 </head>
 
-<body onload="loadProducts()">
+<body onload="loadProducts(); loadCart()">
     <!-- Body main wrapper start -->
     <div class="wrapper">
         <?php include('include/menu.php')?>
