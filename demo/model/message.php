@@ -1,6 +1,10 @@
 <?php
     require 'db.php';
     $from = $_SESSION["user_id"];
+    if(empty($from)){
+        echo "login to send message";
+        exit();
+    }
     $to = $_POST["to"];
     $content = $_POST["content"];
     $timestamp = date('Y-m-d H:i:s');
