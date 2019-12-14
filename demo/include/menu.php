@@ -60,6 +60,10 @@
 
                             <?php } ?>
 
+                            <div class="header__account">
+                                <a class="cart__wishlist" href="wishlist.php">Wishlist</a>
+                            </div>
+
                             <div class="htc__shopping__cart">
                                 <a class="cart__menu" href="#"><i class="icon-handbag icons"></i></a>
                                 <!-- <a href="#"><span class="htc__qua">2</span></a> -->
