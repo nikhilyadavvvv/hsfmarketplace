@@ -31,7 +31,11 @@ function loadProducts(){
             document.getElementById('product_seller').innerHTML= seller;
             document.getElementById('toSeller').value= seller;
             document.getElementById('addToCart').value= id;
+<<<<<<< HEAD
             document.getElementById('sendProductId').value= id;
+=======
+            document.getElementById('addToWishlist').value= id;
+>>>>>>> debadefa83cbb53d1cf8b5fd5bab9a8c373dea70
             document.getElementById('product_info').innerHTML= description;
             document.getElementById('product_stock').innerHTML= stock;
             document.getElementById('product_description').innerHTML= description;
@@ -48,9 +52,9 @@ function loadProducts(){
 }
 
 function sendMessage() {
-    var to= document.getElementById("toSeller").value;
-    var product_id=document.getElementById("sendProductId").value;
-    var content=document.getElementById("content").value;
+    var to = document.getElementById("toSeller").value;
+    var product_id =document.getElementById("sendProductId").value;
+    var content =document.getElementById("content").value;
     console.log('sendmessage');
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {

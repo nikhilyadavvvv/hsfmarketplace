@@ -32,3 +32,4 @@
 
 <!-- Cart for all pages -->
 <script src="js/site/cart.js"></script>
+<script src="js/site/wishlist.js"></script>
