@@ -1,4 +1,4 @@
-<?php require('model/my_products.php') ?>
+<?php require('model/get_basket_profile.php') ?>
 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -68,8 +68,7 @@
                             <?php include('include/flash_messages.php') ?>
                             
                             <div class="page-title">
-                                <h1>My Products
-                                <a class="btn btn-primary btn-xs pull-right" href="add_products.php">Add Products</a></h1>
+                                <h1>Basket</h1>
                             </div><!-- /.page-title -->
 
                             <div class="background-white p20 mb10">
@@ -83,7 +82,6 @@
                                                     <th class="product-name">Name</th>
                                                     <th class="product-quantity">Category</th>
                                                     <th class="product-price">Price</th>
-                                                    <th class="product-subtotal">Status</th>
                                                     <th class="product-remove">Actions</th>
                                                 </tr>
                                             </thead>
@@ -94,21 +92,13 @@
                                                             <td class="product-thumbnail"><a href="product_detail.php?id=<?php echo $row['id'] ?>"><img src="<?php echo $row['thumbnail']; ?>" alt="product img" /></a></td>
                                                             <td class="product-name"><a href="product_detail.php?id=<?php echo $row['id'] ?>"><?php echo $row['name']; ?></a>
                                                             </td>
-                                                            
+
                                                             <td class="product-name"><a href="#"><?php echo $row['category']; ?></a></td>
-                                                            
+
                                                             <td class="product-price"><span class="amount">£<?php echo $row['cost'] ?></span></td>
+                                                            <td class="product-remove">
 
-                                                            <td class="product-subtotal">
-                                                                <?php if ( $row['status'] == 'approved') { ?>
-                                                                    <span class="text-success">Approved</span>
-                                                                <?php } else { ?>
-                                                                    <span class="text-danger">Unapproved</span>
-                                                                <?php } ?>
-
-                                                            </td>
-                                                            <td class="product-remove"><a href="edit_products.php?id=<?php echo $row['id']; ?>"><i class="icon-pencil icons"></i></a>
-                                                                <a href="#" onclick="delete_product('<?php echo $row['id'] ?>')"><i class="icon-trash icons"></i></a>
+                                                                <a href="#" onclick="basket_remove('<?php echo $row['id'] ?>')"><i class="icon-trash icons"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php } } ?>
@@ -116,6 +106,10 @@
                                             </table>
                                         </div>
                                     </div><!-- /.row -->
+                                </div>
+                                <div class="">
+
+                                    <a class="btn btn-primary btn-xs pull-right" href="add_products.php">Add Products</a>
                                 </div>
                             </div>
 
@@ -130,16 +124,15 @@
     </div>
 
     <?php include('include/footer_js.php') ?>
-
     <script type="text/javascript">
-        function delete_product($id){
-            if (confirm("Are you sure to delete this product?")) {
-                window.location.href = "model/delete_my_product.php?id="+$id;
+
+        function basket_remove(id){
+            if (confirm("Are you sure to remove this from basket?")) {
+                deleteFromCart(id)
+                location.reload();
             }
         }
-
     </script>
-
 </body>
 
 </html>

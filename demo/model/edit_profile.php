@@ -51,7 +51,9 @@ $country = $_POST['country'];
 
 $sql = "update user SET firstname = '$firstname', lastname = '$lastname', email = '$email', phone ='$phone', state = '$state', city = '$city', zip = '$zip', country = '$country', image = '$image' where user_id = $user_id";
 if (mysqli_query($mysqli,$sql)) {
-    //$_SESSION['error_message'] = $errors;
+    
+    $_SESSION['user_name'] = $firstname;
+    $_SESSION['success_message'] = 'Profile information updated successfully.';
     header("Location: ../profile.php"); 
     exit();
 } else {

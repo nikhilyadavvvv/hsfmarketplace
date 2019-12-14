@@ -83,10 +83,10 @@
                                 </div>
                             </div>
 
-                            <div class="sin__desc align--left">
+                            <!-- <div class="sin__desc align--left">
                                 <p><span>Quantity: </span></p>
                                 <input type="number" name="" class="quantity__input">
-                            </div>
+                            </div> -->
 
                             <div class="sin__desc product__share__link">
                                 <ul class="pro__share">
