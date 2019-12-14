@@ -4,6 +4,12 @@ function loadProducts(filter){
     var url_string = window.location.href;
     var url = new URL(url_string);
     var s = url.searchParams.get("s");
+    console.log(s);
+    var url =  "model/searched_product.php?s="+s+"&f="+filter;
+    if(s==='xxx'){
+        var c = getUrlVars()["c"];
+        url =  "model/searched_product.php?s="+s+"&c="+c;
+    }
     var html = '';
     var i = 0;
     document.getElementById("products_container").innerHTML ="";
@@ -52,8 +58,8 @@ function loadProducts(filter){
         }
     }
     document.getElementById("products_container").appendChild(products_div);
-    console.log("model/searched_product.php?s="+s+"&f="+filter);
-    xhttp.open("GET", "model/searched_product.php?s="+s+"&f="+filter, true);
+    console.log(url);
+    xhttp.open("GET", url, true);
     xhttp.send();
 }
 
@@ -114,4 +120,13 @@ function search_category(id){
     document.getElementById("products_container").appendChild(products_div);
     xhttp.open("GET", "model/search_category.php?category="+id+"&s="+s, true);
     xhttp.send();
+}
+
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
 }

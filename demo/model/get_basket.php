@@ -17,7 +17,7 @@ if($result){
             </a>
         </div>
         <div class="shp__pro__details">
-            <h2><a href="product-details.html">'.$row['name'].'</a></h2>
+            <h2><a href="product_detail.php?id='.$row['id'].'">'.$row['name'].'</a></h2>
             <span class="quantity">QTY: '.$row['stock'].'</span>
             <span class="shp__price">€'.$row['cost'].'</span>
         </div>

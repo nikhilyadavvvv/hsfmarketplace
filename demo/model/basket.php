@@ -15,5 +15,8 @@
         $insertResult = mysqli_query($mysqli, $insertSql);
         echo "Product added to basket";
    }
+   else{
+    echo "Product already in basket";
+   }
     $mysqli->close();
 ?>
