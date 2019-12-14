@@ -52,8 +52,7 @@
 
                                         <ul class="dropdown-menu">
                                             <li><a href="profile.php">My Profile</a></li>
-                                            <li><a href="#">Baskets</a></li>
-                                            <li><a href="#">Messages</a></li>
+                                            <li><a href="message.php">Messages</a></li>
                                             <li><a href="logout.php">Log Out</a></li>
                                         </ul>
                                     </div>
@@ -63,7 +62,7 @@
 
                             <div class="htc__shopping__cart">
                                 <a class="cart__menu" href="#"><i class="icon-handbag icons"></i></a>
-                                <a href="#"><span class="htc__qua">2</span></a>
+                                <!-- <a href="#"><span class="htc__qua">2</span></a> -->
                             </div>
 
                         </div>

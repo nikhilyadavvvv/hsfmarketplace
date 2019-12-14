@@ -21,12 +21,24 @@
 
         <!-- Explore -->
         <div class="container">
-        <ul class="list-inline">
-        <li class="list-inline-item"><a href="#products_container" onclick="search_category('0')">EXPLORE:</a></li>
-                                <?php while($row = $categories -> fetch_assoc()){ ?>
-                                <li><a class="btn btn-primary" href="<?php echo "product_search.php?s=xxx&c=".$row["category_id"]; ?>"><?php echo $row["category_name"]; ?></a></li>
-                                <?php } ?>
-        </ul>
+
+            <div class="col-sm-12">
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-sm-2">
+                        <div class="category_box">
+                            <a href="#products_container" onclick="search_category('0')">All</a>
+                        </div>
+                    </div>
+                    <?php while($row = $categories -> fetch_assoc()){ ?>
+                        <div class="col-sm-2">
+                            <div class="category_box">
+                                <a class="" href="<?php echo "product_search.php?s=&c=".$row["category_id"]; ?>"><?php echo $row["category_name"]; ?></a>
+                            </div>
+                        </div>
+                    <?php } ?>
+
+                </div>
+            </div>
         </div>
         
 
@@ -44,7 +56,7 @@
                 <div class="htc__product__container">
                     <div class="row">
                         <div class="product__list clearfix mt--30" id="products_container">
-                                                        
+
                         </div>
                     </div>
                 </div>

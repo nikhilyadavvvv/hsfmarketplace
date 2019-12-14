@@ -1,7 +1,7 @@
 <?php
 require 'db.php';
 $user_id = $_SESSION['user_id'];
-$sql = "SELECT * FROM basket, table_product WHERE basket.product_id = table_product.id AND basket.user_id = $user_id GROUP BY basket.id";
+$sql = "SELECT a.id as basket_id, a.*, b.* FROM basket as a join table_product as b on a.product_id = b.id  where a.user_id = $user_id";
 $result = mysqli_query($mysqli,$sql);
 $sum = 0;
 if($result){
@@ -12,19 +12,18 @@ if($result){
 
         echo '<div class="shp__single__product">
         <div class="shp__pro__thumb">
-            <a href="#">
-                <img src="'.$row['thumbnail'].'" alt="product images">
-            </a>
+        <a href="#">
+        <img src="'.$row['thumbnail'].'" alt="product images">
+        </a>
         </div>
         <div class="shp__pro__details">
-            <h2><a href="product_detail.php?id='.$row['id'].'">'.$row['name'].'</a></h2>
-            <span class="quantity">QTY: '.$row['stock'].'</span>
-            <span class="shp__price">€'.$row['cost'].'</span>
+        <h2><a href="product_detail.php?id='.$row['id'].'">'.$row['name'].'</a></h2>
+        <span class="shp__price">€'.$row['cost'].'</span>
         </div>
         <div class="remove__btn">
-            <button" onclick="deleteFromCart('.$row['id'].')" title="Remove this item"><i class="zmdi zmdi-close"></i></button>
+        <button" onclick="deleteFromCart('.$row['id'].')" title="Remove this item"><i class="zmdi zmdi-close"></i></button>
         </div>
-    </div>';
+        </div>';
     }
 }
 
