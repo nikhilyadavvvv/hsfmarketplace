@@ -21,7 +21,7 @@ if ($count==1) {
             $_SESSION['is_buyer'] = false;
             $_SESSION['is_seller'] = true;
         }
-        
+        include('wishlist_sync.php');
         header("Location: ../index.php"); 
         exit();
     }

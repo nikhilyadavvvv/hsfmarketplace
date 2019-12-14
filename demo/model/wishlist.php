@@ -2,12 +2,22 @@
 require 'db.php';
 
 $product_id = $email = mysqli_real_escape_string($mysqli,$_GET['product_id']);
-if(!isset($_SESSION['user_id']) || !empty($_SESSION['user_id'])){
+if(!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])){
 
-    $data =  array();
     if (!isset($_SESSION['wishlist'])) {
-        $_SESSION['wishlist'] = $data;
+        $data =  array();
+    }else{
+        $data = $_SESSION['wishlist'];
     }
+    $_SESSION['wishlist'] = $data;
+
+
+    $key = array_search($product_id, array_column($data, 'id'));
+    if (!empty($key) && $key >= 0) {
+        echo "Product already in wishlist.";
+        exit();
+    }
+
     $sql = "SELECT * FROM table_product where id = ".$product_id;
     $result = mysqli_query($mysqli,$sql);
     $json_array = array();
