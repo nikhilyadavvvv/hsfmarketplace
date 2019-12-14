@@ -1,6 +1,6 @@
 <?php
 include 'db.php';
-error_reporting(0);
+//error_reporting(0);
 $s = $_GET['s'];
 $f = $_GET['f'];
 $c = $_GET['c'];

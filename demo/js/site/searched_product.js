@@ -10,6 +10,7 @@ function loadProducts(filter){
         var c = getUrlVars()["c"];
         url =  "model/searched_product.php?s="+s+"&c="+c;
     }
+    console.log(url);
     var html = '';
     var i = 0;
     document.getElementById("products_container").innerHTML ="";
