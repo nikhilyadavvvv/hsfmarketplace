@@ -6,9 +6,13 @@ function loadProducts(filter){
     var s = url.searchParams.get("s");
     console.log(s);
     var url =  "model/searched_product.php?s="+s+"&f="+filter+"&c="+'';
-    if(s==='xxx'){
+    if(s===''){
         var c = getUrlVars()["c"];
-        url =  "model/searched_product.php?s="+s+"&c="+c+"&f="+'';
+        if(c===''){
+
+        } else{
+            url =  "model/searched_product.php?s="+s+"&c="+c+"&f="+'';
+        }
     }
     console.log(url);
     var html = '';
