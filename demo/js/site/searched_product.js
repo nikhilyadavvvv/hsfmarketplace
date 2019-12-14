@@ -5,11 +5,12 @@ function loadProducts(filter){
     var url = new URL(url_string);
     var s = url.searchParams.get("s");
     console.log(s);
-    var url =  "model/searched_product.php?s="+s+"&f="+filter;
+    var url =  "model/searched_product.php?s="+s+"&f="+filter+"&c="+'';
     if(s==='xxx'){
         var c = getUrlVars()["c"];
-        url =  "model/searched_product.php?s="+s+"&c="+c;
+        url =  "model/searched_product.php?s="+s+"&c="+c+"&f="+'';
     }
+    console.log(url);
     var html = '';
     var i = 0;
     document.getElementById("products_container").innerHTML ="";
