@@ -150,12 +150,12 @@
     <form action="model/message.php" method="POST">
     
     <div class="modal-body" style="padding: 5px;">
-    <input type="text" name="from" value="" >
-    <input type="text" name="to" value="" id="toSeller">
-        <textarea class="form-group margin-0" placeholder="Type your message here..."></textarea>
+    <input name="to" type="hidden" name="to" value="" id="toSeller"  **/>**
+    <input name="product_id" type="hidden" name="to" value="" id="sendProductId"  **/>**
+        <textarea id="content" class="form-group margin-0" placeholder="Type your message here..."></textarea>
     </div>
     <div class="modal-footer" style="padding: 5px;">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Send Message</button>
+        <button type="submit" onclick="sendMessage()" class="btn btn-primary" data-dismiss="modal">Send Message</button>
     </div>
     </form>
 </div>

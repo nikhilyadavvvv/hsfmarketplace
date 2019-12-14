@@ -31,6 +31,7 @@ function loadProducts(){
             document.getElementById('product_seller').innerHTML= seller;
             document.getElementById('toSeller').value= seller;
             document.getElementById('addToCart').value= id;
+            document.getElementById('sendProductId').value= id;
             document.getElementById('product_info').innerHTML= description;
             document.getElementById('product_stock').innerHTML= stock;
             document.getElementById('product_description').innerHTML= description;
@@ -44,4 +45,22 @@ function loadProducts(){
 
     xhttp.open("GET", "model/product_detail.php?id="+id, true);
     xhttp.send();
+}
+
+function sendMessage() {
+    var to= document.getElementById("toSeller").value;
+    var product_id=document.getElementById("sendProductId").value;
+    var content=document.getElementById("content").value;
+    console.log('sendmessage');
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var response = this.responseText;
+        console.log(response);
+        alert(response);
+      }
+    };
+    xhttp.open("POST", "model/message.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("content="+content+"&product_id="+product_id+"&to="+to);
 }
