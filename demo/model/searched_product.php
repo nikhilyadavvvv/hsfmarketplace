@@ -3,11 +3,16 @@ include 'db.php';
 error_reporting(0);
 $s = $_GET['s'];
 $f = $_GET['f'];
-$c = $$_GET['c'];
+$c = $_GET['c'];
 
 //$sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'";
 if(empty($_GET['f'])){
-    $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'";
+    if($s="xxx"){
+        $sql = "SELECT *  FROM `table_product` WHERE `category_id` = '$c'";
+    } else {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'";
+    }
+   
 } else if ($f=="popularity") {
     # code...
 } else if ($f=="rating") {

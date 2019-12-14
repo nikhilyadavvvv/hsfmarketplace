@@ -5,7 +5,7 @@
     <script src="js/site/product_detail.js"></script>
 </head>
 
-<body onload="loadProducts()">
+<body onload="loadProducts(); loadCart();">
 
     <!-- Body main wrapper start -->
     <div class="wrapper">
@@ -90,7 +90,7 @@
 
                             <div class="sin__desc product__share__link">
                                 <ul class="pro__share">
-                                    <li><a href="#" target="_blank"><i class="fa fa-cart-plus icons"></i> Add to Cart</a></li>
+                                    <li><a onclick="addToCart(this.value)" id="addToCart" target="_blank"><i class="fa fa-cart-plus icons"></i> Add to Cart</a></li>
 
                                     <li><a href="#" data-toggle="modal" data-target="#messageModal"><i class="fa fa-envelope-square icons"></i> Message </a></li>
                                 </ul>
@@ -98,7 +98,7 @@
 
                         </div>
                     </div>
-                </div>
+                </div>  
             </div>
         </div>
         <!-- End Product Details Top -->

@@ -2,10 +2,12 @@
 <html class="no-js" lang="en">
 <head>
     <?php include('include/header_style.php')?>
+    <?php require('model/get_category.php') ?>
     <script src="js/site/funcitons.js"></script>
+
 </head>
 
-<body onload="loadProducts()">
+<body onload="loadProducts(); loadCart()">
     <!-- Body main wrapper start -->
     <div class="wrapper">
         <?php include('include/menu.php')?>
@@ -16,6 +18,20 @@
             <?php include('include/cart.php')?>
 
         </div>
+
+        <!-- Explore -->
+        <div class="container">
+        <ul class="list-inline">
+        <li class="list-inline-item"><a href="#products_container" onclick="search_category('0')">EXPLORE:</a></li>
+                                <?php while($row = $categories -> fetch_assoc()){ ?>
+                                <li><a class="btn btn-primary" href="<?php echo "product_search.php?s=xxx&c=".$row["category_id"]; ?>"><?php echo $row["category_name"]; ?></a></li>
+                                <?php } ?>
+        </ul>
+        </div>
+        
+
+
+
         <section class="htc__category__area ptb--50">
             <div class="container">
                 <div class="row">
