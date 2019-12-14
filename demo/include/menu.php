@@ -52,8 +52,7 @@
 
                                         <ul class="dropdown-menu">
                                             <li><a href="profile.php">My Profile</a></li>
-                                            <li><a href="#">Baskets</a></li>
-                                            <li><a href="#">Messages</a></li>
+                                            <li><a href="message.php">Messages</a></li>
                                             <li><a href="logout.php">Log Out</a></li>
                                         </ul>
                                     </div>
