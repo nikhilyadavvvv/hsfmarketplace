@@ -3,7 +3,7 @@
 	<?php if(isset($_SESSION['is_seller'])){ ?>
 		<li><a href="my_products.php"><i class="fa fa-envelope"></i> My Products</a></li>
 	<?php } ?>
-	<li><a href="#"><i class="fa fa-cart-plus"></i> Wishlist</a></li>
+	<li><a href="wishlist.php"><i class="fa fa-cart-plus"></i> Wishlist</a></li>
 	<li><a href="basket.php"><i class="fa fa-cart-plus"></i> Basket</a></li>
 	<li><a href="message.php"><i class="fa fa-envelope"></i> Message</a></li>
 	<li><a href="change_password.php"><i class="fa fa-key"></i> Change Password</a></li>
