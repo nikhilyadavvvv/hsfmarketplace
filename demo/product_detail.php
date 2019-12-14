@@ -90,7 +90,9 @@
 
                             <div class="sin__desc product__share__link">
                                 <ul class="pro__share">
-                                    <li><a onclick="addToCart(this.value)" id="addToCart" target="_blank"><i class="fa fa-cart-plus icons"></i> Add to Cart</a></li>
+                                    <li><a onclick="addToCart(this.value)" id="addToCart"><i class="fa fa-cart-plus icons"></i> Add to Cart</a></li>
+
+                                    <li><a onclick="addToWishlist(this.value)" id="addToWishlist"><i class="fa fa-cart-plus icons"></i> Add to Wishlist</a></li>
 
                                     <li><a href="#" data-toggle="modal" data-target="#messageModal"><i class="fa fa-envelope-square icons"></i> Message </a></li>
                                 </ul>

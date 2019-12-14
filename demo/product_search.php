@@ -1,9 +1,10 @@
-<?php require('model/get_category.php') ?>
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
     <?php include('include/header_style.php')?>
 </head>
+
+<?php require('model/get_category.php') ?>
 
 <body onload="loadProducts(''); loadCart();">
     <!-- Body main wrapper start -->

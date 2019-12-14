@@ -1,7 +1,3 @@
-<?php 
-require('model/get_category.php');
-require('model/get_single_product.php');
-?>
 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -9,6 +5,11 @@ require('model/get_single_product.php');
 <head>
     <?php include('include/header_style.php') ?>
 </head>
+
+<?php 
+require('model/get_category.php');
+require('model/get_single_product.php');
+?>
 
 <body onload="">
     <!-- Body main wrapper start -->

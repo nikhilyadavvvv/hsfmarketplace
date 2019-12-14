@@ -31,6 +31,7 @@ function loadProducts(){
             document.getElementById('product_seller').innerHTML= seller;
             document.getElementById('toSeller').value= seller;
             document.getElementById('addToCart').value= id;
+            document.getElementById('addToWishlist').value= id;
             document.getElementById('product_info').innerHTML= description;
             document.getElementById('product_stock').innerHTML= stock;
             document.getElementById('product_description').innerHTML= description;

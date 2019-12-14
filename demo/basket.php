@@ -1,11 +1,11 @@
-<?php require('model/get_basket_profile.php') ?>
-
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
     <?php include('include/header_style.php') ?>
 </head>
+
+<?php require('model/get_basket_profile.php') ?>
 
 <body onload="">
     <!-- Body main wrapper start -->

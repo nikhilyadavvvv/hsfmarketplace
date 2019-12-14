@@ -1,4 +1,3 @@
-<?php require('model/my_products.php') ?>
 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -6,6 +5,8 @@
 <head>
     <?php include('include/header_style.php') ?>
 </head>
+
+<?php require('model/my_products.php') ?>
 
 <body onload="">
     <!-- Body main wrapper start -->
