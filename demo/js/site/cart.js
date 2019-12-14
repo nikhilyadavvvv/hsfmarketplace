@@ -61,3 +61,17 @@ function deleteFromCart(id){
     xhttp.send();
 }
 
+function checkout(){
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200)
+        {
+            var result = this.responseText;
+            alert(result);
+            loadCart();
+        }
+    }
+    xhttp.open("GET", "model/checkout_basket.php", true);
+    xhttp.send();
+}

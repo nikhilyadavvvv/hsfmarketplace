@@ -33,9 +33,8 @@ echo '<ul class="shoping__total">
 <li class="total__price">$'.$sum.'</li>
 </ul>
 <ul class="shopping__btn">
-<li><a href="cart.html">View Cart</a></li>
-<li class="shp__checkout"><a href="checkout.html">Checkout</a></li>
+<!-- <li><a href="cart.html">View Cart</a></li> -->
+<li class="shp__checkout"><a onclick="checkout()">Checkout</a></li>
 </ul>';
 ?>
-
 
