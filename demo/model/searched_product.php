@@ -7,12 +7,14 @@ $c = $_GET['c'];
 
 //$sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'";
 if(empty($_GET['f'])){
-    
-    if($s=="xxx"){
-       $sql = "SELECT *  FROM `table_product` WHERE `category_id` = '$c'";
-    } else {
+    if(empty($s) && empty($c)){
        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'";
     }
+    else{
+       $sql = "SELECT *  FROM `table_product` WHERE `category_id` = '$c'";
+    } /*else {
+       $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'";
+    }*/
    
 } else if ($f=="popularity") {
     # code...
