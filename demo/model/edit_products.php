@@ -1,6 +1,10 @@
 
 <?php
-session_start();
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+}
+
     $seller  = $_SESSION['user_id']; //uncomment finally
     $product_id  = $_POST['product_id']; //uncomment finally
     //$seller  = 202; //delete when final
@@ -59,14 +63,14 @@ session_start();
 
     if($result){
         while($row = $result -> fetch_assoc()){
-         $category = $row["category_name"];
-         $sku = $row["sku"];
-     }
- }
+           $category = $row["category_name"];
+           $sku = $row["sku"];
+       }
+   }
 
- $sql = "update `table_product` set `sku` = '$sku', `name` = '$name', `cost` = '$cost', `category` = '$category', `category_id` = '$category_id', `image` = '$image', `thumbnail` = '$thumbnail', `description` = '$description', `stock` = '$stock' WHERE `id` = '$product_id' and  `seller` = '$seller'";
+   $sql = "update `table_product` set `sku` = '$sku', `name` = '$name', `cost` = '$cost', `category` = '$category', `category_id` = '$category_id', `image` = '$image', `thumbnail` = '$thumbnail', `description` = '$description', `stock` = '$stock' WHERE `id` = '$product_id' and  `seller` = '$seller'";
 
-if (mysqli_query($mysqli,$sql)) {
+   if (mysqli_query($mysqli,$sql)) {
     //$_SESSION['error_message'] = $errors;
     $_SESSION['success_message'] = 'Product updated successfully.';
     header("Location: ../my_products.php"); 
