@@ -40,8 +40,8 @@ function loadProducts(){
             document.getElementById('product_info').innerHTML= description;
             document.getElementById('product_stock').innerHTML= stock;
             document.getElementById('product_description').innerHTML= description;
-            document.getElementById('product_img_big').src= image;
-            document.getElementById('product_img_small').src= image;
+            /*document.getElementById('product_img_big').src= image;
+            document.getElementById('product_img_small').src= image;*/
             loadImages(id);
         });
 
@@ -55,19 +55,19 @@ function loadProducts(){
 
 function loadImages(id){
 
-    var xhttp = new XMLHttpRequest();
+    // var xhttp = new XMLHttpRequest();
 
-    xhttp.onreadystatechange = function() {
-        if(this.readyState == 4 && this.status == 200)
-        {
-            var result = this.responseText;
-            console.log(result);
-            document.getElementById("small_images").innerHTML = result;
-        }
-    }
-    console.log("model/get_multi_images.php?id="+id);
-    xhttp.open("GET", "model/get_multi_images.php?id="+id, true);
-    xhttp.send();
+    // xhttp.onreadystatechange = function() {
+    //     if(this.readyState == 4 && this.status == 200)
+    //     {
+    //         var result = this.responseText;
+    //         console.log(result);
+    //         document.getElementById("small_images").innerHTML = result;
+    //     }
+    // }
+    // console.log("model/get_multi_images.php?id="+id);
+    // xhttp.open("GET", "model/get_multi_images.php?id="+id, true);
+    // xhttp.send();
 }
 
 function sendMessage() {
