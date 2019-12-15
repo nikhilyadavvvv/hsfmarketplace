@@ -61,6 +61,7 @@ function loadImages(id){
         if(this.readyState == 4 && this.status == 200)
         {
             var result = this.responseText;
+            console.log(result);
             document.getElementById("small_images").innerHTML = result;
         }
     }
