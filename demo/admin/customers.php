@@ -98,7 +98,8 @@ $total_pages = $db->totalPages;
     <thead>
         <tr>
             <th width="5%" class="text-center">SL</th>
-            <th width="20%" class="text-center">Name</th>
+            <th width="10%" class="text-center">Firstname</th>
+            <th width="10%" class="text-center">Lastname</th>
             <th width="20%" class="text-center">Email</th>
             <th width="20%" class="text-center">Phone</th>
             <th width="10%" class="text-center">Type</th>
@@ -113,7 +114,8 @@ $total_pages = $db->totalPages;
         foreach ($rows as $row): ?>
             <tr>
                 <td class="text-center"><?php echo $i++; ?></td>
-                <td><?php echo htmlspecialchars($row['firstname'] . ' ' . $row['lastname']); ?></td>
+                <td><?php echo htmlspecialchars($row['firstname']); ?></td>
+                <td><?php echo htmlspecialchars($row['lastname']); ?></td>
                 <td class="text-center"><?php echo htmlspecialchars($row['email']); ?></td>
                 <td class="text-center"><?php echo htmlspecialchars($row['phone']); ?></td>
                 <td class="text-center"><?php if ($row['is_buyer'] == 'y') {

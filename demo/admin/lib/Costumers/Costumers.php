@@ -22,7 +22,7 @@ class Costumers
     {
         $ordering = [
             'user_id' => 'ID',
-            'firtname' => 'First Name',
+            'firstname' => 'First Name',
             'lastname' => 'Last Name',
             'email' => 'Email',
             'phone' => 'Phone',

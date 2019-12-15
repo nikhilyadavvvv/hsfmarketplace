@@ -8,33 +8,37 @@ $users = new Users();
 
 $edit = false;
 
-	// Sanitize input post if we want
-$data_to_db['user_name'] = 'jobayer';
-$data_to_db['password'] = 'password';
+if ($_SERVER['REQUEST_METHOD'] === 'POST')
+{
+		// Sanitize input post if we want
+	$data_to_db['user_name'] = filter_input(INPUT_POST, 'user_name');;
+	$data_to_db['password'] = filter_input(INPUT_POST, 'password');;
+	$data_to_db['admin_type'] = filter_input(INPUT_POST, 'admin_type');;
 
 	// Check whether the user name already exists
-$db = getDbInstance();
-$db->where('user_name', $data_to_db['user_name']);
-$db->get('admin_accounts');
+	$db = getDbInstance();
+	$db->where('user_name', $data_to_db['user_name']);
+	$db->get('admin_accounts');
 
-if ($db->count >= 1)
-{
-	$_SESSION['failure'] = 'Username already exists';
-	header('location: add_admin.php');
-	exit;
-}
+	if ($db->count >= 1)
+	{
+		$_SESSION['failure'] = 'Username already exists';
+		header('location: add_admin.php');
+		exit;
+	}
 
 	// Encrypting the password
-$data_to_db['password'] = password_hash($data_to_db['password'], PASSWORD_DEFAULT);
+	$data_to_db['password'] = password_hash($data_to_db['password'], PASSWORD_DEFAULT);
 	// Reset db instance
-$db = getDbInstance();
-$last_id = $db->insert('admin_accounts', $data_to_db);
+	$db = getDbInstance();
+	$last_id = $db->insert('admin_accounts', $data_to_db);
 
-if ($last_id)
-{
-	$_SESSION['success'] = 'Admin user added successfully';
-	header('location: admin_users.php');
-	exit;
+	if ($last_id)
+	{
+		$_SESSION['success'] = 'Admin user added successfully';
+		header('location: admin_users.php');
+		exit;
+	}
 }
 ?>
 <?php include BASE_PATH . '/includes/header.php'; ?>
@@ -45,7 +49,7 @@ if ($last_id)
 		</div>
 	</div>
 	<?php include BASE_PATH . '/includes/flash_messages.php'; ?>
-	<form class="well form-horizontal" action="" method="post" id="contact_form" enctype="multipart/form-data">
+	<form class="well form-horizontal" action="add_admin.php" method="post" id="contact_form" enctype="multipart/form-data">
 		<?php include BASE_PATH . '/forms/admin_users_form.php'; ?>
 	</form>
 </div>
