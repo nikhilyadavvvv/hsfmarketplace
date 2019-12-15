@@ -8,6 +8,13 @@ if(!isset($_SESSION))
     $seller  = $_SESSION['user_id']; //uncomment finally
     //$seller  = 202; //delete when final
     $filename  = $_FILES['uploadedfile']['tmp_name'];
+
+    if (filesize($filename) <= 2097152){
+        $_SESSION['error_message'] = 'Product images to large to upload. MAX-2MB';
+        header("Location: ../add_products.php"); 
+        exit();
+    }
+
     $handle    = fopen($filename, "r");
     $data      = fread($handle, filesize($filename));
     $POST_DATA = array(
@@ -43,13 +50,13 @@ if(!isset($_SESSION))
 
     if($result){
         while($row = $result -> fetch_assoc()){
-           $category = $row["category_name"];
-           $sku = $row["sku"];
-       }
-   }
+         $category = $row["category_name"];
+         $sku = $row["sku"];
+     }
+ }
 
-   $sql = "INSERT INTO `table_product` (`id`, `sku`, `name`, `cost`, `category`, `category_id`, `image`, `thumbnail`, `description`, `stock`, `seller`,`rating`,`quantity_sold`,`status`) VALUES 
-   (NULL, '$sku', '$name', '$cost', '$category', '$category_id', '$image', '$thumbnail', '$description', '$stock', '$seller', '0', '0', '$status')";
+ $sql = "INSERT INTO `table_product` (`id`, `sku`, `name`, `cost`, `category`, `category_id`, `image`, `thumbnail`, `description`, `stock`, `seller`,`rating`,`quantity_sold`,`status`) VALUES 
+ (NULL, '$sku', '$name', '$cost', '$category', '$category_id', '$image', '$thumbnail', '$description', '$stock', '$seller', '0', '0', '$status')";
 /* mysqli_query($mysqli,$sql);
 echo 'product inserted';*/
 
