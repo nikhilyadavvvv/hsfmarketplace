@@ -1482,7 +1482,7 @@ background: #c43b68 none repeat scroll 0 0;
         }
 
         .breadcrumb-item {
-            color: #494949;
+            color: white;
             font-family: "Poppins", sans-serif;
             font-size: 18px;
             font-weight: 500;
@@ -1498,7 +1498,7 @@ background: #c43b68 none repeat scroll 0 0;
         }
 
         .brd-separetor i {
-            color: #494949;
+            color: white;
             font-size: 18px;
         }
 

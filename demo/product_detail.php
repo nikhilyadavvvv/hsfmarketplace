@@ -26,11 +26,9 @@
                         <div class="col-xs-12">
                             <div class="bradcaump__inner">
                                 <nav class="bradcaump-inner">
-                                  <a class="breadcrumb-item" href="index.html">Home</a>
+                                  <a class="breadcrumb-item" href="index.php">Home</a>
                                   <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                                  <a class="breadcrumb-item" href="product-grid.html">Products</a>
-                                  <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                                  <span class="breadcrumb-item active">Jeans shirt</span>
+                                  <a class="breadcrumb-item" href="#">Products</a>
                               </nav>
                           </div>
                       </div>
@@ -73,9 +71,9 @@
                             <ul  class="pro__prize">
                                 <li>Price: <span id="product_price"></span></li>
                             </ul>
-                            <ul  class="pro__prize">
+                            <!-- <ul  class="pro__prize">
                                 <li>Seller: <span id="product_seller"></span></li>
-                            </ul>
+                            </ul> -->
                             <p class="pro__info" id="product_info"></p>
                             <div class="ht__pro__desc">
                                 <div class="sin__desc">

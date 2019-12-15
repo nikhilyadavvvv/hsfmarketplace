@@ -72,6 +72,7 @@ require('model/get_single_product.php');
                             <div class="page-title">
                                 <h1>Edit Product</h1>
                             </div><!-- /.page-title -->
+                            <?php include('include/flash_messages.php') ?>
                             <form action="model/edit_products.php" method="post" enctype="multipart/form-data">
                                 <input type="hidden" class="form-control" value="<?php echo $product['id'] ?>" name="product_id" required>
                                 <input type="hidden" class="form-control" value="<?php echo $product['image'] ?>" name="image" required>
@@ -94,8 +95,8 @@ require('model/get_single_product.php');
                                             <select class="form-control" name="category">
                                                 <option value="">Select</option>
                                                 <?php while($row = $categories -> fetch_assoc()){ ?>
-                                                <option <?php if ($row["category_id"] == $product['category_id']) { echo 'selected';} ?> value="<?php echo $row["category_id"]; ?>"><?php echo $row["category_name"]; ?></option>
-                                            <?php } ?>
+                                                    <option <?php if ($row["category_id"] == $product['category_id']) { echo 'selected';} ?> value="<?php echo $row["category_id"]; ?>"><?php echo $row["category_name"]; ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div><!-- /.form-group -->
 

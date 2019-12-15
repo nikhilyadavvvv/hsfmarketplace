@@ -9,6 +9,12 @@ if(!isset($_SESSION))
     $product_id  = $_POST['product_id']; //uncomment finally
     //$seller  = 202; //delete when final
     $filename  = $_FILES['uploadedfile']['tmp_name'];
+
+    if (filesize($filename) >= 2097152){
+        $_SESSION['error_message'] = 'Product images to large to upload. MAX-2MB';
+        header("Location: ../edit_products.php"); 
+        exit();
+    }
     
     if (!empty($filename)) {
         $handle    = fopen($filename, "r");

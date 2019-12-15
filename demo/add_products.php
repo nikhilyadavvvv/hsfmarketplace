@@ -69,6 +69,7 @@
                             <div class="page-title">
                                 <h1>Add Product</h1>
                             </div><!-- /.page-title -->
+                            <?php include('include/flash_messages.php') ?>
                             <form action="model/create_product.php" method="post" enctype="multipart/form-data">
                                 <div class="background-white p20 mb10">
 
@@ -88,8 +89,8 @@
                                             <select class="form-control" name="category">
                                                 <option value="">Select</option>
                                                 <?php while($row = $categories -> fetch_assoc()){ ?>
-                                                <option value="<?php echo $row["category_id"]; ?>"><?php echo $row["category_name"]; ?></option>
-                                            <?php } ?>
+                                                    <option value="<?php echo $row["category_id"]; ?>"><?php echo $row["category_name"]; ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div><!-- /.form-group -->
 
