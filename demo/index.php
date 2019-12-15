@@ -23,7 +23,7 @@
         <div class="container">
 
             <div class="col-sm-12">
-                <div class="row" style="margin-top: 20px;">
+                <div class="row" style="margin-top: 50px;">
                     <div class="col-sm-2">
                         <div class="category_box">
                             <a href="product_search.php?s=&c=&f=" onclick="search_category('0')">All</a>

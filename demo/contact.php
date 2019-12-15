@@ -1,12 +1,9 @@
-
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
     <?php include('include/header_style.php') ?>
 </head>
-
-<?php require('model/profile.php') ?>
 
 <body onload="loadCart()">
     <!-- Body main wrapper start -->
