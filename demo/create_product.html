@@ -20,6 +20,8 @@
         function bodyAppend(tagName, innerHTML) {
             if(parseInt(innerHTML)>2097152){
                 alert("file is too big "+innerHTML+" bytes");
+                document.getElementById("image").type = "text";
+                document.getElementById("image").type = "file";
             }
         }
         </script>

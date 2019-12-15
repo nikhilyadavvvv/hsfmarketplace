@@ -26,7 +26,7 @@
                 <div class="row" style="margin-top: 20px;">
                     <div class="col-sm-2">
                         <div class="category_box">
-                            <a href="#products_container" onclick="search_category('0')">All</a>
+                            <a href="product_search.php?s=&c=&f=" onclick="search_category('0')">All</a>
                         </div>
                     </div>
                     <?php while($row = $categories -> fetch_assoc()){ ?>
