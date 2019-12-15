@@ -12,11 +12,11 @@ if(!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])){
     $_SESSION['wishlist'] = $data;
 
 
-    $key = array_search($product_id, array_column($data, 'id'));
-    if (!empty($key) && $key >= 0) {
-        echo "Product already in wishlist.";
-        exit();
-    }
+    // $key = array_search($product_id, array_column($data, 'id'));
+    // if (!empty($key) && $key >= 0) {
+    //     echo "Product already in wishlist.";
+    //     exit();
+    // }
 
     $sql = "SELECT * FROM table_product where id = ".$product_id;
     $result = mysqli_query($mysqli,$sql);
