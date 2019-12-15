@@ -17,7 +17,7 @@
                         <nav class="main__menu__nav hidden-xs hidden-sm">
                             <ul class="main__menu">
                                 <li class="drop"><a href="index.php">Home</a></li>
-                                <li><a href="#">contact</a></li>
+                                <li><a href="contact.php">contact</a></li>
                             </ul>
                         </nav>
 
@@ -25,7 +25,7 @@
                             <nav id="mobile_dropdown">
                                 <ul>
                                     <li><a href="index.php">Home</a></li>
-                                    <li><a href="#">contact</a></li>
+                                    <li><a href="contact.php">contact</a></li>
                                 </ul>
                             </nav>
                         </div>
