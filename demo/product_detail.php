@@ -3,6 +3,7 @@
 
 <head>
     <?php include('include/header_style.php') ?>
+    <?php include('model/get_images_product.php') ?>
     <script src="js/site/product_detail.js"></script>
 </head>
 
@@ -49,23 +50,25 @@
                                 <!-- Start Product Big Images -->
                                 <div class="product__big__images">
                                     <div class="portfolio-full-image tab-content">
-                                        <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1">
+                                        <!-- <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1-0">
                                             <img src="" alt="full-image" id="product_img_big">
-                                        </div>
+                                        </div> -->
+                                        <?php echo $image_big ?>
                                     </div>
                                 </div>
                                 <!-- End Product Big Images -->
-                                <ul class="product__small__images" role="tablist">
-                                    <li role="presentation" class="pot-small-img active">
-                                        <a href="#img-tab-1" role="tab" data-toggle="tab">
+                                <ul class="product__small__images" role="tablist" id="small_images">
+                                    <!-- <li role="presentation" class="pot-small-img active">
+                                        <a href="#img-tab-1-0" role="tab" data-toggle="tab">
                                             <img src="" alt="small-image" id="product_img_small" style="width: 80px;">
                                         </a>
-                                    </li>
+                                    </li> -->
+                                    <?php echo $image_small ?>
                                 </ul>
                                 <!-- Start Small images -->
-                                <div id="small_images">
+                                <!-- <div id="small_images">
 
-                                </div>
+                                </div> -->
                                 <!-- End Small images -->
                             </div>
                         </div>

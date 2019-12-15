@@ -41,7 +41,7 @@
 
         <section class="htc__contact__area ptb--30 bg__white">
             <div class="container">                
-                <div class="row">
+                <div class="row" style="min-height: 500px;">
                     <div class="contact-form-wrap mt--10">
                         <div class="col-sm-12">
                             <div class="contact-title text-center">

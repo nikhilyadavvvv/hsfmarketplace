@@ -99,7 +99,7 @@ $total_pages = $db->totalPages;
         <tr>
             <th width="5%" class="text-center">SL</th>
             <th width="10%" class="text-center">Name</th>
-            <th width="10%" class="text-center">email</th>
+            <th width="10%" class="text-center">Email</th>
             <th width="10%" class="text-center">Subject</th>
             <th width="35%" class="text-center">Message</th>
             <!-- <th width="10%" class="text-center">Actions</th> -->
