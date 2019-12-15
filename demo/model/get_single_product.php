@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
 $id = $_GET['id'];
-$sql = "SELECT *  FROM `table_product` WHERE `id` = ".$id;
+$sql = "SELECT *  FROM `table_product` WHERE `id` = ".$id." AND `status` = 'approved'";
 $result = mysqli_query($mysqli,$sql);
 $product = array();
 if(count($result)){
