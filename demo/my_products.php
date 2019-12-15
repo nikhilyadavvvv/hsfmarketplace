@@ -98,7 +98,7 @@
                                                             
                                                             <td class="product-name"><a href="#"><?php echo $row['category']; ?></a></td>
                                                             
-                                                            <td class="product-price"><span class="amount">£<?php echo $row['cost'] ?></span></td>
+                                                            <td class="product-price"><span class="amount">€<?php echo $row['cost'] ?></span></td>
 
                                                             <td class="product-subtotal">
                                                                 <?php if ( $row['status'] == 'approved') { ?>
