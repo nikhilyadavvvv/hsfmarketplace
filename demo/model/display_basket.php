@@ -1,11 +1,15 @@
 <?php
 
-session_start();
-    if(empty($_SESSION['user_id'])){
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+}
+
+if(empty($_SESSION['user_id'])){
     echo "You are not logged in ";
     exit();
-    }
-    $user_id = $_SESSION['user_id'];
+}
+$user_id = $_SESSION['user_id'];
 
 include 'db.php';
 $sql = "SELECT *  FROM `basket` WHERE `user_id` = '$user_id'";
@@ -27,8 +31,8 @@ if($result){
                 $data['cost'] = $row['cost'];
                 $data['category'] = $row['category'] ;
                 $data['description'] = $row['description'];
-                 $data['stock'] = $row['stock'];
-                 $json_array[] = $data;
+                $data['stock'] = $row['stock'];
+                $json_array[] = $data;
                 
             }
         }

@@ -1,6 +1,10 @@
 
 <?php
-session_start();
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+}
+
     $seller  = $_SESSION['user_id']; //uncomment finally
     //$seller  = 202; //delete when final
     $filename  = $_FILES['uploadedfile']['tmp_name'];
@@ -39,17 +43,17 @@ session_start();
 
     if($result){
         while($row = $result -> fetch_assoc()){
-         $category = $row["category_name"];
-         $sku = $row["sku"];
-     }
- }
+           $category = $row["category_name"];
+           $sku = $row["sku"];
+       }
+   }
 
- $sql = "INSERT INTO `table_product` (`id`, `sku`, `name`, `cost`, `category`, `category_id`, `image`, `thumbnail`, `description`, `stock`, `seller`,`rating`,`quantity_sold`,`status`) VALUES 
- (NULL, '$sku', '$name', '$cost', '$category', '$category_id', '$image', '$thumbnail', '$description', '$stock', '$seller', '0', '0', '$status')";
+   $sql = "INSERT INTO `table_product` (`id`, `sku`, `name`, `cost`, `category`, `category_id`, `image`, `thumbnail`, `description`, `stock`, `seller`,`rating`,`quantity_sold`,`status`) VALUES 
+   (NULL, '$sku', '$name', '$cost', '$category', '$category_id', '$image', '$thumbnail', '$description', '$stock', '$seller', '0', '0', '$status')";
 /* mysqli_query($mysqli,$sql);
- echo 'product inserted';*/
+echo 'product inserted';*/
 
- if (mysqli_query($mysqli,$sql)) {
+if (mysqli_query($mysqli,$sql)) {
     //$_SESSION['error_message'] = $errors;
     $_SESSION['success_message'] = 'Product added successfully.';
     header("Location: ../my_products.php"); 
@@ -57,4 +61,4 @@ session_start();
 } else {
     echo mysqli_error($mysqli);
 }
- ?>
+?>
