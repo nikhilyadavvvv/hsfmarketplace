@@ -104,6 +104,21 @@
                                         </div><!-- /.form-group -->
 
                                         <div class="form-group col-sm-6">
+                                            <label>Image 2</label>
+                                            <input type="file" class="form-control" value="" name="uploadedfile1" required>
+                                        </div><!-- /.form-group -->
+
+                                        <div class="form-group col-sm-6">
+                                            <label>Image 3</label>
+                                            <input type="file" class="form-control" value="" name="uploadedfile2" required>
+                                        </div><!-- /.form-group -->
+
+                                        <div class="form-group col-sm-6">
+                                            <label>Image 4</label>
+                                            <input type="file" class="form-control" value="" name="uploadedfile3" required>
+                                        </div><!-- /.form-group -->
+
+                                        <div class="form-group col-sm-6">
                                             <label>Description</label>
                                             <textarea class="form-control" name="description" required></textarea>
                                         </div><!-- /.form-group -->

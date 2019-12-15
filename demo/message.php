@@ -78,7 +78,7 @@
                                         $sql2 = "SELECT *  FROM `user` WHERE `user_id` = $sender";
                                         $result2 = mysqli_query($mysqli, $sql2);
                                         while ($row2 = $result2->fetch_assoc()) {
-                                            $sender_name = $row2["firstname"];
+                                            echo $sender_name = $row2["firstname"];
                                         }
 
                                         $sql3 = "SELECT *  FROM `table_product` WHERE `id` = $product_id";
@@ -98,7 +98,9 @@
                                                 <a href="#" data-toggle="modal" data-target="#messageModal" onclick="setSender(<?php echo $sender;?>); setProduct(<?php echo $product_id;?>);">
                                                     <i class="icon-pencil icons"></i>
                                                 </a>
-                                                <i class="icon-trash icons"></i>
+                                                <a href="#"  onclick="deleteMessage(<?php echo $sender;?>)">
+                                                    <i class="icon-trash icons"></i>
+                                                </a>
                                             </td>
                                         </tr>
 
@@ -125,7 +127,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Message to Seller</h4>
+                        <h4 class="modal-title">Reply</h4>
                     </div>
                     <form action="model/message.php" method="POST">
 
