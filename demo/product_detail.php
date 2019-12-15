@@ -71,9 +71,9 @@
                             <ul  class="pro__prize">
                                 <li>Price: <span id="product_price"></span></li>
                             </ul>
-                            <ul  class="pro__prize">
+                            <!-- <ul  class="pro__prize">
                                 <li>Seller: <span id="product_seller"></span></li>
-                            </ul>
+                            </ul> -->
                             <p class="pro__info" id="product_info"></p>
                             <div class="ht__pro__desc">
                                 <div class="sin__desc">

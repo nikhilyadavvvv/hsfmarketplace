@@ -10,9 +10,9 @@ if(!isset($_SESSION))
     //$seller  = 202; //delete when final
     $filename  = $_FILES['uploadedfile']['tmp_name'];
 
-    if (filesize($filename) <= 2097152){
+    if (filesize($filename) >= 2097152){
         $_SESSION['error_message'] = 'Product images to large to upload. MAX-2MB';
-        header("Location: ../add_products.php"); 
+        header("Location: ../edit_products.php"); 
         exit();
     }
     

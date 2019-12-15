@@ -33,4 +33,12 @@ if ($segment == 'my_products.php' && !isset($_SESSION['user_id'])) {
 
 }
 
+if ($segment == 'my_products.php' && !$_SESSION['is_seller']) {
+	$_SESSION['error_message'] = "You don't have this access.";
+	header('Location: profile.php');
+}else if ($segment == 'edit_products.php' && !$_SESSION['is_seller']) {
+	$_SESSION['error_message'] = "You don't have this access.";
+	header('Location: profile.php');
+}
+
 ?>
