@@ -10,9 +10,15 @@
 <script src="js/waypoints.min.js"></script>
 <!-- Main js file that contents all jQuery plugins activation. -->
 <script src="js/main.js"></script>
+<script src="js/toast/jquery.basic.toast.js"></script>
 
 <script>
 	$( document ).ready(function() {
 		loadCart();
 	});
 </script>
+
+<?php 
+if (isset($_SESSION) && !empty($_SESSION['user_id'])) {
+	include('notifications.php');
+} ?>

@@ -31,7 +31,7 @@ if (!$order_dir) {
 
 // Get DB instance. i.e instance of MYSQLiDB Library
 $db = getDbInstance();
-$select = array('id', 'name', 'category', 'cost', 'status');
+$select = array('id', 'name', 'category', 'cost', 'status', 'seller');
 
 // Start building query according to input parameters
 // If search string
@@ -134,6 +134,7 @@ $total_pages = $db->totalPages;
                             </div>
                             <div class="modal-body">
                                 <input type="hidden" name="rej_id" id="rej_id" value="<?php echo $row['id']; ?>">
+                                <input type="hidden" name="seller_id" id="seller_id" value="<?php echo $row['seller']; ?>">
                                 <p>Are you sure you want to reject this row?</p>
                             </div>
                             <div class="modal-footer">
@@ -158,6 +159,7 @@ $total_pages = $db->totalPages;
                             </div>
                             <div class="modal-body">
                                 <input type="hidden" name="rej_id" id="rej_id" value="<?php echo $row['id']; ?>">
+                                <input type="hidden" name="seller_id" id="seller_id" value="<?php echo $row['seller']; ?>">
                                 <p>Are you sure you want to accept this row?</p>
                             </div>
                             <div class="modal-footer">

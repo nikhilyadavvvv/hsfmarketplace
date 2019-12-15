@@ -21,7 +21,7 @@ if (isset($_SESSION['wishlist'])) {
 			$product_id = $row['id'];
 			$exist = product_exist($product_id);
 
-			if (!$exist) {
+			if ($exist != 1) {
 				$insertSql = "INSERT INTO `wishlist` (`user_id`, `product_id`) VALUES ('$user_id', '$product_id')";
 
 				if (mysqli_query($mysqli,$insertSql)) {
