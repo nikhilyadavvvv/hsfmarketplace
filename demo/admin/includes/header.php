@@ -74,6 +74,7 @@
                                 <li><a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
                                 <li><a href="customers.php"><i class="fa fa-users fa-fw"></i> Customers</a></li>
                                 <li><a href="products.php"><i class="fa fa-list fa-fw"></i> Products</a></li>
+                                <li><a href="contact.php"><i class="fa fa-users fa-fw"></i> Admin Message</a></li>
                                 <li><a href="admin_users.php"><i class="fa fa-users fa-fw"></i> Admin Users</a></li>
                             </ul>
                         </div>
