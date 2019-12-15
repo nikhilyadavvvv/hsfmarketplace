@@ -4,16 +4,12 @@ function loadProducts(filter){
     var url_string = window.location.href;
     var url = new URL(url_string);
     var s = url.searchParams.get("s");
-    console.log(s);
-    var url =  "model/searched_product.php?s="+s+"&f="+filter+"&c="+'';
-    if(s===''){
-        var c = getUrlVars()["c"];
-        if(c===''){
-
-        } else{
-            url =  "model/searched_product.php?s="+s+"&c="+c+"&f="+'';
-        }
+    var c = url.searchParams.get("c");
+    if (c==null) {
+        c = '';
     }
+    console.log(c);
+    var url =  "model/searched_product.php?s="+s+"&f="+filter+"&c="+c;
     console.log(url);
     var html = '';
     var i = 0;
