@@ -19,7 +19,10 @@ if (!empty($s) && !empty($f) && !empty($c)) {
     }
 
 
-}elseif($s!='' && $c == ''){
+}elseif($s=='' && !empty($c)){
+    $sql = "SELECT *  FROM `table_product` WHERE `category_id` = '$c' and `status` = 'approved' ORDER BY `id` DESC";
+}
+elseif($s!='' && $c == ''){
     $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'  and `status` = 'approved' ORDER BY `id` DESC";
 }else{
     $sql = "SELECT *  FROM `table_product` where `status` = 'approved' ORDER BY `id` DESC";
