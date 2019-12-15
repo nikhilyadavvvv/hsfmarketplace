@@ -115,7 +115,7 @@ if (count($errors) == 0) {
     $verification_code = rand(111, 999);
     
     //checking is the user is seller or a buyer
-    if ('$usertype' == 'I am a Buyer') {
+    if ($usertype == '0') {
         $is_buyer = "y";
         $is_seller = "n";
     } else {
