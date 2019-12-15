@@ -28,7 +28,7 @@ function loadProducts(){
             console.log('seller'+seller);
             document.getElementById('product_name').innerHTML= name;
             document.getElementById('product_price').innerHTML= '&#8364;'+cost;
-            document.getElementById('product_seller').innerHTML= seller;
+            //document.getElementById('product_seller').innerHTML= seller;
             document.getElementById('toSeller').value= id;
             document.getElementById('addToCart').value= id;
 
