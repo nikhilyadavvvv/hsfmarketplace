@@ -90,7 +90,9 @@
 
                             <div class="sin__desc product__share__link">
                                 <ul class="pro__share">
-                                    <li><a onclick="addToCart(this.value)" id="addToCart" target="_blank"><i class="fa fa-cart-plus icons"></i> Add to Cart</a></li>
+                                    <li><a onclick="addToCart(this.value)" id="addToCart"><i class="fa fa-cart-plus icons"></i> Add to Cart</a></li>
+
+                                    <li><a onclick="addToWishlist(this.value)" id="addToWishlist"><i class="fa fa-cart-plus icons"></i> Add to Wishlist</a></li>
 
                                     <li><a href="#" data-toggle="modal" data-target="#messageModal"><i class="fa fa-envelope-square icons"></i> Message </a></li>
                                 </ul>
@@ -150,12 +152,12 @@
     <form action="model/message.php" method="POST">
     
     <div class="modal-body" style="padding: 5px;">
-    <input type="text" name="from" value="" >
-    <input type="text" name="to" value="" id="toSeller">
-        <textarea class="form-group margin-0" placeholder="Type your message here..."></textarea>
+    <input name="to" type="hidden" name="to" value="" id="toSeller"  **/>**
+    <input name="product_id" type="hidden" name="to" value="" id="sendProductId"  **/>**
+        <textarea id="content" class="form-group margin-0" placeholder="Type your message here..."></textarea>
     </div>
     <div class="modal-footer" style="padding: 5px;">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Send Message</button>
+        <button type="submit" onclick="sendMessage()" class="btn btn-primary" data-dismiss="modal">Send Message</button>
     </div>
     </form>
 </div>
