@@ -32,6 +32,16 @@ $country = mysqli_real_escape_string($mysqli, $_POST['country']);
 $phone = mysqli_real_escape_string($mysqli, $_POST['phone']);
 $usertype = mysqli_real_escape_string($mysqli, $_POST['usertype']);
 
+
+
+$allowed = [
+    'informatik.hs-fulda.de',
+    'verw.hs-fulda.de',
+];
+
+
+
+
 //form Validation
 
 if (empty($firstname)) {
@@ -114,8 +124,31 @@ if (count($errors) == 0) {
     }
     
     // inserting values into user table
-    $insert_user_query = "INSERT INTO `user` (`user_id`, `firstname`, `lastname`, `password`, `initial_email`, `city`, `state`, `zip`, `email`, `verification_code`, `phone`, `country`, `is_buyer`, `is_seller`, `status`, `image`, `rewards`) VALUES (NULL, '$firstname', '$lastname', '$password', '', '$city', '$state', '$zip', '$email', '0', '$phone', '$country', '$is_buyer', '$is_seller', '0', 'https://via.placeholder.com/500x500?text=No_Image', '0')";
-    mysqli_query($mysqli, $insert_user_query);
+    if (filter_var($email, FILTER_VALIDATE_EMAIL))
+    {
+        // Separate string by @ characters (there should be only one)
+        $parts = explode('@', $email);
+    
+        // Remove and return the last part, which should be the domain
+        $domain = array_pop($parts);
+    
+        // Check if the domain is in our list
+        if ( ! in_array($domain, $allowed))
+        {
+            $msg = "only use the email provided by the university";
+        }
+        else{
+            $insert_user_query = "INSERT INTO `user` (`user_id`, `firstname`, `lastname`, `password`, `initial_email`, `city`, `state`, `zip`, `email`, `verification_code`, `phone`, `country`, `is_buyer`, `is_seller`, `status`, `image`, `rewards`) VALUES (NULL, '$firstname', '$lastname', '$password', '', '$city', '$state', '$zip', '$email', '0', '$phone', '$country', '$is_buyer', '$is_seller', '0', 'https://via.placeholder.com/500x500?text=No_Image', '0')";
+            mysqli_query($mysqli, $insert_user_query);
+            $msg = "Thanks for signing up!
+    Your account has been created, Login to continue shopping";
+        }
+    }
+
+
+
+
+    
     
     
     //Email verification
@@ -143,8 +176,7 @@ if (count($errors) == 0) {
     
     /*$msg = "Thanks for signing up!
     Your account has been created, you can login with the following credentials after you have activated your account. Please check your email.";*/
-    $msg = "Thanks for signing up!
-    Your account has been created, Login to continue shopping";
+    
     array_push($errors, $msg);
     $_SESSION['error_message'] = $errors;
     header("Location: ../register.php"); 
