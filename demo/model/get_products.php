@@ -1,6 +1,8 @@
 <?php
 include 'db.php';
-$sql = "SELECT * FROM `table_product` where status = 'approved'";
+
+$sql = "SELECT * FROM `table_product` WHERE `status` = 'approved'";
+
 $result = mysqli_query($mysqli,$sql);
 $json_array = array();
 if($result){

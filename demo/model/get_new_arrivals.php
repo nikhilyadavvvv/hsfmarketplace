@@ -1,6 +1,8 @@
 <?php
 include 'db.php';
-$sql = "SELECT * FROM `table_product` where `status` = 'approved' ORDER BY `table_product`.`id`  DESC LIMIT 12";
+
+$sql = "SELECT * FROM `table_product` WHERE `status` = 'approved' ORDER BY `table_product`.`id` DESC LIMIT 12";
+
 $result = mysqli_query($mysqli,$sql);
 $json_array = array();
 if($result){
