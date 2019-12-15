@@ -61,7 +61,7 @@
                             <?php } ?>
 
                             <div class="header__account">
-                                <a class="cart__wishlist" href="wishlist.php">Wishlist</a>
+                                <a class="cart__wishlist" href="wishlist.php"><i class="icon-heart icons"></i></a>
                             </div>
 
                             <div class="htc__shopping__cart">

@@ -6,26 +6,23 @@ $f = $_GET['f'];
 $c = $_GET['c'];
 
 //$sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'";
-if(empty($_GET['f'])){
-    if(empty($s) && empty($c)){
-       $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'";
+if (!empty($s) && !empty($f) && !empty($c)) {
+
+    if ($f=="newness") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' ORDER BY `id` DESC";
+    } else if ($f=="l2h") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' ORDER BY `cost` ASC";
+    } else if ($f=="h2l") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' ORDER BY `cost` DESC";
+    }else{
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' ORDER BY `cost` DESC";
     }
-    else{
-       $sql = "SELECT *  FROM `table_product` WHERE `category_id` = '$c'";
-    } /*else {
-       $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'";
-    }*/
-   
-} else if ($f=="popularity") {
-    # code...
-} else if ($f=="rating") {
-    # code...
-} else if ($f=="newness") {
-   $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' ORDER BY `id` DESC";
-} else if ($f=="l2h") {
-    $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' ORDER BY `cost` ASC";
-} else if ($f=="h2l") {
-    $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' ORDER BY `cost` DESC";
+
+
+}elseif($s!='' && $c == ''){
+    $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' ORDER BY `id` DESC";
+}else{
+    $sql = "SELECT *  FROM `table_product` ORDER BY `id` DESC";
 }
 
 
@@ -41,7 +38,7 @@ if($result){
         $data['category'] = $row['category'] ;
         $data['description'] = $row['description'];
         $data['stock'] = $row['stock'];
-       $json_array[] = $data;
+        $json_array[] = $data;
     }
 
     $json_array = json_encode($json_array);

@@ -107,10 +107,6 @@
                                         </div>
                                     </div><!-- /.row -->
                                 </div>
-                                <div class="">
-
-                                    <a class="btn btn-primary btn-xs pull-right" href="add_products.php">Add Products</a>
-                                </div>
                             </div>
 
                         </div><!-- /.content -->
