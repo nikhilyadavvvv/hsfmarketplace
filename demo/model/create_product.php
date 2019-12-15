@@ -106,7 +106,7 @@ echo 'product inserted';*/
 
 if (mysqli_query($mysqli,$sql)) {
     //$_SESSION['error_message'] = $errors;
-    $sql = "INSERT INTO `multi_images` (`id`, `image1`, `image2`, `image3`) VALUES (NULL, '$image1', '$image2', '$image3')";
+    $sql = "INSERT INTO `multi_images` (`id`,`image1`, `image1`, `image2`, `image3`) VALUES (NULL, '$image1', '$image2', '$image3')";
     mysqli_query($mysqli,$sql);
     
     $_SESSION['success_message'] = 'Product added successfully.';
