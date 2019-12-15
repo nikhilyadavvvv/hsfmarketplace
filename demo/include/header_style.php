@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="css/responsive.css">
 <!-- User style -->
 <link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="js/toast/jquery.basic.toast.css">
 
 
 <!-- Modernizr JS -->
