@@ -86,7 +86,7 @@
                             <h4 class="title__line--4">categories</h4>
                             <ul class="ht__cat__list">
 
-                                <li><a href="#products_container" onclick="search_category('0')">All</a></li>
+                                <li class="active"><a href="#products_container" onclick="search_category('0')">All</a></li>
                                 <?php while($row = $categories -> fetch_assoc()){ ?>
                                 <li><a href="#products_container" onclick="search_category('<?php echo $row["category_id"]; ?>')"><?php echo $row["category_name"]; ?></a></li>
                                 <?php } ?>
