@@ -27,7 +27,7 @@ $sql = "SELECT * FROM `multi_images` WHERE `id` = '$id'";
 $result = mysqli_query($mysqli,$sql);
 if($result){
 	while($row = $result -> fetch_assoc()){
-		$image_big .= '<div role="tabpanel" class="tab-pane  fade in active" id="img-tab-1-1">
+		$image_big .= '<div role="tabpanel" class="tab-pane" id="img-tab-1-1">
 		<img src="'.$row["image1"].'" alt="full-image">
 		</div>';
 		$image_big .= '<div role="tabpanel" class="tab-pane" id="img-tab-1-2">
@@ -38,7 +38,7 @@ if($result){
 		</div>';
 
 
-		$image_small .='<li role="presentation" class="pot-small-img active">
+		$image_small .='<li role="presentation" class="pot-small-img">
 		<a href="#img-tab-1-1" role="tab" data-toggle="tab">
 		<img src="'.$row["image1"].'" alt="small-image">
 		</a>
