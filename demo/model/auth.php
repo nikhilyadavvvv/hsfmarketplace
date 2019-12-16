@@ -22,8 +22,16 @@ if ($count==1) {
             $_SESSION['is_seller'] = true;
         }
         include('wishlist_sync.php');
-        header("Location: ../index.php"); 
-        exit();
+        if (isset($_SESSION['last_url_visit']) && $_SESSION['last_url_visit'] && isset($_SESSION['last_url'])) {
+            $url = $_SESSION['last_url']; 
+            unset($_SESSION['last_url']);
+            unset($_SESSION['last_url_visit']);
+            header("Location: ../".$url); 
+            exit();
+        }else{
+            header("Location: ../index.php");
+            exit();
+        }
     }
 } else {
     $_SESSION['error_message'] = 'Invalid credentials.';
