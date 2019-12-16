@@ -40,12 +40,12 @@ function loadProducts(filter){
                 html += '<div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">';
                 html += '<div class="category">';
                 html += '<div class="ht__cat__thumb">';
-                html += '<a href="'+product_link+'">';
+                html += '<a target="_blank" href="'+product_link+'">';
                 html += '<img src="'+image+'" alt="product images">';
                 html += '</a>';
                 html += '</div>';
                 html += '<div class="fr__product__inner">';
-                html += '<h4><a href="'+product_link+'">'+name+'</a></h4>';
+                html += '<h4><a target="_blank" href="'+product_link+'">'+name+'</a></h4>';
                 html += '<ul class="fr__pro__prize">';
                 //html += '<li class="old__prize">$30.3</li>';
                 html += '<li>&#8364;'+cost+'</li>';
