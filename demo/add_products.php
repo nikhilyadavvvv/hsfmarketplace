@@ -118,7 +118,7 @@
 
                                         <div class="form-group col-sm-6">
                                             <label>Price</label>
-                                            <input type="text" class="form-control" value="" name="cost" required>
+                                            <input type="number" class="form-control" value="" name="cost" required >
                                         </div><!-- /.form-group -->
 
                                         <div class="form-group col-sm-6">
