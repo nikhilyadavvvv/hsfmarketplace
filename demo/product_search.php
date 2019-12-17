@@ -51,8 +51,8 @@
                                 <div class="htc__select__option">
                                     <select class="ht__select" onchange="search_category(<?php if(!empty($_GET['c'])){echo $_GET['c'];} else {echo '';} ?>)" id="filter">
                                         <option value="">Sort By</option>
-                                        <option value="popularity">Popularity</option>
-                                        <option value="rating">Average rating</option>
+                                        <!-- <option value="popularity">Popularity</option>
+                                        <option value="rating">Average rating</option> -->
                                         <option value="newness">Newness</option>
                                         <option value="l2h">Price Low to High</option>
                                         <option value="h2l">Price High to Low</option>
@@ -88,7 +88,7 @@
 
 
                                 <ul class="ht__cat__list">
-                                    <li class="active"><a href="#products_container" onclick="search_category('0')">All</a></li>
+                                    <li class="active"><a onclick="search_category()">All</a></li>
                                     <?php while ($row = $categories->fetch_assoc()) {?>
                                         <li><a  onclick="search_category('<?php echo $row["category_id"];?>')">
                                         <?php echo $row["category_name"];?></a></li>
