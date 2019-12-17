@@ -27,6 +27,18 @@
                 document.getElementById(id).type = "file";
             }
         }
+    
+    function fileValidation(id){
+    var fileInput = document.getElementById(id);
+    var filePath = fileInput.value;
+    var allowedExtensions = /(\.jpg|\.jpeg)$/i;
+    if(!allowedExtensions.exec(filePath)){
+        alert('Please upload file having extensions .jpeg/.jpg/ only.');
+        fileInput.value = '';
+        document.getElementById(id).type = "text";
+        document.getElementById(id).type = "file";
+    }
+}
     </script>
 
 </head>
@@ -126,22 +138,22 @@
 
                                         <div class="form-group col-sm-6">
                                             <label>Image</label>
-                                            <input type="file" onchange="showFileSize(this.id)" class="form-control" value="" id="uploadedfile" name="uploadedfile" required>
+                                            <input type="file" onchange="showFileSize(this.id);fileValidation(this.id);" class="form-control" value="" id="uploadedfile" name="uploadedfile" required>
                                         </div><!-- /.form-group -->
 
                                         <div class="form-group col-sm-6">
                                             <label>Image 2</label>
-                                            <input type="file" onchange="showFileSize(this.id)" class="form-control" value="" id="uploadedfile1" name="uploadedfile1" required>
+                                            <input type="file" onchange="showFileSize(this.id);fileValidation(this.id);" class="form-control" value="" id="uploadedfile1" name="uploadedfile1" required>
                                         </div><!-- /.form-group -->
 
                                         <div class="form-group col-sm-6">
                                             <label>Image 3</label>
-                                            <input type="file" onchange="showFileSize(this.id)" class="form-control" value="" id="uploadedfile2" name="uploadedfile2" required>
+                                            <input type="file" onchange="showFileSize(this.id);fileValidation(this.id);" class="form-control" value="" id="uploadedfile2" name="uploadedfile2" required>
                                         </div><!-- /.form-group -->
 
                                         <div class="form-group col-sm-6">
                                             <label>Image 4</label>
-                                            <input type="file" onchange="showFileSize(this.id)" class="form-control" value="" id="uploadedfile3" name="uploadedfile3" required>
+                                            <input type="file" onchange="showFileSize(this.id);fileValidation(this.id);" class="form-control" value="" id="uploadedfile3" name="uploadedfile3" required>
                                         </div><!-- /.form-group -->
 
                                         <div class="form-group col-sm-6">
