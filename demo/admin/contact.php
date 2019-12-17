@@ -113,7 +113,7 @@ $total_pages = $db->totalPages;
                 <td class="text-center"><?php echo $i++; ?></td>
                 <td><?php echo htmlspecialchars($row['name']); ?></td>
                 <td class="text-center"><?php echo htmlspecialchars($row['email']); ?></td>
-                <td class="text-center">&euro;<?php echo htmlspecialchars($row['subject']); ?></td>
+                <td class="text-center"><?php echo htmlspecialchars($row['subject']); ?></td>
                 <td class="text-center"><?php echo htmlspecialchars($row['message']); ?></td>
             </tr>
 
