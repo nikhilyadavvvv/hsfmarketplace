@@ -103,7 +103,6 @@ $total_pages = $db->totalPages;
             <th width="20%" class="text-center">Email</th>
             <th width="20%" class="text-center">Phone</th>
             <th width="10%" class="text-center">Type</th>
-            <th width="10%" class="text-center">Status</th>
             <th width="10%" class="text-center">Rewards</th>
             <th width="15%" class="text-center">Actions</th>
         </tr>
@@ -122,12 +121,6 @@ $total_pages = $db->totalPages;
                     echo "Buyer";
                 }else{
                     echo "Seller";
-                } ?></td>
-
-                <td class="text-center"><?php if ($row['status'] == 1) {
-                    echo "<span class='text-success'>Verified</span>";
-                }else{
-                    echo "<span class='text-danger'>not Verified</span>";
                 } ?></td>
                 <td class="text-center">
                     <a href="#" class="btn btn-info rewards_btn" data-toggle="modal" data-target="#confirm-rewards-<?php echo $row['user_id']; ?>"><?php echo $row['rewards']; ?></a>
