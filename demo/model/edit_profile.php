@@ -40,14 +40,14 @@ if (!empty($filename)) {
     }
 }
 
-$firstname = $_POST['firstname'];
-$lastname = $_POST['lastname'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$state = $_POST['state'];
-$city = $_POST['city'];
-$zip = $_POST['zip'];
-$country = $_POST['country'];
+$firstname = mysqli_real_escape_string($mysqli, $_POST['firstname']);
+$lastname = mysqli_real_escape_string($mysqli, $_POST['lastname']);
+$email = mysqli_real_escape_string($mysqli, $_POST['email']);
+$phone = mysqli_real_escape_string($mysqli, $_POST['phone']);
+$state = mysqli_real_escape_string($mysqli, $_POST['state']);
+$city = mysqli_real_escape_string($mysqli, $_POST['city']);
+$zip = mysqli_real_escape_string($mysqli, $_POST['zip']);
+$country = mysqli_real_escape_string($mysqli, $_POST['country']);
 
 $sql = "update user SET firstname = '$firstname', lastname = '$lastname', email = '$email', phone ='$phone', state = '$state', city = '$city', zip = '$zip', country = '$country', image = '$image' where user_id = $user_id";
 if (mysqli_query($mysqli,$sql)) {
