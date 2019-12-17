@@ -1,9 +1,9 @@
 <?php
 include 'db.php';
 //error_reporting(0);
-$s = $_GET['s'];
-$f = $_GET['f'];
-$c = $_GET['c'];
+$s = mysqli_real_escape_string($mysqli, $_GET['s']);
+$f = mysqli_real_escape_string($mysqli, $_GET['f']);
+$c = mysqli_real_escape_string($mysqli, $_GET['c']);
 
 //$sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'";
 if (!empty($s) && !empty($f) && !empty($c)) {
