@@ -30,8 +30,17 @@ if (!empty($s) && !empty($f) && !empty($c)) {
     }else{
         $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c'  and `status` = 'approved' ORDER BY `cost` DESC";
     }
+} else if (!empty($s) && empty($f) && !empty($c)) {
 
-
+    if ($f=="newness") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' and `status` = 'approved' ORDER BY `id` DESC";
+    } else if ($f=="l2h") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' and `status` = 'approved' ORDER BY `cost` ASC";
+    } else if ($f=="h2l") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' and `status` = 'approved' ORDER BY `cost` DESC";
+    }else{
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c'  and `status` = 'approved' ORDER BY `cost` DESC";
+    }
 } else if (empty($s) && !empty($f) && empty($c)) {
 
     if ($f=="newness") {
@@ -45,8 +54,20 @@ if (!empty($s) && !empty($f) && !empty($c)) {
     }
 
 
+} else if (!empty($s) && !empty($f) && empty($c)) {
+
+    if ($f=="newness") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `status` = 'approved' ORDER BY `id` DESC";
+    } else if ($f=="l2h") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `status` = 'approved' ORDER BY `cost` ASC";
+    } else if ($f=="h2l") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `status` = 'approved' ORDER BY `cost` DESC";
+    }else{
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `status` = 'approved' ORDER BY `cost` DESC";
+    }
 }
-elseif($s=='' && !empty($c)){
+
+else if($s=='' && !empty($c)){
     $sql = "SELECT *  FROM `table_product` WHERE `category_id` = '$c' and `status` = 'approved' ORDER BY `id` DESC";
 }
 elseif($s!='' && $c == ''){

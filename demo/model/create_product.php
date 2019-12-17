@@ -24,21 +24,21 @@ if(!isset($_SESSION))
 
   $filename1  = $_FILES['uploadedfile1']['tmp_name'];
     $handle    = fopen($filename1, "r");
-    $data      = fread($handle, filesize($filename));
+    $data      = fread($handle, filesize($filename1));
     $POST_DATA1 = array(
       'image' => base64_encode($data)
   );
 
   $filename2  = $_FILES['uploadedfile2']['tmp_name'];
     $handle    = fopen($filename2, "r");
-    $data      = fread($handle, filesize($filename));
+    $data      = fread($handle, filesize($filename2));
     $POST_DATA2 = array(
       'image' => base64_encode($data)
   );
 
   $filename3  = $_FILES['uploadedfile3']['tmp_name'];
     $handle    = fopen($filename3, "r");
-    $data      = fread($handle, filesize($filename));
+    $data      = fread($handle, filesize($filename3));
     $POST_DATA3 = array(
       'image' => base64_encode($data)
   );
@@ -106,11 +106,11 @@ echo 'product inserted';*/
 
 if (mysqli_query($mysqli,$sql)) {
     //$_SESSION['error_message'] = $errors;
-    $sql = "INSERT INTO `multi_images` (`id`,`image1`, `image1`, `image2`, `image3`) VALUES (NULL, '$image1', '$image2', '$image3')";
+   $sql = "INSERT INTO `multi_images` (`id`, `image1`, `image2`, `image3`) VALUES (NULL, '$image1', '$image2', '$image3')";
     mysqli_query($mysqli,$sql);
     
     $_SESSION['success_message'] = 'Product added successfully.';
-    header("Location: ../my_products.php"); 
+   header("Location: ../my_products.php"); 
     exit();
 } else {
     echo mysqli_error($mysqli);

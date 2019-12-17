@@ -70,7 +70,10 @@ function search_category(id){
     
     var url_string = window.location.href;
     var url = new URL(url_string);
-    var s = url.searchParams.get("s");
+    //var s = url.searchParams.get("s");
+    var s = getUrlVars()['s'];
+    //var f = getUrlVars()['f'];
+    var f = document.getElementById("filter").value;
     var html = '';
     var i = 0;
     document.getElementById("products_container").innerHTML ="";
@@ -118,8 +121,14 @@ function search_category(id){
 
         }
     }
+    //var url = "model/search_category.php?category="+id+"&s="+s;
+    var url =  "model/searched_product.php?s="+s+"&f="+f+"&c="+id;
+    if (id === undefined) {
+        url =  "model/searched_product.php?s="+s+"&f="+f+"&c=";
+    }
+    console.log(url);
     document.getElementById("products_container").appendChild(products_div);
-    xhttp.open("GET", "model/search_category.php?category="+id+"&s="+s, true);
+    xhttp.open("GET", url, true);
     xhttp.send();
 }
 
