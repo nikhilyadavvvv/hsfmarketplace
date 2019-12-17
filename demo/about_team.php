@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
 </head>
 
-<?php require('model/profile.php') ?>
+
 
 <body onload="loadCart()">
     <!-- Body main wrapper start -->
@@ -15,9 +15,7 @@
         <!-- Start Offset Wrapper -->
         <div class="offset__wrapper">
 
-            <?php include('include/search.php') ?>
-
-            <?php include('include/cart.php') ?>
+          
 
         </div>
 
