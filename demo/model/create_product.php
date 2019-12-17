@@ -5,6 +5,7 @@ if(!isset($_SESSION))
     session_start(); 
 }
 
+require 'db.php';
     $seller  = $_SESSION['user_id']; //uncomment finally
     //$seller  = 202; //delete when final
 
@@ -77,18 +78,18 @@ if(!isset($_SESSION))
 
     $thumbnail = $response['data']['display_url'];
 
-    $name = $_POST['name'];
-    $cost = $_POST['cost'];
-    $description = $_POST['description'];
-    $stock = $_POST['stock'];
+    $name = mysqli_real_escape_string($mysqli, $_POST['name']);
+    $cost = mysqli_real_escape_string($mysqli, $_POST['cost']);
+    $description = mysqli_real_escape_string($mysqli, $_POST['description']);
+    $stock = mysqli_real_escape_string($mysqli, $_POST['stock']);
 
 
-    $category_id = $_POST['category'];
+    $category_id = mysqli_real_escape_string($mysqli, $_POST['category']);
     $category = "";
     $sku = "";
     $quantity_sold = 0;
     $status = "unapproved";
-    require 'db.php';
+    
     $sql = "SELECT *  FROM `product_category` WHERE `category_id` = $category_id";
     $result = mysqli_query($mysqli,$sql);
 

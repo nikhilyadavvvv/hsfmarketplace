@@ -5,10 +5,10 @@ if(!isset($_SESSION))
     session_start(); 
 }
 
-$name = $_POST['name'];
-$email = $_POST['email'];
-$subject = $_POST['subject'];
-$message = $_POST['message'];
+$name = mysqli_real_escape_string($mysqli, $_POST['name']);
+$email = mysqli_real_escape_string($mysqli, $_POST['email']);
+$subject = mysqli_real_escape_string($mysqli, $_POST['subject']);
+$message = mysqli_real_escape_string($mysqli, $_POST['message']);
 
 $sql = "INSERT INTO `contact_admin` (`name`, `email`, `subject`, `message`) VALUES 
 ('$name', '$email', '$subject', '$message')";
