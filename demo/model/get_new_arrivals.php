@@ -12,6 +12,7 @@ if($result){
         $data['name'] = $row['name'];
         $data['image'] = $row['image'];
         $data['cost'] = $row['cost'];
+        $data['thumbnail'] = $row['thumbnail'];
        $json_array[] = $data;
     }
     $json_array = json_encode($json_array);
