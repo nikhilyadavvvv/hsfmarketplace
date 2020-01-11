@@ -18,7 +18,7 @@ require_once BASE_PATH . '/helpers/helpers.php';
 
 define('DB_HOST', "database-1.cdatrlmmreql.us-east-1.rds.amazonaws.com");
 define('DB_USER', "admin");
-define('DB_PASSWORD', "password");
+define('DB_PASSWORD', "123$123aA");
 define('DB_NAME', "GDSD_schema");
 
 /**
