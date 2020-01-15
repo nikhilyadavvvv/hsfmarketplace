@@ -11,7 +11,7 @@ if(!isset($_SESSION))
 
 $host = "database-1.cdatrlmmreql.us-east-1.rds.amazonaws.com";
 $user = "admin";
-$psw = "password";
+$psw = "123$123aA";
 $databse = "GDSD_schema";
 $mysqli = mysqli_connect($host,$user,$psw,$databse);
 
