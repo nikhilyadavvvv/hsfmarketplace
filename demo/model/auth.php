@@ -2,6 +2,13 @@
 require 'db.php';
 $email = mysqli_real_escape_string($mysqli,$_POST['email']);
 $password = mysqli_real_escape_string($mysqli,$_POST['password']);
+
+$json = file_get_contents('php://input');
+if($json){
+    $data = json_decode($json);
+    var_dump($data);
+}
+
 $password = md5($password);
 $flag = 0;
 echo $sql = "SELECT *  FROM `user` WHERE `email` = '".$email."' AND `password` = '".$password."'";
