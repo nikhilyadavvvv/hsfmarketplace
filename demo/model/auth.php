@@ -16,7 +16,7 @@ if($json){
 
 $password = md5($password);
 $flag = 0;
-$sql = "SELECT *  FROM `user` WHERE `email` = '".$email."' AND `password` = '".$password."'";
+echo $sql = "SELECT *  FROM `user` WHERE `email` = '".$email."' AND `password` = '".$password."'";
 $result = mysqli_query($mysqli, $sql);
 $count = mysqli_num_rows($result);
 if ($count==1) {
