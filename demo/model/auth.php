@@ -7,6 +7,8 @@ $json = file_get_contents('php://input');
 if($json){
     $data = json_decode($json);
     print_r($data);
+    echo $data->email;
+    echo $data->password;
 }
 
 $password = md5($password);
