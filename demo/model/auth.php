@@ -8,6 +8,7 @@ if($json){
     $data = json_decode($json);
     print_r($data);
     echo $data->email;
+    echo "new update";
     echo $data->password;
 }
 
