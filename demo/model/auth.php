@@ -7,7 +7,6 @@ $json = file_get_contents('php://input');
 if($json){
     $data = json_decode($json);
     $email = mysqli_real_escape_string($mysqli,$data->email);
-    echo "new update2";
     $password = mysqli_real_escape_string($mysqli,$data->password);
 }
 
