@@ -6,17 +6,14 @@ $password = mysqli_real_escape_string($mysqli,$_POST['password']);
 $json = file_get_contents('php://input');
 if($json){
     $data = json_decode($json);
-    print_r($data);
-    //echo $data->email;
     $email = mysqli_real_escape_string($mysqli,$data->email);
-    echo "new update";
-    //echo $data->password;
+    echo "new update2";
     $password = mysqli_real_escape_string($mysqli,$data->password);
 }
 
 $password = md5($password);
 $flag = 0;
-echo $sql = "SELECT *  FROM `user` WHERE `email` = '".$email."' AND `password` = '".$password."'";
+$sql = "SELECT *  FROM `user` WHERE `email` = '".$email."' AND `password` = '".$password."'";
 $result = mysqli_query($mysqli, $sql);
 $count = mysqli_num_rows($result);
 if ($count==1) {
