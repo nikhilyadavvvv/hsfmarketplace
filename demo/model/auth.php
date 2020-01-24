@@ -6,7 +6,8 @@ $password = mysqli_real_escape_string($mysqli,$_POST['password']);
 $json = file_get_contents('php://input');
 if($json){
     $data = json_decode($json);
-    var_dump($data);
+    echo $data["email"];
+    echo $data["password"];
 }
 
 $password = md5($password);
