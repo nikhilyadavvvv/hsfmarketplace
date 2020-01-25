@@ -62,7 +62,7 @@
                             <div class="widget">
                                 <div class="user-photo">
                                     <a href="#">
-                                        <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=password&choe=UTF-8" title="login" />
+                                        <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?php echo $_SESSION['verify']; ?>&choe=UTF-8" title="login" />
                                     </a>
                                 </div><!-- /.user-photo -->
                             </div><!-- /.widget -->

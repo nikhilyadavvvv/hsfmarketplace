@@ -3,8 +3,8 @@ require 'db.php';
 $json = file_get_contents('php://input');
 $data = json_decode($json);
 $verifier = mysqli_real_escape_string($mysqli, $data->verify);
-echo "UP4";
-//UPDATE `GDSD_schema`.`user` SET `verification_code`='00112' WHERE  `user_id`=276;
+echo "UP5";
+
 
 $sql = "SELECT *  FROM `user` WHERE `verification_code` = '".$verifier."'";
 $result = mysqli_query($mysqli, $sql);
