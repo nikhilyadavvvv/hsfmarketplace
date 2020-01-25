@@ -4,7 +4,7 @@ $email = mysqli_real_escape_string($mysqli,$_POST['email']);
 $password = mysqli_real_escape_string($mysqli,$_POST['password']);
 
 $json = file_get_contents('php://input');
-if($json){
+if($json&&!isset($_POST['submit'])){
     $data = json_decode($json);
     $email = mysqli_real_escape_string($mysqli,$data->email);
     $password = mysqli_real_escape_string($mysqli,$data->password);
