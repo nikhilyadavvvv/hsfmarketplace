@@ -8,6 +8,7 @@ if($json&&!isset($_POST['submit'])){
     $data = json_decode($json);
     $email = mysqli_real_escape_string($mysqli,$data->email);
     $password = mysqli_real_escape_string($mysqli,$data->password);
+    echo "update3";
 }
 
 $password = md5($password);
