@@ -3,7 +3,6 @@ require 'db.php';
 $json = file_get_contents('php://input');
 $data = json_decode($json);
 $verifier = mysqli_real_escape_string($mysqli, $data->verify);
-echo "UP5";
 
 
 $sql = "SELECT *  FROM `user` WHERE `verification_code` = '".$verifier."'";
