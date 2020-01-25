@@ -2,15 +2,6 @@
 require 'db.php';
 $email = mysqli_real_escape_string($mysqli,$_POST['email']);
 $password = mysqli_real_escape_string($mysqli,$_POST['password']);
-
-$json = file_get_contents('php://input');
-if($json&&!isset($_POST['submit'])){
-    $data = json_decode($json);
-    $email = mysqli_real_escape_string($mysqli,$data->email);
-    $password = mysqli_real_escape_string($mysqli,$data->password);
-    echo "update3";
-}
-
 $password = md5($password);
 $flag = 0;
 $sql = "SELECT *  FROM `user` WHERE `email` = '".$email."' AND `password` = '".$password."'";
