@@ -5,7 +5,7 @@ $data = json_decode($json);
 $verifier = mysqli_real_escape_string($mysqli, $data->verify);
 
 
-$sql = "SELECT *  FROM `user` WHERE `verification_code` = '".$verifier."'";
+echo $sql = "SELECT *  FROM `user` WHERE `verification_code` = '".$verifier."'";
 $result = mysqli_query($mysqli, $sql);
 $count = mysqli_num_rows($result);
 if ($count==1) {
