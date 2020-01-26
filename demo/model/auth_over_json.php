@@ -11,10 +11,10 @@ $count = mysqli_num_rows($result);
 if ($count==1) {
     while ($row = $result->fetch_assoc()) {
         echo 'valid credentials';
+        echo " ";
+        echo $row["user_id"];
+        echo " ";
+        echo $row["email"];
     }
-} else {
-    $_SESSION['error_message'] = 'Invalid credentials.';
-    header("Location: ../login.php"); 
-    exit();
 }
 $mysqli->close();
