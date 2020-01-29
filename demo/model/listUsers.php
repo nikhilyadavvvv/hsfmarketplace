@@ -10,7 +10,7 @@ if ($verifier === "x1x2x3x4x5x6x7x8x9") {
     while ($row = $result->fetch_assoc()) {
         $data =  array();
         $data['id'] = $row["user_id"];
-        $sqlx = "SELECT * FROM `basket` WHERE `basket`.user_id = "+$row["user_id"];
+        echo $sqlx = "SELECT * FROM `basket` WHERE `basket`.user_id = "+$row["user_id"];
         $resultx = mysqli_query($mysqli, $sql);
         $count = mysqli_num_rows($resultx);
         $data['count'] = $count;
