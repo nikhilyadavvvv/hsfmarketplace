@@ -8,7 +8,6 @@ $app = new \Slim\Slim();
 $app->post('/login', 'login');
 $app->post('/signup', 'signup');
 
-$app->get('/search', 'search');
 $app->get('/products', 'products');
 
 $app->get('/getFeed', 'getFeed');
@@ -17,13 +16,42 @@ $app->post('/feedUpdate', 'feedUpdate');
 $app->post('/feedDelete', 'feedDelete');
 $app->post('/getImages', 'getImages');
 
+$app->get('/search(/:text)', function($text){
+    try
+    {
+        $db = getDB();
+        $productsData = '';
+
+        $sql = "SELECT * FROM table_product WHERE name like :search or category like :search or description like :search";
+        $stmt = $db->prepare($sql);
+        //$stmt->bindParam("search", "%".$data->text."%", PDO::PARAM_STR);
+        //$stmt->execute();
+        $stmt->execute(array(':search' => '%'.$text.'%'));
+        $mainCount = $stmt->rowCount();
+        $productsData = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        $db = null;
+        if ($productsData)
+        {
+            $productData = json_encode($productsData);
+            echo '{"products": ' . $productData . '}';
+        }
+        else
+        {
+            echo '{"error":{"text":"Bad request"}}';
+        }
+    }
+    catch(PDOException $e)
+    {
+        echo '{"error":{"text":' . $e->getMessage() . '}}';
+    }
+});
 
 $app->get('/product-details(/:id)', function ($id = 0) {
     if ($id==0 || $id=='') {
         echo '{"error":{"text":"Request needs a id."}}';
     } else {
-        try
-        {
+        try{
 
             $db = getDB();
             $productData = '';
@@ -42,7 +70,7 @@ $app->get('/product-details(/:id)', function ($id = 0) {
             }
             else
             {
-                echo '{"error":{"text":"Bad request wrong email and password"}}';
+                echo '{"error":{"text":"Warning! No product found"}}';
             }
 
         }
@@ -65,8 +93,7 @@ function login()
     $request = \Slim\Slim::getInstance()->request();
     $data = json_decode($request->getBody());
 
-    try
-    {
+    try{
 
         $db = getDB();
         $userData = '';
@@ -93,7 +120,7 @@ function login()
         }
         else
         {
-            echo '{"error":{"text":"Bad request wrong email and password"}}';
+            echo '{"text":"Warning! wrong email and password"}';
         }
 
     }
@@ -103,33 +130,82 @@ function login()
     }
 }
 
-function search()
+/* ### User registration ### */
+function signup()
 {
     $request = \Slim\Slim::getInstance()->request();
     $data = json_decode($request->getBody());
 
-    try
-    {
-        $db = getDB();
-        $productsData = '';
+    
+    $firstname = $data->firstname;
+    $lastname = $data->lastname;
+    $email = $data->email;
+    $password = $data->password;
+    $phone = $data->phone;
+    $city = $data->city;
+    $state = $data->state;
+    $zip = $data->zip;
+    $country = $data->country;
+    if ($data->whoami == 1) {
+        $is_buyer = 'Y';
+        $is_seller = 'N';
+    }else{
+        $is_buyer = 'N';
+        $is_seller = 'Y';
+    }
 
-        $sql = "SELECT * FROM table_product WHERE name like :search or category like :search or description like :search";
-        $stmt = $db->prepare($sql);
-        //$stmt->bindParam("search", "%".$data->text."%", PDO::PARAM_STR);
-        //$stmt->execute();
-        $stmt->execute(array(':search' => '%'.$data->text.'%'));
-        $mainCount = $stmt->rowCount();
-        $productsData = $stmt->fetchAll(PDO::FETCH_OBJ);
+    try{
 
-        $db = null;
-        if ($productsData)
-        {
-            $productsData = json_encode($productsData);
-            echo $productsData;
+
+
+        if ( strlen($email)>0){
+            $db = getDB();
+            $userData = '';
+            $sql = "SELECT user_id FROM user WHERE email=:email";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("email", $email, PDO::PARAM_STR);
+            $stmt->execute();
+            $mainCount = $stmt->rowCount();
+            $created = time();
+
+            if ($mainCount == 0){
+
+                /*Inserting user values*/
+                $sql1 = "INSERT INTO user(firstname,lastname,email,password,phone,city,state,zip,country,is_buyer,is_seller, initial_email)VALUES(:firstname,:lastname,:email,:password,:phone,:city,:state,:zip,:country,:is_buyer,:is_seller, :initial_email)";
+                $stmt1 = $db->prepare($sql1);
+                $stmt1->bindParam("firstname", $firstname, PDO::PARAM_STR);
+                $stmt1->bindParam("lastname", $lastname, PDO::PARAM_STR);
+                $stmt1->bindParam("email", $email, PDO::PARAM_STR);
+                $password = md5($password);
+                $stmt1->bindParam("password", $password, PDO::PARAM_STR);
+                $stmt1->bindParam("phone", $phone, PDO::PARAM_STR);
+                $stmt1->bindParam("city", $city, PDO::PARAM_STR);
+                $stmt1->bindParam("state", $state, PDO::PARAM_STR);
+                $stmt1->bindParam("zip", $zip, PDO::PARAM_STR);
+                $stmt1->bindParam("country", $country, PDO::PARAM_STR);
+                $stmt1->bindParam("is_buyer", $is_buyer, PDO::PARAM_STR);
+                $stmt1->bindParam("is_seller", $is_seller, PDO::PARAM_STR);
+                $stmt1->bindParam("initial_email", $email, PDO::PARAM_STR);
+                $stmt1->execute();
+                $userData = internalUserDetails($email);
+
+                $db = null;
+
+                if ($userData) {
+                    $userData = json_encode($userData);
+                    echo '{"userData": ' . $userData . '}';
+                } else {
+                    echo '{"error":{"text":"Enter valid data"}}';
+                }
+
+            }else{
+                echo '{"error":{"text":"This email already exists!"}}';
+                //exit();
+            }
         }
         else
         {
-            echo '{"error":{"text":"Bad request wrong email and password"}}';
+            echo '{"error":{"text":"Enter valid data!"}}';
         }
     }
     catch(PDOException $e)
@@ -162,7 +238,7 @@ function products()
         }
         else
         {
-            echo '{"error":{"text":"Bad request wrong email and password"}}';
+            echo '{"error":{"text":"Warning! No product found."}}';
         }
     }
     catch(PDOException $e)
@@ -171,77 +247,6 @@ function products()
     }
 }
 
-/* ### User registration ### */
-function signup()
-{
-    $request = \Slim\Slim::getInstance()->request();
-    $data = json_decode($request->getBody());
-    $email = $data->email;
-    $name = $data->name;
-    $username = $data->username;
-    $password = $data->password;
-
-    try
-    {
-
-        $username_check = preg_match('~^[A-Za-z0-9_]{3,20}$~i', $username);
-        $email_check = preg_match('~^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.([a-zA-Z]{2,4})$~i', $email);
-        $password_check = preg_match('~^[A-Za-z0-9!@#$%^&*()_]{6,20}$~i', $password);
-
-        echo $email_check . '<br/>' . $email;
-
-        if (strlen(trim($username)) > 0 && strlen(trim($password)) > 0 && strlen(trim($email)) > 0 && $email_check > 0 && $username_check > 0 && $password_check > 0)
-        {
-            echo 'here';
-            $db = getDB();
-            $userData = '';
-            $sql = "SELECT user_id FROM users WHERE username=:username or email=:email";
-            $stmt = $db->prepare($sql);
-            $stmt->bindParam("username", $username, PDO::PARAM_STR);
-            $stmt->bindParam("email", $email, PDO::PARAM_STR);
-            $stmt->execute();
-            $mainCount = $stmt->rowCount();
-            $created = time();
-            if ($mainCount == 0)
-            {
-
-                /*Inserting user values*/
-                $sql1 = "INSERT INTO users(username,password,email,name)VALUES(:username,:password,:email,:name)";
-                $stmt1 = $db->prepare($sql1);
-                $stmt1->bindParam("username", $username, PDO::PARAM_STR);
-                $password = hash('sha256', $data->password);
-                $stmt1->bindParam("password", $password, PDO::PARAM_STR);
-                $stmt1->bindParam("email", $email, PDO::PARAM_STR);
-                $stmt1->bindParam("name", $name, PDO::PARAM_STR);
-                $stmt1->execute();
-
-                $userData = internalUserDetails($email);
-
-            }
-
-            $db = null;
-
-            if ($userData)
-            {
-                $userData = json_encode($userData);
-                echo '{"userData": ' . $userData . '}';
-            }
-            else
-            {
-                echo '{"error":{"text":"Enter valid data"}}';
-            }
-
-        }
-        else
-        {
-            echo '{"error":{"text":"Enter valid data"}}';
-        }
-    }
-    catch(PDOException $e)
-    {
-        echo '{"error":{"text":' . $e->getMessage() . '}}';
-    }
-}
 
 function email()
 {
@@ -305,7 +310,7 @@ function internalUserDetails($input)
     try
     {
         $db = getDB();
-        $sql = "SELECT user_id, name, email, username FROM users WHERE username=:input or email=:input";
+        $sql = "SELECT * FROM user WHERE email=:input";
         $stmt = $db->prepare($sql);
         $stmt->bindParam("input", $input, PDO::PARAM_STR);
         $stmt->execute();

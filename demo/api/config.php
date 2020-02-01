@@ -4,12 +4,20 @@ error_reporting(0);
 session_start();
 
 /* DATABASE CONFIGURATION */
-define('DB_SERVER', 'database-1.cdatrlmmreql.us-east-1.rds.amazonaws.com');
-define('DB_USERNAME', 'admin');
-define('DB_PASSWORD', '123$123aA');
-define('DB_DATABASE', 'GDSD_schema');
-// define("BASE_URL", "http://localhost/restapi/api/");
-define("BASE_URL", "https://hs-marketplace.herokuapp.com/demo/api/");
+// define('DB_SERVER', 'database-1.cdatrlmmreql.us-east-1.rds.amazonaws.com');
+// define('DB_USERNAME', 'admin');
+// define('DB_PASSWORD', '123$123aA');
+// define('DB_DATABASE', 'GDSD_schema');
+// define("BASE_URL", "https://hs-marketplace.herokuapp.com/demo/api/");
+// define("SITE_KEY", 'jobayerMojumder');
+
+
+/* DATABASE CONFIGURATION */
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', 'root');
+define('DB_DATABASE', 'gsd');
+define("BASE_URL", "http://localhost/restapi/api/");
 define("SITE_KEY", 'jobayerMojumder');
 
 
