@@ -1,11 +1,7 @@
 <?php
 require 'db.php';
-
-$foo = file_get_contents("php://input");
-$content=json_decode($foo, true)
-
-$email = mysqli_real_escape_string($mysqli, $content['email']);
-$password = mysqli_real_escape_string($mysqli, $content['password']);
+$email = mysqli_real_escape_string($mysqli, $_POST['email']);
+$password = mysqli_real_escape_string($mysqli, $_POST['password']);
 
 $sql = "SELECT *  FROM `admin_accounts` WHERE `user_name` = '" . $email . "' AND `password` = '" . $password . "'";
 $result = mysqli_query($mysqli, $sql);
@@ -26,6 +22,7 @@ if ($count == 1) {
            
         } 
     }
+
 
     $json_array = json_encode($json_array);
     header('Content-Type: application/json');
