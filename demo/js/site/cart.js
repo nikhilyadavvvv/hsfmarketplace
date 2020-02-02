@@ -36,7 +36,12 @@ function addToCart(id){
         if(this.readyState == 4 && this.status == 200)
         {
             var result = this.responseText;
-            alert(result);
+            if (result == '0') {
+                window.location.href = 'login.php';
+            }else{                
+                alert(result);
+            }
+
             loadCart();
         }
     }

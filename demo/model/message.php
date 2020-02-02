@@ -5,10 +5,10 @@
         echo "login to send message";
         exit();
     }
-    $to = $_POST["to"];
-    $content = $_POST["content"];
+    $to = mysqli_real_escape_string($mysqli, $_POST["to"]);
+    $content = mysqli_real_escape_string($mysqli, $_POST["content"]);
     $timestamp = date('Y-m-d H:i:s');
-    $product_id = $_POST["product_id"];
+    $product_id = mysqli_real_escape_string($mysqli, $_POST["product_id"]);
     $sql = "INSERT INTO `message` (`message_id`, `sender`, `receiver`, `timestamp`, `product_id`, `content`) VALUES (NULL, '$from', '$to', '$timestamp', '$product_id', '$content')";
     mysqli_query($mysqli, $sql);
     echo "message sent";

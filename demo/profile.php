@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -30,7 +29,7 @@
                         <div class="col-xs-12">
                             <div class="bradcaump__inner">
                                 <nav class="bradcaump-inner">
-                                    <a class="breadcrumb-item" href="index.html">Home</a>
+                                    <a class="breadcrumb-item" href="index.php">Home</a>
                                     <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
                                     <span class="breadcrumb-item active">Profile</span>
                                 </nav>
@@ -50,7 +49,7 @@
                             <div class="widget">
                                 <div class="user-photo">
                                     <a href="#">
-                                        <img src="<?php echo $_SESSION['user_image'];?>" alt="User Photo">
+                                        <img src="<?php echo $_SESSION['user_image']; ?>" alt="User Photo">
                                     </a>
                                 </div><!-- /.user-photo -->
                             </div><!-- /.widget -->
@@ -58,6 +57,14 @@
 
                             <div class="widget">
                                 <?php include('include/profile/sidebar.php') ?>
+                            </div><!-- /.widget -->
+
+                            <div class="widget">
+                                <div class="user-photo">
+                                    <a href="#">
+                                        <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?php echo $_SESSION['verify']; ?>&choe=UTF-8" title="login" />
+                                    </a>
+                                </div><!-- /.user-photo -->
                             </div><!-- /.widget -->
 
                         </div><!-- /.sidebar -->
@@ -71,74 +78,74 @@
                             <div class="page-title">
                                 <h1>Profile
                                     <a class="btn btn-primary btn-xs pull-right" href="edit_profile.php">Edit Profile</a></h1>
-                                </div><!-- /.page-title -->
+                            </div><!-- /.page-title -->
 
-                                <div class="background-white p20 mb10">
-                                    <h3 class="page-title">
-                                        Contact Information
-                                    </h3>
+                            <div class="background-white p20 mb10">
+                                <h3 class="page-title">
+                                    Contact Information
+                                </h3>
 
-                                    <div class="row">
-                                        <div class="form-group col-sm-6">
-                                            <label>Firstname</label>
-                                            <p><label><?php echo $data['firstname'];?></label></p>
-                                        </div><!-- /.form-group -->
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label>Firstname</label>
+                                        <p><label><?php echo $data['firstname']; ?></label></p>
+                                    </div><!-- /.form-group -->
 
-                                        <div class="form-group col-sm-6">
-                                            <label>Lastname</label>
-                                            <p><label><?php echo $data['lastname'];?></label></p>
-                                        </div><!-- /.form-group -->
+                                    <div class="form-group col-sm-6">
+                                        <label>Lastname</label>
+                                        <p><label><?php echo $data['lastname']; ?></label></p>
+                                    </div><!-- /.form-group -->
 
-                                        <div class="form-group col-sm-6">
-                                            <label>E-mail</label>
-                                            <p><label><?php echo $data['email'];?></label></p>
-                                        </div><!-- /.form-group -->
+                                    <div class="form-group col-sm-6">
+                                        <label>E-mail</label>
+                                        <p><label><?php echo $data['email']; ?></label></p>
+                                    </div><!-- /.form-group -->
 
-                                        <div class="form-group col-sm-6">
-                                            <label>Phone</label>
-                                            <p><label><?php echo $data['phone'];?></label></p>
-                                        </div><!-- /.form-group -->
-                                    </div><!-- /.row -->
-                                </div>
-
-                                <div class="background-white p20 mb10">
-                                    <h3 class="page-title">
-                                        Address
-                                    </h3>
-
-                                    <div class="row">
-                                        <div class="form-group col-sm-6">
-                                            <label>State</label>
-                                            <p><label><?php echo $data['state'];?></label></p>
-                                        </div><!-- /.form-group -->
-
-                                        <div class="form-group col-sm-6">
-                                            <label>City</label>
-                                            <p><label><?php echo $data['city'];?></label></p>
-                                        </div><!-- /.form-group -->
-
-                                        <div class="form-group col-sm-6">
-                                            <label>ZIP</label>
-                                            <p><label><?php echo $data['zip'];?></label></p>
-                                        </div><!-- /.form-group -->
-
-                                        <div class="form-group col-sm-6">
-                                            <label>Country</label>
-                                            <p><label><?php echo $data['country'];?></label></p>
-                                        </div><!-- /.form-group -->
-
-                                    </div><!-- /.row -->
-                                </div>
+                                    <div class="form-group col-sm-6">
+                                        <label>Phone</label>
+                                        <p><label><?php echo $data['phone']; ?></label></p>
+                                    </div><!-- /.form-group -->
+                                </div><!-- /.row -->
                             </div>
 
-                        </div><!-- /.content -->
-                    </div><!-- /.col-* -->
-                </div>
+                            <div class="background-white p20 mb10">
+                                <h3 class="page-title">
+                                    Address
+                                </h3>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label>State</label>
+                                        <p><label><?php echo $data['state']; ?></label></p>
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group col-sm-6">
+                                        <label>City</label>
+                                        <p><label><?php echo $data['city']; ?></label></p>
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group col-sm-6">
+                                        <label>ZIP</label>
+                                        <p><label><?php echo $data['zip']; ?></label></p>
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group col-sm-6">
+                                        <label>Country</label>
+                                        <p><label><?php echo $data['country']; ?></label></p>
+                                    </div><!-- /.form-group -->
+
+                                </div><!-- /.row -->
+                            </div>
+                        </div>
+
+                    </div><!-- /.content -->
+                </div><!-- /.col-* -->
             </div>
-        </section>
-        <!-- End Product Description -->
-        <?php include('include/footer.php') ?>
-        <!-- End Footer Style -->
+    </div>
+    </section>
+    <!-- End Product Description -->
+    <?php include('include/footer.php') ?>
+    <!-- End Footer Style -->
     </div>
 
     <?php include('include/footer_js.php') ?>

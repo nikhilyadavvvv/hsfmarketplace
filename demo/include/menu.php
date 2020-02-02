@@ -17,7 +17,11 @@
                         <nav class="main__menu__nav hidden-xs hidden-sm">
                             <ul class="main__menu">
                                 <li class="drop"><a href="index.php">Home</a></li>
-                                <li><a href="#">contact</a></li>
+                                <li><a href="contact.php">contact</a></li>
+                                <?php if (!isset($_SESSION['user_id'])) { ?>
+                                    <li><a href="login.php">Login</a></li>
+                                    <li><a href="register.php">Register</a></li>
+                                <?php } ?>
                             </ul>
                         </nav>
 
@@ -25,7 +29,11 @@
                             <nav id="mobile_dropdown">
                                 <ul>
                                     <li><a href="index.php">Home</a></li>
-                                    <li><a href="#">contact</a></li>
+                                    <li><a href="contact.php">contact</a></li>
+                                    <?php if (!isset($_SESSION['user_id'])) { ?>
+                                        <li><a href="login.php">Login</a></li>
+                                        <li><a href="register.php">Register</a></li>
+                                    <?php } ?>
                                 </ul>
                             </nav>
                         </div>
@@ -36,14 +44,14 @@
                                 <a href="#"><i class="icon-magnifier icons"></i></a>
                             </div>
 
-                            <?php if (!isset($_SESSION['user_id'])) { ?>
+                            <!-- <?php if (!isset($_SESSION['user_id'])) { ?>
                                 <div class="header__account">
                                     <a href="login.php">Login</i></a>
                                 </div>
                                 <div class="header__account">
                                     <a href="register.php">Register</i></a>
                                 </div>
-                            <?php } ?>
+                            <?php } ?> -->
 
                             <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] !='') { ?>
                                 <div class="header__account">

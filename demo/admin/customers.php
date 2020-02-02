@@ -98,11 +98,11 @@ $total_pages = $db->totalPages;
     <thead>
         <tr>
             <th width="5%" class="text-center">SL</th>
-            <th width="20%" class="text-center">Name</th>
+            <th width="10%" class="text-center">Firstname</th>
+            <th width="10%" class="text-center">Lastname</th>
             <th width="20%" class="text-center">Email</th>
             <th width="20%" class="text-center">Phone</th>
             <th width="10%" class="text-center">Type</th>
-            <th width="10%" class="text-center">Status</th>
             <th width="10%" class="text-center">Rewards</th>
             <th width="15%" class="text-center">Actions</th>
         </tr>
@@ -113,19 +113,14 @@ $total_pages = $db->totalPages;
         foreach ($rows as $row): ?>
             <tr>
                 <td class="text-center"><?php echo $i++; ?></td>
-                <td><?php echo htmlspecialchars($row['firstname'] . ' ' . $row['lastname']); ?></td>
+                <td><?php echo htmlspecialchars($row['firstname']); ?></td>
+                <td><?php echo htmlspecialchars($row['lastname']); ?></td>
                 <td class="text-center"><?php echo htmlspecialchars($row['email']); ?></td>
                 <td class="text-center"><?php echo htmlspecialchars($row['phone']); ?></td>
                 <td class="text-center"><?php if ($row['is_buyer'] == 'y') {
                     echo "Buyer";
                 }else{
                     echo "Seller";
-                } ?></td>
-
-                <td class="text-center"><?php if ($row['status'] == 1) {
-                    echo "<span class='text-success'>Verified</span>";
-                }else{
-                    echo "<span class='text-danger'>not Verified</span>";
                 } ?></td>
                 <td class="text-center">
                     <a href="#" class="btn btn-info rewards_btn" data-toggle="modal" data-target="#confirm-rewards-<?php echo $row['user_id']; ?>"><?php echo $row['rewards']; ?></a>

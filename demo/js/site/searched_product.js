@@ -40,12 +40,12 @@ function loadProducts(filter){
                 html += '<div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">';
                 html += '<div class="category">';
                 html += '<div class="ht__cat__thumb">';
-                html += '<a href="'+product_link+'">';
+                html += '<a target="_blank" href="'+product_link+'">';
                 html += '<img src="'+image+'" alt="product images">';
                 html += '</a>';
                 html += '</div>';
                 html += '<div class="fr__product__inner">';
-                html += '<h4><a href="'+product_link+'">'+name+'</a></h4>';
+                html += '<h4><a target="_blank" href="'+product_link+'">'+name+'</a></h4>';
                 html += '<ul class="fr__pro__prize">';
                 //html += '<li class="old__prize">$30.3</li>';
                 html += '<li>&#8364;'+cost+'</li>';
@@ -70,7 +70,10 @@ function search_category(id){
     
     var url_string = window.location.href;
     var url = new URL(url_string);
-    var s = url.searchParams.get("s");
+    //var s = url.searchParams.get("s");
+    var s = getUrlVars()['s'];
+    //var f = getUrlVars()['f'];
+    var f = document.getElementById("filter").value;
     var html = '';
     var i = 0;
     document.getElementById("products_container").innerHTML ="";
@@ -118,8 +121,14 @@ function search_category(id){
 
         }
     }
+    //var url = "model/search_category.php?category="+id+"&s="+s;
+    var url =  "model/searched_product.php?s="+s+"&f="+f+"&c="+id;
+    if (id === undefined) {
+        url =  "model/searched_product.php?s="+s+"&f="+f+"&c=";
+    }
+    console.log(url);
     document.getElementById("products_container").appendChild(products_div);
-    xhttp.open("GET", "model/search_category.php?category="+id+"&s="+s, true);
+    xhttp.open("GET", url, true);
     xhttp.send();
 }
 

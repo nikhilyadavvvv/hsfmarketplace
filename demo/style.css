@@ -2009,7 +2009,7 @@ background: #c43b68 none repeat scroll 0 0;
         }
 
         .product__small__images {
-            bottom: 35px;
+            bottom: 5px;
             display: flex;
             left: 50%;
             position: absolute;
@@ -17946,7 +17946,7 @@ background: #c43b68 none repeat scroll 0 0;
         .category_box{
             width: 100%;
             padding: 5px;
-            border: 2px solid gray;
+            border: 2px solid #c43b68;
             margin: 5px;
             text-align: center;
             font-size: 15px;
@@ -18087,4 +18087,12 @@ background: #c43b68 none repeat scroll 0 0;
 .msg_history {
   height: 516px;
   overflow-y: auto;
+}
+
+.pot-small-img > a > img{
+    width: 50px;
+    height: 50px;
+}
+.tab-pane > img{
+    max-height: 500px;
 }

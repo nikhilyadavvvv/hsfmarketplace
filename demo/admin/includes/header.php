@@ -58,8 +58,6 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu dropdown-user">
                                 <li><a href="edit_admin.php?admin_user_id=<?php echo $_SESSION['user_id']; ?>&operation=edit"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
-                                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
-                                <li class="divider"></li>
                                 <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
                             </ul>
                             <!-- /.dropdown-user -->
@@ -74,6 +72,7 @@
                                 <li><a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
                                 <li><a href="customers.php"><i class="fa fa-users fa-fw"></i> Customers</a></li>
                                 <li><a href="products.php"><i class="fa fa-list fa-fw"></i> Products</a></li>
+                                <li><a href="contact.php"><i class="fa fa-users fa-fw"></i> Admin Message</a></li>
                                 <li><a href="admin_users.php"><i class="fa fa-users fa-fw"></i> Admin Users</a></li>
                             </ul>
                         </div>

@@ -6,7 +6,8 @@
                 <div class="search__inner">
                     <form action="product_search.php" method="get">
                         <input placeholder="Search here... " type="text" name="s" id="search_input">
-                        <inputa type="hidden" name="c" value='0'>
+                        <input type="hidden" name="c" value=''>
+                        <input type="hidden" name="f" value=''>
                         <button type="submit"></button>
                     </form>
                     <div class="search__close__btn">

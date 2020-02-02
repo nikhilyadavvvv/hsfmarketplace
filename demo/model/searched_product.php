@@ -1,28 +1,79 @@
 <?php
 include 'db.php';
 //error_reporting(0);
-$s = $_GET['s'];
-$f = $_GET['f'];
-$c = $_GET['c'];
+$s = mysqli_real_escape_string($mysqli, $_GET['s']);
+$f = mysqli_real_escape_string($mysqli, $_GET['f']);
+$c = mysqli_real_escape_string($mysqli, $_GET['c']);
 
 //$sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'";
 if (!empty($s) && !empty($f) && !empty($c)) {
 
     if ($f=="newness") {
-        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' ORDER BY `id` DESC";
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' and `status` = 'approved' ORDER BY `id` DESC";
     } else if ($f=="l2h") {
-        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' ORDER BY `cost` ASC";
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' and `status` = 'approved' ORDER BY `cost` ASC";
     } else if ($f=="h2l") {
-        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' ORDER BY `cost` DESC";
+       $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' and `status` = 'approved' ORDER BY `cost` DESC";
     }else{
-        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' ORDER BY `cost` DESC";
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c'  and `status` = 'approved' ORDER BY `cost` DESC";
     }
 
 
-}elseif($s!='' && $c == ''){
-    $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' ORDER BY `id` DESC";
+} else if (empty($s) && !empty($f) && !empty($c)) {
+
+    if ($f=="newness") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' and `status` = 'approved' ORDER BY `id` DESC";
+    } else if ($f=="l2h") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' and `status` = 'approved' ORDER BY `cost` ASC";
+    } else if ($f=="h2l") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' and `status` = 'approved' ORDER BY `cost` DESC";
+    }else{
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c'  and `status` = 'approved' ORDER BY `cost` DESC";
+    }
+} else if (!empty($s) && empty($f) && !empty($c)) {
+
+    if ($f=="newness") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' and `status` = 'approved' ORDER BY `id` DESC";
+    } else if ($f=="l2h") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' and `status` = 'approved' ORDER BY `cost` ASC";
+    } else if ($f=="h2l") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c' and `status` = 'approved' ORDER BY `cost` DESC";
+    }else{
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `category_id` = '$c'  and `status` = 'approved' ORDER BY `cost` DESC";
+    }
+} else if (empty($s) && !empty($f) && empty($c)) {
+
+    if ($f=="newness") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `status` = 'approved' ORDER BY `id` DESC";
+    } else if ($f=="l2h") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `status` = 'approved' ORDER BY `cost` ASC";
+    } else if ($f=="h2l") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `status` = 'approved' ORDER BY `cost` DESC";
+    }else{
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `status` = 'approved' ORDER BY `cost` DESC";
+    }
+
+
+} else if (!empty($s) && !empty($f) && empty($c)) {
+
+    if ($f=="newness") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `status` = 'approved' ORDER BY `id` DESC";
+    } else if ($f=="l2h") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `status` = 'approved' ORDER BY `cost` ASC";
+    } else if ($f=="h2l") {
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `status` = 'approved' ORDER BY `cost` DESC";
+    }else{
+        $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%' and `status` = 'approved' ORDER BY `cost` DESC";
+    }
+}
+
+else if($s=='' && !empty($c)){
+    $sql = "SELECT *  FROM `table_product` WHERE `category_id` = '$c' and `status` = 'approved' ORDER BY `id` DESC";
+}
+elseif($s!='' && $c == ''){
+    $sql = "SELECT *  FROM `table_product` WHERE `name` LIKE '%$s%'  and `status` = 'approved' ORDER BY `id` DESC";
 }else{
-    $sql = "SELECT *  FROM `table_product` ORDER BY `id` DESC";
+    $sql = "SELECT *  FROM `table_product` where `status` = 'approved' ORDER BY `id` DESC";
 }
 
 

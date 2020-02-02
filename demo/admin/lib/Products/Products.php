@@ -22,8 +22,8 @@ class Products
     {
         $ordering = [
             'id' => 'ID',
-            'name' => 'First Name',
-            'category' => 'Last Name',
+            'name' => 'Name',
+            'category' => 'Category',
             'cost' => 'Price',
             'status' => 'Status'
         ];

@@ -71,7 +71,7 @@
                                     </div>
                                 </div>
                                 <div class="contact-btn">
-                                    <button type="submit" class="fv-btn">log in</button><br>
+                                    <input type="submit" name="submit" class="fv-btn" value="log in"><br>
                                     <div class="col-sm-12" style="padding: 10px 0px;">
                                         <a href="forgot_password.php">Forgot your Password?</a>
                                     </div>

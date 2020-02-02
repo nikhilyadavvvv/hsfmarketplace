@@ -30,7 +30,7 @@
                         <div class="col-xs-12">
                             <div class="bradcaump__inner">
                                 <nav class="bradcaump-inner">
-                                    <a class="breadcrumb-item" href="index.html">Home</a>
+                                    <a class="breadcrumb-item" href="index.php">Home</a>
                                     <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
                                     <span class="breadcrumb-item active">Profile</span>
                                 </nav>
@@ -98,7 +98,7 @@
                                                             
                                                             <td class="product-name"><a href="#"><?php echo $row['category']; ?></a></td>
                                                             
-                                                            <td class="product-price"><span class="amount">£<?php echo $row['cost'] ?></span></td>
+                                                            <td class="product-price"><span class="amount">€<?php echo $row['cost'] ?></span></td>
 
                                                             <td class="product-subtotal">
                                                                 <?php if ( $row['status'] == 'approved') { ?>

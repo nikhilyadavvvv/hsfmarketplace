@@ -4,6 +4,43 @@
 
 <head>
     <?php include('include/header_style.php') ?>
+
+    <script type='text/javascript'>
+        function showFileSize(id) {
+            var input, file;
+        
+            if (!window.FileReader) {
+                alert("The file API isn't supported on this browser yet.");
+                return;
+            }
+        
+            input = document.getElementById(id);
+          
+                file = input.files[0]; console.log(file);
+                bodyAppend(id,file.size);
+            
+        }
+        function bodyAppend(id, size) {
+            if(parseInt(size)>1097152){
+                alert("file is too big "+size+" bytes, Make sure Image is less than 1mb in size");
+                document.getElementById(id).type = "text";
+                document.getElementById(id).type = "file";
+            }
+        }
+    
+    function fileValidation(id){
+    var fileInput = document.getElementById(id);
+    var filePath = fileInput.value;
+    var allowedExtensions = /(\.jpg|\.jpeg)$/i;
+    if(!allowedExtensions.exec(filePath)){
+        alert('Please upload file having extensions .jpeg/.jpg/ only.');
+        fileInput.value = '';
+        document.getElementById(id).type = "text";
+        document.getElementById(id).type = "file";
+    }
+}
+    </script>
+
 </head>
 
 <?php require('model/get_category.php') ?>
@@ -30,7 +67,7 @@
                         <div class="col-xs-12">
                             <div class="bradcaump__inner">
                                 <nav class="bradcaump-inner">
-                                    <a class="breadcrumb-item" href="index.html">Home</a>
+                                    <a class="breadcrumb-item" href="index.php">Home</a>
                                     <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
                                     <span class="breadcrumb-item active">Profile</span>
                                 </nav>
@@ -81,7 +118,7 @@
 
                                         <div class="form-group col-sm-6">
                                             <label>Price</label>
-                                            <input type="text" class="form-control" value="" name="cost" required>
+                                            <input type="number" class="form-control" value="" name="cost" required >
                                         </div><!-- /.form-group -->
 
                                         <div class="form-group col-sm-6">
@@ -101,7 +138,22 @@
 
                                         <div class="form-group col-sm-6">
                                             <label>Image</label>
-                                            <input type="file" class="form-control" value="" name="uploadedfile" required>
+                                            <input type="file" onchange="showFileSize(this.id);fileValidation(this.id);" class="form-control" value="" id="uploadedfile" name="uploadedfile" required>
+                                        </div><!-- /.form-group -->
+
+                                        <div class="form-group col-sm-6">
+                                            <label>Image 2</label>
+                                            <input type="file" onchange="showFileSize(this.id);fileValidation(this.id);" class="form-control" value="" id="uploadedfile1" name="uploadedfile1" required>
+                                        </div><!-- /.form-group -->
+
+                                        <div class="form-group col-sm-6">
+                                            <label>Image 3</label>
+                                            <input type="file" onchange="showFileSize(this.id);fileValidation(this.id);" class="form-control" value="" id="uploadedfile2" name="uploadedfile2" required>
+                                        </div><!-- /.form-group -->
+
+                                        <div class="form-group col-sm-6">
+                                            <label>Image 4</label>
+                                            <input type="file" onchange="showFileSize(this.id);fileValidation(this.id);" class="form-control" value="" id="uploadedfile3" name="uploadedfile3" required>
                                         </div><!-- /.form-group -->
 
                                         <div class="form-group col-sm-6">
