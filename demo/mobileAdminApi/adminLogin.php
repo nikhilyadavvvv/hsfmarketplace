@@ -1,7 +1,10 @@
 <?php
 require 'db.php';
-$email = mysqli_real_escape_string($mysqli, $_POST['email']);
-$password = mysqli_real_escape_string($mysqli, $_POST['password']);
+
+$json = file_get_contents('php://input');
+$data = json_decode($json,true);
+$email = mysqli_real_escape_string($mysqli, $data->email);
+$password = mysqli_real_escape_string($mysqli, $data->password);
 
 $sql = "SELECT *  FROM `admin_accounts` WHERE `user_name` = '" . $email . "' AND `password` = '" . $password . "'";
 $result = mysqli_query($mysqli, $sql);
