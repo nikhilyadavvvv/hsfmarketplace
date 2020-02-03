@@ -2,7 +2,8 @@
 require 'db.php';
 
 $json = file_get_contents('php://input');
-$data = json_decode($json,true);
+$data = json_decode($json);
+
 $email = mysqli_real_escape_string($mysqli, $data->email);
 $password = mysqli_real_escape_string($mysqli, $data->password);
 
