@@ -1,6 +1,6 @@
 <?php
 include 'db.php';
-$sql = "SELECT category_name,COUNT(p.category_id ) AS 'total_product' FROM product_category c Inner JOIN table_product p ON c.category_id = p.category_id GROUP BY category_name";
+$sql = "SELECT category_name,COUNT(p.category_id ) AS 'total_product' FROM product_category c Left outer JOIN table_product p ON c.category_id = p.category_id GROUP BY category_name";
 
 $result = mysqli_query($mysqli,$sql);
 
