@@ -1,13 +1,13 @@
+
 <?php
 require 'db.php';
 
 $json = file_get_contents('php://input');
 $data = json_decode($json);
 
-$email = mysqli_real_escape_string($mysqli, $data->email);
-$password = mysqli_real_escape_string($mysqli, $data->password);
+$id = mysqli_real_escape_string($mysqli, $data->id);
 
-$sql = "SELECT *  FROM `admin_accounts` WHERE `user_name` = '" . $email . "' AND `password` = '" . $password . "'";
+$sql = "SELECT * FROM `admin_accounts` WHERE `id` = '" . $id . "'";
 $result = mysqli_query($mysqli, $sql);
 $count = mysqli_num_rows($result);
 
