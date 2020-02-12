@@ -3,26 +3,36 @@ require 'db.php';
 $json = file_get_contents('php://input');
 $data = json_decode($json);
 $uid = mysqli_real_escape_string($mysqli, $data->uid);
+$rid = mysqli_real_escape_string($mysqli, $data->rid);
+$pid = mysqli_real_escape_string($mysqli, $data->pid);
 
-	//$user_id = $_SESSION['user_id'];
-	$user_id = $uid;
-	$sql = "SELECT a.*, b.* FROM basket as a join table_product as b on a.product_id = b.id  where a.user_id = $user_id";
-	$result = mysqli_query($mysqli,$sql);
-$json_array = array();
-if($result){
-    while($row = $result -> fetch_assoc()){
-        $data =  array();
-        $data['id'] = $row['id'];
-        $data['name'] = $row['name'];
-        $data['image'] = $row['image'];
-        $data['cost'] = $row['cost'];
-        $data['category'] = $row['category'] ;
-        $data['description'] = $row['description'];
-        $data['stock'] = $row['stock'];
-        $json_array[] = $data;
+//$user_id = $_SESSION['user_id'];
+$user_id = $uid;
+$sql = "INSERT INTO `GDSD_schema`.`gift` (`reciever_id`, `sender_id`, `product_id`) VALUES ('$rid', '$uid', '$pid')";
+mysqli_query($mysqli, $sql);
+
+
+
+$user_id = $rid;
+$sql = "SELECT `product_id` FROM basket WHERE `user_id` = $user_id";
+$result = mysqli_query($mysqli, $sql);
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $productId =  $row['product_id'];
+        $productSql = "SELECT `stock`  FROM `table_product` WHERE `id` = '$productId'";
+        $productResult = mysqli_query($mysqli, $productSql);
+        if ($productResult) {
+            while ($row2 = $productResult->fetch_assoc()) {
+                $stock = $row2['stock'];
+                $stock = $stock - 1;
+                $sql = "UPDATE `table_product` SET `stock` = $stock WHERE `id` = $productId";
+                mysqli_query($mysqli, $sql);
+            }
+        }
     }
-
-    $json_array = json_encode($json_array);
-    header('Content-Type: application/json');
-    print_r($json_array);
 }
+
+$sql = "DELETE FROM `basket` WHERE `basket`.`user_id` = '$user_id' AND `basket`.`product_id` = '$pid'";
+$result = mysqli_query($mysqli, $sql);
+echo "All Products checked out";
+$mysqli->close();
