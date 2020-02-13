@@ -14,7 +14,7 @@ if($result){
         $data['id'] = $id + 1;
         // $data['name'] = $array[$id];
         $data['name'] = $array[$id];
-        $data[$array[$id]] = $row['total_product'];
+        $data['totalNumber'] = $row['total_product'];
         $id++;
        $json_array[] = $data;
     }
