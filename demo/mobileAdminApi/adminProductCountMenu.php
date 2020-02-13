@@ -12,7 +12,8 @@ if($result){
     while($row = $result -> fetch_assoc()){
         $data =  array();
         $data['id'] = $id + 1;
-        $data['heading'] = $array[$id];
+        // $data['name'] = $array[$id];
+        $data['name'] = $array[$id];
         $data[$array[$id]] = $row['total_product'];
         $id++;
        $json_array[] = $data;
