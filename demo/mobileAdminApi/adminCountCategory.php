@@ -1,5 +1,7 @@
 <?php
 include 'db.php';
+
+// If you want all category with count use Left outer join
 $sql = "SELECT category_name,COUNT(p.category_id ) AS 'total_product' FROM product_category c Inner JOIN table_product p ON c.category_id = p.category_id GROUP BY category_name";
 
 $result = mysqli_query($mysqli,$sql);
