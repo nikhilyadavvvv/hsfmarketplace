@@ -1,6 +1,6 @@
 <?php
 include 'db.php';
-$sql = "SELECT COUNT(DISTINCT id ) AS 'total_product' FROM table_product UNION ALL select  COUNT(DISTINCT id ) as 'pending product' FROM table_product where status = 'pending' UNION ALL select  COUNT(DISTINCT id ) as 'approved product' FROM table_product where status = 'approved' UNION ALL select COUNT(DISTINCT user_id)'total user' FROM user UNION ALL select COUNT(DISTINCT user_id) FROM user WHERE STATUS = '0'UNION ALL select COUNT(DISTINCT user_id) FROM user WHERE STATUS = '1' ";
+$sql = "SELECT COUNT(DISTINCT id ) AS 'total_product' FROM table_product UNION ALL select  COUNT(DISTINCT id ) as 'pending product' FROM table_product where status = 'unapproved' UNION ALL select  COUNT(DISTINCT id ) as 'approved product' FROM table_product where status = 'approved' UNION ALL select COUNT(DISTINCT user_id)'total user' FROM user UNION ALL select COUNT(DISTINCT user_id) FROM user WHERE STATUS = '0'UNION ALL select COUNT(DISTINCT user_id) FROM user WHERE STATUS = '1' ";
 $result = mysqli_query($mysqli,$sql);
 
 $json_array = array();
