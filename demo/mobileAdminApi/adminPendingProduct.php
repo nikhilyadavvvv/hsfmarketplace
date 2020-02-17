@@ -1,6 +1,6 @@
 <?php
 include 'db.php';
-$sql = "SELECT * FROM `table_product` WHERE STATUS = 'pending'";
+$sql = "SELECT * FROM `table_product` WHERE STATUS = 'unapproved'";
 
 $result = mysqli_query($mysqli,$sql);
 $json_array = array();
