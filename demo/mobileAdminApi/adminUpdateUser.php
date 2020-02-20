@@ -9,9 +9,9 @@ $userId = mysqli_real_escape_string($mysqli, $data->id);
 $status = mysqli_real_escape_string($mysqli, $data->status);
 
 
-$sql = "UPDATE `user` SET `status` = $status WHERE `user`.`user_id` = $userId";
+$sql = "UPDATE `user` SET `status` = '" . $status . "' WHERE `user_id` = '" . $userId."'";
 
 $result = mysqli_query($mysqli,$sql);
+var_dump($result);
 
-}
 ?>
