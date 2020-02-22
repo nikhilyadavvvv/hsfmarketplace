@@ -8,6 +8,9 @@ $i = 0;
 $user_id = mysqli_real_escape_string($mysqli, $data->id);
 $sql = "SELECT *  FROM `message` WHERE `receiver` = $user_id ORDER BY `message`.`message_id` DESC";
 $result = mysqli_query($mysqli, $sql);
+
+$data =  array();
+
 if ($result) {
     while ($row = $result->fetch_assoc()) {
         $i++;
@@ -15,41 +18,24 @@ if ($result) {
         $content = $row['content'];
         $timestamp = $row['timestamp'];
         $product_id = $row['product_id'];
-        $product_name = "";
 
-        $sql2 = "SELECT *  FROM `user` WHERE `user_id` = $sender";
+        $sql2 = "SELECT *  FROM `message` WHERE `product_id` = $product_id and `receiver` = $user_id and  `sender` = $sender  ORDER BY `message`.`message_id` DESC";
         $result2 = mysqli_query($mysqli, $sql2);
         while ($row2 = $result2->fetch_assoc()) {
-            echo $sender_name = $row2["firstname"];
+            $data =  array();
+            $data['sender'] =  $row2['sender'];
+            
+            $data['content'] = $row2['content'];
+           $data['timestamp'] = $row2['timestamp'];
+            $data['product_id'] = $row2['product_id'];
+            $data['content'] = $row2['content'];
+            $json_array[] = $data;
         }
-
-        $sql3 = "SELECT *  FROM `table_product` WHERE `id` = $product_id";
-        $result3 = mysqli_query($mysqli, $sql3);
-        while ($row3 = $result3->fetch_assoc()) {
-            $product_name = $row3["name"];
-        }
-        ?>
-
-$json_array = array();
-$data =  array();
-
-if ($count == 1) {
-   
-
-    while ($row = $result->fetch_assoc()) {
-        
-        $data['id'] = $row['id'];
-        $data['name'] = $row['user_name'];
-        $data['password'] = $row['password'];
-        
-           
-        } 
     }
 
-
-    $json_array = json_encode($data);
+    $json_array = json_encode($json_array);
     header('Content-Type: application/json');
     print_r($json_array);
-
-?>
-
+}
+        
+        ?>
