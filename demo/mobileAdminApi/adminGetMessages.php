@@ -17,6 +17,21 @@ if ($result) {
         $data['content'] = $row['content'];
         $data['timestamp'] = $row['timestamp'];
         $data['productId'] = $row['product_id'];
+        $userId = $row['sender'];
+
+        echo $userId;
+
+        $sql1 = "SELECT * FROM `user` WHERE  `user_id` =  '" . $userId . "'";
+        $result1 = mysqli_query($mysqli,$sql1);
+        $count = mysqli_num_rows($result1);
+        if ($count == 1) {
+            while ($row1 = $result1->fetch_assoc()) {
+                $data['name'] = $row1['firstname'] . $row1['lastname'] ;  
+                } 
+            }
+
+         
+
         $json_array[] = $data;
     }
 
