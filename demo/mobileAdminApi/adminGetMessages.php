@@ -15,7 +15,7 @@ if ($result) {
         $data =  array();
         $data['sender'] = $row['sender'];
         $data['content'] = $row['content'];
-        $data['timestamp'] = $row['timestamp'];
+
         $data['productId'] = $row['product_id'];
         $userId = $row['sender'];
 
