@@ -19,8 +19,6 @@ if ($result) {
         $data['productId'] = $row['product_id'];
         $userId = $row['sender'];
 
-        echo $userId;
-
         $sql1 = "SELECT * FROM `user` WHERE  `user_id` =  '" . $userId . "'";
         $result1 = mysqli_query($mysqli,$sql1);
         $count = mysqli_num_rows($result1);
