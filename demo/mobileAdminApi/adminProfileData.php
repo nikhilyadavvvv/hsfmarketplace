@@ -1,13 +1,14 @@
-
 <?php
 require 'db.php';
 
 $json = file_get_contents('php://input');
 $data = json_decode($json);
 
-$id = mysqli_real_escape_string($mysqli, $data->id);
+$userId = mysqli_real_escape_string($mysqli, $data->id);
+$email = mysqli_real_escape_string($mysqli, $data->user);
+$password = mysqli_real_escape_string($mysqli, $data->password);
 
-$sql = "SELECT * FROM `admin_accounts` WHERE `id` = '" . $id . "'";
+$sql = "UPDATE `admin_accounts` SET `user_name` = '" . $email . "' AND `password` = '" . $password . "' WHERE `user_id` = '" . $userId."'";;
 $result = mysqli_query($mysqli, $sql);
 $count = mysqli_num_rows($result);
 
@@ -33,3 +34,4 @@ if ($count == 1) {
     print_r($json_array);
 
 ?>
+
