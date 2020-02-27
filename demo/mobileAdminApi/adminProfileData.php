@@ -10,7 +10,6 @@ $password = mysqli_real_escape_string($mysqli, $data->password);
 
 $sql = "UPDATE `admin_accounts` SET `user_name` = '" . $email . "' AND `password` = '" . $password . "' WHERE `id` = '" . $userId."'";
 $result = mysqli_query($mysqli, $sql);
-var_dump($result);
 
 $json_array = array();
 if(result){
