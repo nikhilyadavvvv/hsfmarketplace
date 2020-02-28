@@ -8,7 +8,10 @@ $email = mysqli_real_escape_string($mysqli, $data->email);
 $password = mysqli_real_escape_string($mysqli, $data->password);
 
 $sql = "SELECT *  FROM `admin_accounts` WHERE `user_name` = '" . $email . "' AND `password` = '" . $password . "'";
+
+
 $result = mysqli_query($mysqli, $sql);
+
 $count = mysqli_num_rows($result);
 
 $json_array = array();

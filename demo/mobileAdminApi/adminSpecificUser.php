@@ -6,7 +6,7 @@ $data = json_decode($json);
 
 $userId = mysqli_real_escape_string($mysqli, $data->id);
 
-$sql = "SELECT *  FROM `admin_accounts` WHERE `id` = '" . $userId."'";;
+$sql = "SELECT *  FROM `admin_accounts` WHERE `id` = '" . $userId."'";
 $result = mysqli_query($mysqli, $sql);
 $count = mysqli_num_rows($result);
 
