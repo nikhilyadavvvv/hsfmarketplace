@@ -10,7 +10,14 @@ if($result){
         $data['id'] = $row['user_id'];
         $data['name'] = $row['firstname'] . $row['lastname'] ;
         $data['status'] = $row['status'];
-        $data['isSeller'] = $row['is_seller'];
+
+        if($row['is_seller'] == 'y'){
+            $data['user'] = "seller";
+        }
+        else{
+            $data['user'] = "buyer";
+        }
+        
        $json_array[] = $data;
     }
     $json_array = json_encode($json_array);
